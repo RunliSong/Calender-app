@@ -9,6 +9,7 @@
 #import "EditViewController.h"
 #import "ACDViewController.h"
 #import "Utilities.h"
+#import "AppDelegate.h"
 
 #define currentMonth [currentMonthString integerValue]
 
@@ -32,7 +33,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    AppDelegate *appDel = [AppDelegate new];
+    NSLog(@"%@", [appDel applicationDocumentsDirectory]);
     // Do any additional setup after loading the view, typically from a nib.
 
     if (_createOrUpdate == Update) {
@@ -78,10 +80,12 @@
 - (BOOL)createEvent {
     BOOL result = YES;
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"yyyy-MM-dd hh:mm a"];
-    [self clearAll];
+    [format setDateFormat:@"dd-MM-yyyy hh:mm a"];
+    //[self clearAll];
     //add elements
     Event *newEvent = [[Event alloc] initWithTitle:_titleText.text description:_eventText.text localZoneName:nil localZoneID:nil localZoneUTC:nil localTime:[format dateFromString:_textFieldEnterDate.text] otherZoneName:_labelText.text otherZoneID:nil otherZoneUTC:nil otherZoneTime:[format dateFromString:_timeZoneText.text]];
+    
+    NSLog(@"Event time: %@", newEvent.localTime );
     
     [Utilities addEvent:newEvent];
     return result;

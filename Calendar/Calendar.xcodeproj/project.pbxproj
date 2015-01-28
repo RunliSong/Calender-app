@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		199F970C1A6C80F900543E69 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F970B1A6C80F900543E69 /* main.m */; };
 		199F970F1A6C80F900543E69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F970E1A6C80F900543E69 /* AppDelegate.m */; };
-		199F97121A6C80F900543E69 /* Calendar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 199F97101A6C80F900543E69 /* Calendar.xcdatamodeld */; };
 		199F97181A6C80F900543E69 /* Rex.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 199F97161A6C80F900543E69 /* Rex.storyboard */; };
 		199F971A1A6C80F900543E69 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 199F97191A6C80F900543E69 /* Images.xcassets */; };
 		199F971D1A6C80F900543E69 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 199F971B1A6C80F900543E69 /* LaunchScreen.xib */; };
@@ -17,6 +16,7 @@
 		199F97351A6C816400543E69 /* Tom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 199F97341A6C816400543E69 /* Tom.storyboard */; };
 		199F97371A6C816F00543E69 /* Kris.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 199F97361A6C816F00543E69 /* Kris.storyboard */; };
 		199F973D1A6C833500543E69 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F973C1A6C833500543E69 /* Event.m */; };
+		19C3D2241A78C89700E6DD2B /* Calendar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19C3D2221A78C89700E6DD2B /* Calendar.xcdatamodeld */; };
 		19FAE50D1A7895DD00CEE55F /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FAE50C1A7895DD00CEE55F /* Utilities.m */; };
 		A96AFD951A6F9E1B00FBACA2 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96AFD941A6F9E1B00FBACA2 /* EditViewController.m */; };
 		A9C0827E1A7106660079B559 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C0827D1A7106660079B559 /* MapKit.framework */; };
@@ -45,7 +45,6 @@
 		199F970B1A6C80F900543E69 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		199F970D1A6C80F900543E69 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		199F970E1A6C80F900543E69 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		199F97111A6C80F900543E69 /* Calendar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calendar.xcdatamodel; sourceTree = "<group>"; };
 		199F97171A6C80F900543E69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Rex.storyboard; sourceTree = "<group>"; };
 		199F97191A6C80F900543E69 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		199F971C1A6C80F900543E69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -56,6 +55,8 @@
 		199F97361A6C816F00543E69 /* Kris.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Kris.storyboard; sourceTree = "<group>"; };
 		199F973B1A6C833500543E69 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		199F973C1A6C833500543E69 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		19C3D2231A78C89700E6DD2B /* Calendar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calendar.xcdatamodel; sourceTree = "<group>"; };
+		19C3D2251A78C8D000E6DD2B /* Calendar 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Calendar 2.xcdatamodel"; sourceTree = "<group>"; };
 		19FAE50B1A7895DD00CEE55F /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		19FAE50C1A7895DD00CEE55F /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		A96AFD931A6F9E1B00FBACA2 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
@@ -185,9 +186,9 @@
 		199F973A1A6C81B600543E69 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				19C3D2221A78C89700E6DD2B /* Calendar.xcdatamodeld */,
 				199F970D1A6C80F900543E69 /* AppDelegate.h */,
 				199F970E1A6C80F900543E69 /* AppDelegate.m */,
-				199F97101A6C80F900543E69 /* Calendar.xcdatamodeld */,
 				199F973B1A6C833500543E69 /* Event.h */,
 				199F973C1A6C833500543E69 /* Event.m */,
 			);
@@ -307,13 +308,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				199F970F1A6C80F900543E69 /* AppDelegate.m in Sources */,
-				199F97121A6C80F900543E69 /* Calendar.xcdatamodeld in Sources */,
 				19FAE50D1A7895DD00CEE55F /* Utilities.m in Sources */,
 				199F973D1A6C833500543E69 /* Event.m in Sources */,
 				A96AFD951A6F9E1B00FBACA2 /* EditViewController.m in Sources */,
 				199F970C1A6C80F900543E69 /* main.m in Sources */,
 				A9D64F881A714AB000F735D4 /* ACDViewController.m in Sources */,
 				A9D64F8B1A714B3000F735D4 /* AutocompletionTableView.m in Sources */,
+				19C3D2241A78C89700E6DD2B /* Calendar.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,12 +523,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		199F97101A6C80F900543E69 /* Calendar.xcdatamodeld */ = {
+		19C3D2221A78C89700E6DD2B /* Calendar.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				199F97111A6C80F900543E69 /* Calendar.xcdatamodel */,
+				19C3D2251A78C8D000E6DD2B /* Calendar 2.xcdatamodel */,
+				19C3D2231A78C89700E6DD2B /* Calendar.xcdatamodel */,
 			);
-			currentVersion = 199F97111A6C80F900543E69 /* Calendar.xcdatamodel */;
+			currentVersion = 19C3D2251A78C8D000E6DD2B /* Calendar 2.xcdatamodel */;
 			path = Calendar.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
