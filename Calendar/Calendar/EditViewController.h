@@ -10,6 +10,13 @@
 
 @interface EditViewController : UIViewController<UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
 
+typedef NS_ENUM(NSInteger, CreateOrUpdate) {
+    Create,
+    Update
+};
+
+@property (nonatomic) CreateOrUpdate createOrUpdate;
+
 @property (strong, nonatomic) IBOutlet UITextField *textFieldEnterDate;
 
 @property (strong, nonatomic) IBOutlet UIButton *toolbarCancelDone;
