@@ -10,14 +10,14 @@
 	<string>Calendar</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>9FC86A97E803159A8F312F18E74ABB364DA67831</key>
+		<key>E3B55D1DD6BC60EBBD583F5A5A9D1305F5320131</key>
 		<string>https://github.com/Alexgao11/DeakinCalendarApp.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Calendar/Calendar.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>9FC86A97E803159A8F312F18E74ABB364DA67831</key>
+		<key>E3B55D1DD6BC60EBBD583F5A5A9D1305F5320131</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>9FC86A97E803159A8F312F18E74ABB364DA67831</string>
+	<string>E3B55D1DD6BC60EBBD583F5A5A9D1305F5320131</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9FC86A97E803159A8F312F18E74ABB364DA67831</string>
+			<string>E3B55D1DD6BC60EBBD583F5A5A9D1305F5320131</string>
 			<key>IDESourceControlWCCName</key>
 			<string>DeakinCalendarApp</string>
 		</dict>
