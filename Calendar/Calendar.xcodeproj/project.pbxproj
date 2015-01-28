@@ -25,6 +25,7 @@
 		A9C082861A71069D0079B559 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C082851A71069D0079B559 /* CoreGraphics.framework */; };
 		A9D64F881A714AB000F735D4 /* ACDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D64F871A714AB000F735D4 /* ACDViewController.m */; };
 		A9D64F8B1A714B3000F735D4 /* AutocompletionTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D64F8A1A714B3000F735D4 /* AutocompletionTableView.m */; };
+		CE3190071A78943D009F848A /* James.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE3190061A78943D009F848A /* James.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		A9D64F871A714AB000F735D4 /* ACDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACDViewController.m; sourceTree = "<group>"; };
 		A9D64F891A714B3000F735D4 /* AutocompletionTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompletionTableView.h; sourceTree = "<group>"; };
 		A9D64F8A1A714B3000F735D4 /* AutocompletionTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutocompletionTableView.m; sourceTree = "<group>"; };
+		CE3190061A78943D009F848A /* James.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = James.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 				199F97161A6C80F900543E69 /* Rex.storyboard */,
 				199F97341A6C816400543E69 /* Tom.storyboard */,
 				199F97361A6C816F00543E69 /* Kris.storyboard */,
+				CE3190061A78943D009F848A /* James.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				199F97181A6C80F900543E69 /* Rex.storyboard in Resources */,
 				199F971D1A6C80F900543E69 /* LaunchScreen.xib in Resources */,
 				199F971A1A6C80F900543E69 /* Images.xcassets in Resources */,
+				CE3190071A78943D009F848A /* James.storyboard in Resources */,
 				199F97351A6C816400543E69 /* Tom.storyboard in Resources */,
 				199F97371A6C816F00543E69 /* Kris.storyboard in Resources */,
 			);
