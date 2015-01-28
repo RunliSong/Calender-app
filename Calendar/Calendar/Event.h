@@ -13,14 +13,27 @@
 @property (strong, nonatomic) NSString *title; // of event
 @property (strong, nonatomic) NSString *desc; //Description of an event
 
-@property (strong, nonatomic) NSString *localTimeoneName; // e.g. Pacific Standard Time
-@property (strong, nonatomic) NSString *localTimeoneID; // e.g. America/Los_Angeles
-@property (nonatomic) int localTimeoneUTC; // Range from -12 to +12
+
+@property (strong, nonatomic) NSString *localName; // e.g. Pacific Standard Time
+@property (strong, nonatomic) NSString *localID; // e.g. America/Los_Angeles
+@property (strong, nonatomic) NSNumber *localUTC; // Range from -12 to +12
 @property (strong, nonatomic) NSDate *localTime; // Local date and time of the event occurs
 
-@property (strong, nonatomic) NSString *otherTimeoneName; // e.g. Pacific Standard Time
-@property (strong, nonatomic) NSString *otherTimeoneID; // e.g. America/Los_Angeles
-@property (nonatomic) int otherTimeoneUTC; // Range from -12 to 12
-@property (strong, nonatomic) NSDate *otheroneTime; // The date and time of another time one;
+@property (strong, nonatomic) NSString *otherName; // e.g. Pacific Standard Time
+@property (strong, nonatomic) NSString *otherID; // e.g. America/Los_Angeles
+@property (strong, nonatomic) NSNumber *otherUTC; // Range from -12 to 12
+@property (strong, nonatomic) NSDate *otherTime; // The date and time of another time zone;
+
+- (instancetype) initWithTitle: (NSString *) title
+                   description: (NSString *)desc
+                 localZoneName: (NSString *)localName
+                   localZoneID: (NSString *)localID
+                  localZoneUTC: (NSNumber *)localUTC
+                     localTime: (NSDate *) localTime
+                 otherZoneName: (NSString *)otherName
+                   otherZoneID: (NSString *)otherID
+                  otherZoneUTC: (NSNumber *)otherUTC
+                 otherZoneTime: (NSDate *) otherTime;
+
 
 @end
