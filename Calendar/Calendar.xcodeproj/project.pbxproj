@@ -17,6 +17,7 @@
 		199F97351A6C816400543E69 /* Tom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 199F97341A6C816400543E69 /* Tom.storyboard */; };
 		199F97371A6C816F00543E69 /* Kris.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 199F97361A6C816F00543E69 /* Kris.storyboard */; };
 		199F973D1A6C833500543E69 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F973C1A6C833500543E69 /* Event.m */; };
+		19FAE50D1A7895DD00CEE55F /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FAE50C1A7895DD00CEE55F /* Utilities.m */; };
 		A96AFD951A6F9E1B00FBACA2 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96AFD941A6F9E1B00FBACA2 /* EditViewController.m */; };
 		A9C0827E1A7106660079B559 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C0827D1A7106660079B559 /* MapKit.framework */; };
 		A9C082801A71066E0079B559 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C0827F1A71066E0079B559 /* CoreLocation.framework */; };
@@ -55,6 +56,8 @@
 		199F97361A6C816F00543E69 /* Kris.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Kris.storyboard; sourceTree = "<group>"; };
 		199F973B1A6C833500543E69 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		199F973C1A6C833500543E69 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		19FAE50B1A7895DD00CEE55F /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		19FAE50C1A7895DD00CEE55F /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		A96AFD931A6F9E1B00FBACA2 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		A96AFD941A6F9E1B00FBACA2 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		A9C0827D1A7106660079B559 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -118,6 +121,7 @@
 		199F97081A6C80F900543E69 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				19FAE50A1A7895BC00CEE55F /* Classes */,
 				199F973A1A6C81B600543E69 /* Models */,
 				199F97391A6C819600543E69 /* Controllers */,
 				199F97381A6C817600543E69 /* Storyboards */,
@@ -188,6 +192,15 @@
 				199F973C1A6C833500543E69 /* Event.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		19FAE50A1A7895BC00CEE55F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				19FAE50B1A7895DD00CEE55F /* Utilities.h */,
+				19FAE50C1A7895DD00CEE55F /* Utilities.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +308,7 @@
 			files = (
 				199F970F1A6C80F900543E69 /* AppDelegate.m in Sources */,
 				199F97121A6C80F900543E69 /* Calendar.xcdatamodeld in Sources */,
+				19FAE50D1A7895DD00CEE55F /* Utilities.m in Sources */,
 				199F973D1A6C833500543E69 /* Event.m in Sources */,
 				A96AFD951A6F9E1B00FBACA2 /* EditViewController.m in Sources */,
 				199F970C1A6C80F900543E69 /* main.m in Sources */,
