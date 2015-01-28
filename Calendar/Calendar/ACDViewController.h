@@ -11,7 +11,7 @@
 
 @protocol AutocompletionTableViewDelegate;
 
-@interface ACDViewController : UIViewController<AutocompletionTableViewDelegate,CLLocationManagerDelegate>
+@interface ACDViewController : UIViewController <AutocompletionTableViewDelegate, CLLocationManagerDelegate>
 @property (strong, nonatomic) NSString* startTime;
 @property (strong, nonatomic) NSString* dateStr;
 @end

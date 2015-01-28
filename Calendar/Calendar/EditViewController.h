@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
+#import "Event.h"
 
 @interface EditViewController : UIViewController<UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
 
@@ -14,6 +16,11 @@ typedef NS_ENUM(NSInteger, CreateOrUpdate) {
     Create,
     Update
 };
+@property (strong, nonatomic) IBOutlet UITextView *eventText;
+
+@property (strong, nonatomic) IBOutlet UITextField *titleText;
+
+@property (strong, nonatomic) NSManagedObject *eventNeesToUpdate;
 
 @property (nonatomic) CreateOrUpdate createOrUpdate;
 
@@ -29,7 +36,10 @@ typedef NS_ENUM(NSInteger, CreateOrUpdate) {
 @property (strong, nonatomic) NSString *startTimeText;
 @property (strong, nonatomic) NSString *location;
 
-- (NSString *)getTheSame;
+@property (strong, nonatomic) IBOutlet UIButton *updateButton;
+@property (strong, nonatomic) IBOutlet UIButton *cancelButton;
+
+
 @end
 
 
