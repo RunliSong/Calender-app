@@ -17,5 +17,7 @@
 + (NSArray *)getAllEvents; // will return an array of NSManagedObject, each item can be cast as Event
 + (BOOL)updateEvent: (NSManagedObject *)event withNewValue: (Event *)newValue;
 + (BOOL)deleteEvent: (NSManagedObject *)event;
-+ (NSArray *)getEventsWithTitle: (NSString *)eventTitle andDescription: (NSString *)desc;
+
++ (NSArray *)getEventsWithTitle:(NSString *) eventTitle description:(NSString *)desc startDate:(NSDate *) startDate andEndDate:(NSDate *)endDate; // Use this method, any value can be nil
+
 @end
