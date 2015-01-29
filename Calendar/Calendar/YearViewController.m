@@ -39,7 +39,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(NSArray)getMonthsInAyear {
+-(NSArray *)getMonthsInAyear {
     
     int year = 2015;
     int month = 1;
@@ -96,7 +96,7 @@
     MonthInYearCollectionViewCell *cell =[collectionView dequeueReusableCellWithReuseIdentifier:Cellidentifer forIndexPath:indexPath];
     //UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Month" forIndexPath:indexPath];
     [[cell myWeekDays]setText:@"S M T W T F S"];
-    [[cell myDaysInMouth]setText:stringToDisplay];
+    //[[cell myDaysInMouth]setText:stringToDisplay];
     //UITextView *daysInMonth = (UITextView *)[cell viewWithTag:100];
     //daysInMonth.text = _stringToDisplay;
     [cell.layer setBorderWidth:1.0f];

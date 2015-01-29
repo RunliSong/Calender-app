@@ -1,7 +1,133 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Event Detail-->
+        <scene sceneID="zln-ES-Exb">
+            <objects>
+                <viewController title="Event Detail" id="m2k-Vw-Df7" customClass="EventDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JWP-IZ-StS"/>
+                        <viewControllerLayoutGuide type="bottom" id="uNJ-ZB-tsj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uCG-P0-glv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGn-W0-5lC">
+                                <rect key="frame" x="16" y="20" width="59" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="59" id="hPY-Dr-f2S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OzU-Jx-lhe">
+                                <rect key="frame" x="16" y="48" width="59" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONp-z4-Ezz">
+                                <rect key="frame" x="83" y="20" width="276" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baO-nB-awh">
+                                <rect key="frame" x="83" y="48" width="276" height="145"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="145" id="ho1-Cf-Rbv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHj-i3-fg2">
+                                <rect key="frame" x="16" y="201" width="59" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time shows here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MD-XF-Cos">
+                                <rect key="frame" x="83" y="201" width="276" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Other Zone:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWJ-1g-IXw">
+                                <rect key="frame" x="16" y="230" width="59" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Other zone time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Eg-dG-YS9">
+                                <rect key="frame" x="83" y="230" width="276" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JkP-MP-AYz">
+                                <rect key="frame" x="16" y="625" width="54" height="22"/>
+                                <state key="normal" title="&lt;&lt;Back"/>
+                                <connections>
+                                    <action selector="backToPrevious:" destination="m2k-Vw-Df7" eventType="touchUpInside" id="fnB-Up-M7B"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cln-zU-Icg">
+                                <rect key="frame" x="164" y="621" width="46" height="30"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteEvent:" destination="m2k-Vw-Df7" eventType="touchUpInside" id="1Qm-gK-doG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAy-5O-ovV">
+                                <rect key="frame" x="313" y="621" width="46" height="30"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="editEvent:" destination="m2k-Vw-Df7" eventType="touchUpInside" id="Fft-8z-dP9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OzU-Jx-lhe" firstAttribute="width" secondItem="kGn-W0-5lC" secondAttribute="width" id="15M-eY-fXs"/>
+                            <constraint firstItem="baO-nB-awh" firstAttribute="top" secondItem="ONp-z4-Ezz" secondAttribute="bottom" constant="8" id="5Wf-Ek-ee4"/>
+                            <constraint firstItem="kGn-W0-5lC" firstAttribute="leading" secondItem="uCG-P0-glv" secondAttribute="leadingMargin" id="5gz-Uo-d2F"/>
+                            <constraint firstItem="ONp-z4-Ezz" firstAttribute="top" secondItem="JWP-IZ-StS" secondAttribute="bottom" id="C9Y-QM-5Uz"/>
+                            <constraint firstItem="ONp-z4-Ezz" firstAttribute="trailing" secondItem="uCG-P0-glv" secondAttribute="trailingMargin" id="DVp-86-gWx"/>
+                            <constraint firstItem="kGn-W0-5lC" firstAttribute="top" secondItem="JWP-IZ-StS" secondAttribute="bottom" id="GrS-nA-3rh"/>
+                            <constraint firstItem="OzU-Jx-lhe" firstAttribute="top" secondItem="kGn-W0-5lC" secondAttribute="bottom" constant="8" id="OIA-h5-SRh"/>
+                            <constraint firstItem="OzU-Jx-lhe" firstAttribute="centerX" secondItem="kGn-W0-5lC" secondAttribute="centerX" id="PsW-6e-EZo"/>
+                            <constraint firstItem="ONp-z4-Ezz" firstAttribute="leading" secondItem="kGn-W0-5lC" secondAttribute="trailing" constant="8" id="ifj-Nq-DsA"/>
+                            <constraint firstItem="ONp-z4-Ezz" firstAttribute="centerX" secondItem="baO-nB-awh" secondAttribute="centerX" id="kRu-9z-glq"/>
+                            <constraint firstItem="ONp-z4-Ezz" firstAttribute="width" secondItem="baO-nB-awh" secondAttribute="width" id="ria-vc-9C7"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="eventDesc" destination="baO-nB-awh" id="tBm-Na-uJm"/>
+                        <outlet property="eventDetail" destination="baO-nB-awh" id="fc6-cU-kfN"/>
+                        <outlet property="eventOtherTime" destination="4Eg-dG-YS9" id="WZK-wx-P0q"/>
+                        <outlet property="eventOtherTimeLabel" destination="XWJ-1g-IXw" id="k7c-0Q-yIe"/>
+                        <outlet property="eventTime" destination="2MD-XF-Cos" id="6OO-LL-DNW"/>
+                        <outlet property="eventTitle" destination="ONp-z4-Ezz" id="cE5-2x-jsu"/>
+                        <outlet property="otherTime" destination="4Eg-dG-YS9" id="xmA-AI-1Ye"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o0n-mS-RBO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="376.5" y="261.5"/>
+        </scene>
+    </scenes>
 </document>

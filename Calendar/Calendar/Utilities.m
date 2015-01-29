@@ -62,7 +62,6 @@
         NSLog(@"%@", error.localizedDescription);
     }
     return results;
-
 }
 
 + (BOOL)updateEvent:(NSManagedObject *)event withNewValue:(Event *)newValue {
