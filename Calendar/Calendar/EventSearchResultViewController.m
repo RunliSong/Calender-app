@@ -7,7 +7,6 @@
 //
 
 #import "EventSearchResultViewController.h"
-#import "EventSearchResultTableViewCell.h"
 #import "Event.h"
 #import "EventDetailViewController.h"
 
@@ -19,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.tableView registerClass:[EventSearchResultTableViewCell class] forCellReuseIdentifier:@"searchResult"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -46,15 +45,16 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    EventSearchResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchResult" forIndexPath:indexPath];
-    
-    cell.eventTitle.text = ((Event *)[_events objectAtIndex:indexPath.row]).title;
-    cell.localTime.text = [NSString stringWithFormat:@"%@", ((Event *)[_events objectAtIndex:indexPath.row]).localTime];
-    if (!((Event *)[_events objectAtIndex:indexPath.row]).otherTime) {
-        [cell.otherTime setHidden:YES];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchResult" forIndexPath:indexPath];
+    Event *tempEvent = ((Event *)[_events objectAtIndex:indexPath.row]);
+    //NSLog(@"%@", test);
+    _eventTitle.text = tempEvent.title;
+    _localTime.text = [NSString stringWithFormat:@"%@", tempEvent.localTime];
+    if (!tempEvent.otherTime) {
+        [_otherTime setHidden:YES];
     }
     else {
-        cell.otherTime.text = [NSString stringWithFormat:@"%@", ((Event *)[_events objectAtIndex:indexPath.row]).otherTime];
+        _otherTime.text = [NSString stringWithFormat:@"%@", tempEvent.otherTime];
     }
     
     return cell;
