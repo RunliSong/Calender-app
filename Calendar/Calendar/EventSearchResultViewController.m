@@ -7,6 +7,9 @@
 //
 
 #import "EventSearchResultViewController.h"
+#import "EventSearchResultTableViewCell.h"
+#import "Event.h"
+#import "EventDetailViewController.h"
 
 @interface EventSearchResultViewController ()
 
@@ -32,26 +35,36 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [_events count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    EventSearchResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchResult" forIndexPath:indexPath];
     
-    // Configure the cell...
+    cell.eventTitle.text = ((Event *)[_events objectAtIndex:indexPath.row]).title;
+    cell.localTime.text = [NSString stringWithFormat:@"%@", ((Event *)[_events objectAtIndex:indexPath.row]).localTime];
+    if (!((Event *)[_events objectAtIndex:indexPath.row]).otherTime) {
+        [cell.otherTime setHidden:YES];
+    }
+    else {
+        cell.otherTime.text = [NSString stringWithFormat:@"%@", ((Event *)[_events objectAtIndex:indexPath.row]).otherTime];
+    }
     
     return cell;
 }
-*/
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    EventDetailViewController *detailController = [[EventDetailViewController alloc] init];
+    detailController.event = [_events objectAtIndex:indexPath.row];
+    [self presentViewController:detailController animated:YES completion:nil];
+}
 
 /*
 // Override to support conditional editing of the table view.

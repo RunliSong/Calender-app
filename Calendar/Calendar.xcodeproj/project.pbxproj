@@ -20,6 +20,7 @@
 		19C3D2281A7A065D00E6DD2B /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3D2271A7A065D00E6DD2B /* EventDetailViewController.m */; };
 		19C3D22B1A7A0F5500E6DD2B /* EventSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3D22A1A7A0F5500E6DD2B /* EventSearchViewController.m */; };
 		19C3D2311A7A104100E6DD2B /* EventSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3D2301A7A104100E6DD2B /* EventSearchResultViewController.m */; };
+		19C3D2341A7A1AE200E6DD2B /* EventSearchResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3D2331A7A1AE200E6DD2B /* EventSearchResultTableViewCell.m */; };
 		19FAE50D1A7895DD00CEE55F /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FAE50C1A7895DD00CEE55F /* Utilities.m */; };
 		A96AFD951A6F9E1B00FBACA2 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96AFD941A6F9E1B00FBACA2 /* EditViewController.m */; };
 		A9C0827E1A7106660079B559 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C0827D1A7106660079B559 /* MapKit.framework */; };
@@ -68,6 +69,8 @@
 		19C3D22A1A7A0F5500E6DD2B /* EventSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventSearchViewController.m; sourceTree = "<group>"; };
 		19C3D22F1A7A104100E6DD2B /* EventSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSearchResultViewController.h; sourceTree = "<group>"; };
 		19C3D2301A7A104100E6DD2B /* EventSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventSearchResultViewController.m; sourceTree = "<group>"; };
+		19C3D2321A7A1AE200E6DD2B /* EventSearchResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSearchResultTableViewCell.h; sourceTree = "<group>"; };
+		19C3D2331A7A1AE200E6DD2B /* EventSearchResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventSearchResultTableViewCell.m; sourceTree = "<group>"; };
 		19FAE50B1A7895DD00CEE55F /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		19FAE50C1A7895DD00CEE55F /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		A96AFD931A6F9E1B00FBACA2 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
@@ -137,6 +140,7 @@
 		199F97081A6C80F900543E69 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				19C3D2351A7A1AEB00E6DD2B /* Views */,
 				19FAE50A1A7895BC00CEE55F /* Classes */,
 				199F973A1A6C81B600543E69 /* Models */,
 				199F97391A6C819600543E69 /* Controllers */,
@@ -188,8 +192,6 @@
 		199F97391A6C819600543E69 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				19C3D22F1A7A104100E6DD2B /* EventSearchResultViewController.h */,
-				19C3D2301A7A104100E6DD2B /* EventSearchResultViewController.m */,
 				CEF1B0FB1A78D0B800D89239 /* MonthInYearCollectionViewCell.h */,
 				CEF1B0FC1A78D0B800D89239 /* MonthInYearCollectionViewCell.m */,
 				CEF1B0FD1A78D0B800D89239 /* YearViewController.h */,
@@ -204,6 +206,8 @@
 				19C3D2271A7A065D00E6DD2B /* EventDetailViewController.m */,
 				19C3D2291A7A0F5500E6DD2B /* EventSearchViewController.h */,
 				19C3D22A1A7A0F5500E6DD2B /* EventSearchViewController.m */,
+				19C3D22F1A7A104100E6DD2B /* EventSearchResultViewController.h */,
+				19C3D2301A7A104100E6DD2B /* EventSearchResultViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -218,6 +222,15 @@
 				199F973C1A6C833500543E69 /* Event.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		19C3D2351A7A1AEB00E6DD2B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				19C3D2321A7A1AE200E6DD2B /* EventSearchResultTableViewCell.h */,
+				19C3D2331A7A1AE200E6DD2B /* EventSearchResultTableViewCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		19FAE50A1A7895BC00CEE55F /* Classes */ = {
@@ -340,6 +353,7 @@
 				CEF1B0FF1A78D0B800D89239 /* MonthInYearCollectionViewCell.m in Sources */,
 				A96AFD951A6F9E1B00FBACA2 /* EditViewController.m in Sources */,
 				199F970C1A6C80F900543E69 /* main.m in Sources */,
+				19C3D2341A7A1AE200E6DD2B /* EventSearchResultTableViewCell.m in Sources */,
 				19C3D2311A7A104100E6DD2B /* EventSearchResultViewController.m in Sources */,
 				A9D64F881A714AB000F735D4 /* ACDViewController.m in Sources */,
 				19C3D2281A7A065D00E6DD2B /* EventDetailViewController.m in Sources */,

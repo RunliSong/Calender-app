@@ -7,10 +7,12 @@
 //
 
 #import "EventSearchViewController.h"
+#import "Utilities.h"
+#import "EventSearchResultViewController.h"
 
 @interface EventSearchViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *title;
+@property (weak, nonatomic) IBOutlet UITextField *eventTitle;
 @property (weak, nonatomic) IBOutlet UITextField *keyword;
 @property (weak, nonatomic) IBOutlet UIDatePicker *fromDate;
 @property (weak, nonatomic) IBOutlet UIDatePicker *toDate;
@@ -24,7 +26,15 @@
     // Do any additional setup after loading the view.
 }
 - (IBAction)searchResult:(UIButton *)sender {
-    
+    NSArray *results = [Utilities getEventsWithTitle:_eventTitle.text description:_keyword.text startDate:_fromDate.date andEndDate:_toDate.date];
+    if (results.count) {
+        //go to show result
+    }
+    else {
+        NSString *alertTitle = @"Can't find any event meets the condition";
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Can't find anything" message:alertTitle delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
 }
 - (IBAction)backToDayView:(UIButton *)sender {
     // back to day view

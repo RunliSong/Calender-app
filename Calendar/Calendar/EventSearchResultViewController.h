@@ -10,4 +10,5 @@
 
 @interface EventSearchResultViewController : UITableViewController
 
+@property (nonatomic, strong) NSArray *events;
 @end
