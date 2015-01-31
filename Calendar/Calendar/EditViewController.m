@@ -52,7 +52,8 @@
 
         [_updateButton setTitle:@"Update" forState:UIControlStateNormal];
     }
-    else [_updateButton setTitle:@"Add" forState:UIControlStateNormal];
+    else
+        [_updateButton setTitle:@"Add" forState:UIControlStateNormal];
     
     formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd-MM-yyyy hh:mm a"];
@@ -67,21 +68,10 @@
 
 }
 
-- (void)clearAll
-{
-    _timeZoneText.text = nil;
-    _titleText.text = nil;
-    _eventText.text = nil;
-    _textFieldEnterDate.text = nil;
-    _labelText.text = nil;
-    
-}
-
 - (BOOL)createEvent {
     BOOL result = YES;
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"dd-MM-yyyy hh:mm a"];
-    //[self clearAll];
     //add elements
     Event *newEvent = [[Event alloc] initWithTitle:_titleText.text description:_eventText.text localZoneName:nil localZoneID:nil localZoneUTC:nil localTime:[format dateFromString:_textFieldEnterDate.text] otherZoneName:_labelText.text otherZoneID:nil otherZoneUTC:nil otherZoneTime:[format dateFromString:_timeZoneText.text]];
     
