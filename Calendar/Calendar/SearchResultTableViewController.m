@@ -9,9 +9,12 @@
 #import "SearchResultTableViewController.h"
 #import "ResultTableViewCell.h"
 #import "Utilities.h"
+#import "EventDetailViewController.h"
 
 @interface SearchResultTableViewController ()
-
+{
+    UIView *footerView;
+}
 @end
 
 @implementation SearchResultTableViewController
@@ -64,6 +67,35 @@
     return 100;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    //NSLog(@"%@", [_events objectAtIndex:indexPath.row]);
+    
+    UIStoryboard *krisStoryboard = [UIStoryboard storyboardWithName:@"Kris" bundle:nil];
+    EventDetailViewController *edvc = (EventDetailViewController *)[krisStoryboard instantiateViewControllerWithIdentifier:@"EventDetail"];
+    edvc.event = [_events objectAtIndex:indexPath.row];
+    [self presentViewController:edvc animated:YES completion:nil];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 50;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    footerView = [[UIView alloc] init];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setBackgroundColor:[UIColor redColor]];
+    [button setFrame:CGRectMake(5, 3, self.tableView.frame.size.width - 10,44)];
+    
+    [button setTitle:@"<<Back" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(backToPrevious) forControlEvents:UIControlEventTouchUpInside];
+    [footerView addSubview:button];
+    return footerView;
+}
+
+- (void) backToPrevious {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 /*
 // Override to support conditional editing of the table view.

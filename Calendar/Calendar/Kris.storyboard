@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Event Detail-->
+        <!--EventDetail-->
         <scene sceneID="zln-ES-Exb">
             <objects>
-                <viewController storyboardIdentifier="EventDetail" title="Event Detail" id="m2k-Vw-Df7" customClass="EventDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventDetail" title="EventDetail" id="m2k-Vw-Df7" customClass="EventDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JWP-IZ-StS"/>
                         <viewControllerLayoutGuide type="bottom" id="uNJ-ZB-tsj"/>

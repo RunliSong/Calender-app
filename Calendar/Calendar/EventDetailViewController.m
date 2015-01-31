@@ -28,12 +28,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    _event = [[Utilities getAllEvents] firstObject];
     
     if (!_event) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Event" message:@"Please check detail" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
