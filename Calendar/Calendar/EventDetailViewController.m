@@ -13,7 +13,7 @@
 
 @interface EventDetailViewController ()<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *eventTitle;
-@property (weak, nonatomic) IBOutlet UITextView *eventDetail;
+@property (weak, nonatomic) IBOutlet UITextView *eventDesc;
 
 @property (weak, nonatomic) IBOutlet UILabel *eventTime;
 @property (weak, nonatomic) IBOutlet UILabel *eventOtherTime;
@@ -33,21 +33,25 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    _event = [[Utilities getAllEvents] firstObject];
+    
     if (!_event) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Event" message:@"Please check detail" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
         [alert show];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
+    _eventTitle.text = ((Event *)_event).title;
+    _eventDesc.text = ((Event *)_event).desc;
+    _eventTime.text = [NSString stringWithFormat:@"%@", ((Event *)_event).localTime];
     
     if (!((Event *)_event).otherTime) {
         [_eventOtherTimeLabel setHidden:YES];
-        [_eventTime setHidden:YES];
+        [_eventOtherTime setHidden:YES];
+    }
+    else {
+        _eventOtherTime.text = [NSString stringWithFormat:@"%@", ((Event *)_event).otherTime];
     }
     
-    _eventTitle.text = ((Event *)_event).title;
-    _eventDetail.text = ((Event *)_event).desc;
-    _eventTime.text = [NSString stringWithFormat:@"%@", ((Event *)_event).localTime];
-
 }
 
 
