@@ -18,7 +18,6 @@
 		199F973D1A6C833500543E69 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F973C1A6C833500543E69 /* Event.m */; };
 		19C3D2241A78C89700E6DD2B /* Calendar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19C3D2221A78C89700E6DD2B /* Calendar.xcdatamodeld */; };
 		19C3D2281A7A065D00E6DD2B /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3D2271A7A065D00E6DD2B /* EventDetailViewController.m */; };
-		19C3D22B1A7A0F5500E6DD2B /* EventSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3D22A1A7A0F5500E6DD2B /* EventSearchViewController.m */; };
 		19FAE50D1A7895DD00CEE55F /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FAE50C1A7895DD00CEE55F /* Utilities.m */; };
 		A96AFD951A6F9E1B00FBACA2 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96AFD941A6F9E1B00FBACA2 /* EditViewController.m */; };
 		A9C0827E1A7106660079B559 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C0827D1A7106660079B559 /* MapKit.framework */; };
@@ -63,8 +62,6 @@
 		19C3D2251A78C8D000E6DD2B /* Calendar 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Calendar 2.xcdatamodel"; sourceTree = "<group>"; };
 		19C3D2261A7A065D00E6DD2B /* EventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailViewController.h; sourceTree = "<group>"; };
 		19C3D2271A7A065D00E6DD2B /* EventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailViewController.m; sourceTree = "<group>"; };
-		19C3D2291A7A0F5500E6DD2B /* EventSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventSearchViewController.h; sourceTree = "<group>"; };
-		19C3D22A1A7A0F5500E6DD2B /* EventSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventSearchViewController.m; sourceTree = "<group>"; };
 		19FAE50B1A7895DD00CEE55F /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		19FAE50C1A7895DD00CEE55F /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		A96AFD931A6F9E1B00FBACA2 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
@@ -198,8 +195,6 @@
 				A9D64F871A714AB000F735D4 /* ACDViewController.m */,
 				19C3D2261A7A065D00E6DD2B /* EventDetailViewController.h */,
 				19C3D2271A7A065D00E6DD2B /* EventDetailViewController.m */,
-				19C3D2291A7A0F5500E6DD2B /* EventSearchViewController.h */,
-				19C3D22A1A7A0F5500E6DD2B /* EventSearchViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -336,7 +331,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				199F970F1A6C80F900543E69 /* AppDelegate.m in Sources */,
-				19C3D22B1A7A0F5500E6DD2B /* EventSearchViewController.m in Sources */,
 				CEF1B1001A78D0B800D89239 /* YearViewController.m in Sources */,
 				19FAE50D1A7895DD00CEE55F /* Utilities.m in Sources */,
 				199F973D1A6C833500543E69 /* Event.m in Sources */,
