@@ -46,20 +46,31 @@
     return YES;
 }
 
-+ (NSArray *)getEventsWithTitle:(NSString *)eventTitle andDescription:(NSString *)desc {
++ (NSArray *)getEventsWithTitle:(NSString *) eventTitle description:(NSString *)desc startDate:(NSDate *) startDate andEndDate:(NSDate *)endDate {
     id appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
     
     NSEntityDescription *eventEntity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:eventEntity];
-    NSString *predicateString = [NSString stringWithFormat: @"(title LIKE[c] '*%@*') AND (desc like[c] '*%@*')", eventTitle, desc];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString];
+    NSString *predicateString = @"(title contains[cd] %@) OR (desc CONTAINS[cd] %@) OR (localTime >= %@ AND localTime <= %@)";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString, eventTitle, desc, startDate, endDate];
+    //NSLog(@"Predicate: %@", predicate);
     [request setPredicate:predicate];
     NSError *error = nil;
     NSArray *results = [context executeFetchRequest:request error:&error];
     if (error) {
-        NSLog(@"%@", error.localizedDescription);
+        NSLog(@"Failed to save to data store: %@", [error localizedDescription]);
+        NSArray* detailedErrors = [[error userInfo] objectForKey:NSDetailedErrorsKey];
+        if(detailedErrors != nil && [detailedErrors count] > 0) {
+            for(NSError* detailedError in detailedErrors) {
+                NSLog(@"  DetailedError: %@", [detailedError userInfo]);
+            }
+        }
+        else {
+            NSLog(@"  %@", [error userInfo]);
+        }
+
     }
     return results;
 

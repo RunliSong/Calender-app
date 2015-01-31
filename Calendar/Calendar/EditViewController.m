@@ -75,8 +75,6 @@
     //add elements
     Event *newEvent = [[Event alloc] initWithTitle:_titleText.text description:_eventText.text localZoneName:nil localZoneID:nil localZoneUTC:nil localTime:[format dateFromString:_textFieldEnterDate.text] otherZoneName:_labelText.text otherZoneID:nil otherZoneUTC:nil otherZoneTime:[format dateFromString:_timeZoneText.text]];
     
-    NSLog(@"Event time: %@", newEvent.localTime );
-    
     [Utilities addEvent:newEvent];
     return result;
 }
