@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19384DB71A7C87E800906E8B /* SearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19384DB61A7C87E800906E8B /* SearchResultTableViewController.m */; };
+		19384DBA1A7C882E00906E8B /* ResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19384DB91A7C882E00906E8B /* ResultTableViewCell.m */; };
+		19384DBD1A7C898A00906E8B /* SearchEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19384DBC1A7C898A00906E8B /* SearchEventViewController.m */; };
+		19384DBF1A7C8A9F00906E8B /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19384DBE1A7C8A9F00906E8B /* ResultTableViewCell.xib */; };
 		199F970C1A6C80F900543E69 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F970B1A6C80F900543E69 /* main.m */; };
 		199F970F1A6C80F900543E69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F970E1A6C80F900543E69 /* AppDelegate.m */; };
 		199F97181A6C80F900543E69 /* Rex.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 199F97161A6C80F900543E69 /* Rex.storyboard */; };
@@ -43,6 +47,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19384DB51A7C87E800906E8B /* SearchResultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultTableViewController.h; sourceTree = "<group>"; };
+		19384DB61A7C87E800906E8B /* SearchResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultTableViewController.m; sourceTree = "<group>"; };
+		19384DB81A7C882E00906E8B /* ResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultTableViewCell.h; sourceTree = "<group>"; };
+		19384DB91A7C882E00906E8B /* ResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultTableViewCell.m; sourceTree = "<group>"; };
+		19384DBB1A7C898A00906E8B /* SearchEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchEventViewController.h; sourceTree = "<group>"; };
+		19384DBC1A7C898A00906E8B /* SearchEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchEventViewController.m; sourceTree = "<group>"; };
+		19384DBE1A7C8A9F00906E8B /* ResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
 		199F97061A6C80F900543E69 /* Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		199F970A1A6C80F900543E69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		199F970B1A6C80F900543E69 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -195,6 +206,10 @@
 				A9D64F871A714AB000F735D4 /* ACDViewController.m */,
 				19C3D2261A7A065D00E6DD2B /* EventDetailViewController.h */,
 				19C3D2271A7A065D00E6DD2B /* EventDetailViewController.m */,
+				19384DB51A7C87E800906E8B /* SearchResultTableViewController.h */,
+				19384DB61A7C87E800906E8B /* SearchResultTableViewController.m */,
+				19384DBB1A7C898A00906E8B /* SearchEventViewController.h */,
+				19384DBC1A7C898A00906E8B /* SearchEventViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -214,6 +229,9 @@
 		19C3D2351A7A1AEB00E6DD2B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				19384DB81A7C882E00906E8B /* ResultTableViewCell.h */,
+				19384DB91A7C882E00906E8B /* ResultTableViewCell.m */,
+				19384DBE1A7C8A9F00906E8B /* ResultTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -311,6 +329,7 @@
 				199F971D1A6C80F900543E69 /* LaunchScreen.xib in Resources */,
 				199F971A1A6C80F900543E69 /* Images.xcassets in Resources */,
 				CEF1B1021A78D0D700D89239 /* James.storyboard in Resources */,
+				19384DBF1A7C8A9F00906E8B /* ResultTableViewCell.xib in Resources */,
 				199F97351A6C816400543E69 /* Tom.storyboard in Resources */,
 				199F97371A6C816F00543E69 /* Kris.storyboard in Resources */,
 			);
@@ -330,15 +349,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19384DB71A7C87E800906E8B /* SearchResultTableViewController.m in Sources */,
 				199F970F1A6C80F900543E69 /* AppDelegate.m in Sources */,
 				CEF1B1001A78D0B800D89239 /* YearViewController.m in Sources */,
 				19FAE50D1A7895DD00CEE55F /* Utilities.m in Sources */,
 				199F973D1A6C833500543E69 /* Event.m in Sources */,
+				19384DBA1A7C882E00906E8B /* ResultTableViewCell.m in Sources */,
 				CEF1B0FF1A78D0B800D89239 /* MonthInYearCollectionViewCell.m in Sources */,
 				A96AFD951A6F9E1B00FBACA2 /* EditViewController.m in Sources */,
 				199F970C1A6C80F900543E69 /* main.m in Sources */,
 				A9D64F881A714AB000F735D4 /* ACDViewController.m in Sources */,
 				19C3D2281A7A065D00E6DD2B /* EventDetailViewController.m in Sources */,
+				19384DBD1A7C898A00906E8B /* SearchEventViewController.m in Sources */,
 				A9D64F8B1A714B3000F735D4 /* AutocompletionTableView.m in Sources */,
 				19C3D2241A78C89700E6DD2B /* Calendar.xcdatamodeld in Sources */,
 			);
