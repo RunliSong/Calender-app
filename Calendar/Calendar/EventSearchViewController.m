@@ -8,7 +8,8 @@
 
 #import "EventSearchViewController.h"
 #import "Utilities.h"
-#import "EventSearchResultViewController.h"
+#import "ResultsTableViewController.h"
+
 
 @interface EventSearchViewController ()
 
@@ -29,8 +30,8 @@
     NSArray *results = [Utilities getEventsWithTitle:_eventTitle.text description:_keyword.text startDate:_fromDate.date andEndDate:_toDate.date];
     if (results.count) {
         //go to show result
-        EventSearchResultViewController *resultController = [[EventSearchResultViewController alloc] init];
-        resultController.events = results;
+        ResultsTableViewController *resultController = [[ResultsTableViewController alloc] init];
+        //resultController.events = results;
         [self presentViewController:resultController animated:YES completion:nil];
     }
     else {
