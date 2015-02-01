@@ -9,26 +9,40 @@
 #import "YearViewController.h"
 #import "MonthInYearCollectionViewCell.h"
 #import "Utilities.h"
+#import "MonthViewController.h"
 
 @interface YearViewController ()
+@property (strong, nonatomic) IBOutlet UILabel *myYear;
+- (IBAction)changeYear:(id)sender;
 @property (strong, nonatomic) IBOutlet UICollectionView *yearCollection;
 @end
 
 @implementation YearViewController{
-    NSArray *inforInAyear;
-    NSArray *inforInAmonth;
+    NSMutableArray *arrayOfMonths;
+    NSMutableArray *arrayOfDays;
+    NSArray *monthName;
+    NSString *years;
+    NSDateFormatter *dateInformation;
+    NSLocale *location;
+
     
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    Utilities *uti = [Utilities new];
-//    NSArray *arr = [uti getAllDaysOfMonth:1 inYear:2015];
-//    NSDateComponents *components = arr[0];
-//    NSLog(@"%@", arr);
-//    NSLog(@"%@", components.description);
     
+    arrayOfMonths = [[NSMutableArray alloc] init];
+    monthName = [[NSArray alloc] initWithObjects:@"JANUARY",@"FEBRUARY",@"MARCH",@"APRIL",@"MAY",@"JUNE",@"JULY",@"AUGUST",@"SEPTEMBER",@"OCTOBER",@"NOVEMBER",@"DECEMBER", nil];
+    location = [NSLocale currentLocale];
+    
+    dateInformation = [[NSDateFormatter alloc]init];
+    [dateInformation setDateFormat:@"yyyy"];
+    NSDate *sysdate = [NSDate date];
+    years = [dateInformation stringFromDate:sysdate];
+    _currentYear = [years intValue];
+    [_myYear setText:years];
+    [self getMonthsInAyear];
     [[self yearCollection]setDataSource:self];
     [[self yearCollection]setDelegate:self];
     
@@ -42,36 +56,39 @@
 -(NSArray *)getMonthsInAyear {
     
     int year = 2015;
-    int month = 1;
-    NSString *stringToDisplay;
-    Utilities *utl = [Utilities new];
-    NSArray *arr = [utl getAllDaysOfMonth:month inYear:year];
-    NSString *planceHolder = @"    ";
-    for (int i = 0; i < arr.count; i++) {
-        NSDateComponents *component = [arr objectAtIndex:i];
-        if (i == 0) {
-            int day = (int)component.day;
+    for (int month = 1; month<13; month++) {
+        Utilities *utl = [Utilities new];
+        NSArray *arr = [utl getAllDaysOfMonth:month inYear:year];
+        arrayOfDays = [[NSMutableArray alloc] init];
+        NSString *stringToDisplay;
+        NSString *placeHolder = @" ";
+        for (int i = 0; i < arr.count; i++) {
             
-            NSString *holder;
-            for (int j = 0; j < day; j++) {
-                holder = [planceHolder stringByAppendingString:planceHolder];
+            NSDateComponents *component = [arr objectAtIndex:i];
+            if ((int)component.day == 1) {
+                int day = (int)component.weekday;
+                
+                for (int j = 1; j < day; j++) {
+                    placeHolder = [placeHolder stringByAppendingString:placeHolder];
+                }
+                
+                stringToDisplay =[NSString stringWithFormat:@"%@%i", placeHolder,(int)component.day];
             }
-            stringToDisplay = [stringToDisplay stringByAppendingString:holder];
-            stringToDisplay = [stringToDisplay stringByAppendingString:[NSString stringWithFormat:@"%i", day]];
-            continue;
+            
+            else if (component.weekday != 6) {
+                stringToDisplay = [NSString stringWithFormat:@" %i", (int)component.day];
+            }
+            else {
+                stringToDisplay = [NSString stringWithFormat:@" %i\n", (int)component.day];
+            }
+            
+            [arrayOfDays addObject:stringToDisplay];
+            
         }
-        if (component.weekday != 7) {
-            stringToDisplay = [stringToDisplay stringByAppendingString:planceHolder];
-            stringToDisplay = [stringToDisplay stringByAppendingString:[NSString stringWithFormat:@"%i", (int)component.day]];
-        }
-        else {
-            stringToDisplay = [stringToDisplay stringByAppendingString:planceHolder];
-            stringToDisplay = [stringToDisplay stringByAppendingString:[NSString stringWithFormat:@"%i\n", (int)component.day]];
-        }
-        inforInAmonth = [[NSArray alloc]initWithObjects:stringToDisplay, nil];
-        
+        [arrayOfMonths addObject:arrayOfDays];
     }
-    return inforInAmonth;
+    
+    return arrayOfMonths;
 }
 
 /*
@@ -91,19 +108,54 @@
     return 12;
     
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    // NSLog(@"%i", indexPath.item);
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"James" bundle:nil];
+    MonthViewController *mvc = [story instantiateViewControllerWithIdentifier:@"monthViewController"];
+    mvc.year = _currentYear;
+    mvc.month = indexPath.item + 1;
+    [self presentViewController:mvc animated:YES completion:nil];
+}
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *Cellidentifer = @"Month";
     MonthInYearCollectionViewCell *cell =[collectionView dequeueReusableCellWithReuseIdentifier:Cellidentifer forIndexPath:indexPath];
-    //UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Month" forIndexPath:indexPath];
-    [[cell myWeekDays]setText:@"S M T W T F S"];
-    //[[cell myDaysInMouth]setText:stringToDisplay];
-    //UITextView *daysInMonth = (UITextView *)[cell viewWithTag:100];
-    //daysInMonth.text = _stringToDisplay;
-    [cell.layer setBorderWidth:1.0f];
-    [cell.layer setBorderColor:[UIColor whiteColor].CGColor];
     
+    
+    //[[cell myWeekDays]setText:@"S  M  T  W  T  F  S"];
+    
+    [[cell myMonthName]setText:[monthName objectAtIndex:indexPath.item]];
+    //    NSString *monthString = @"";
+    //    for (NSString *s in [arrayOfMonths objectAtIndex:indexPath.row]) {
+    //        monthString = [monthString stringByAppendingString:s];
+    //    }
+    //
+    //    [[cell mydaysInMonth]setText:monthString];
+    
+    if (cell.selected == true) {
+        _selectedMonth = (int)indexPath;
+    }
     
     return cell;
 }
 
+- (IBAction)changeYear:(id)sender {
+    ((UISegmentedControl *)sender).momentary = YES;
+    switch (((UISegmentedControl *)sender).selectedSegmentIndex) {
+        case 0:
+            _currentYear--;
+            years = [NSString stringWithFormat:@"%li",(long)_currentYear];
+            [_myYear setText:years];
+            
+            break;
+        default:
+            _currentYear++;
+            years = [NSString stringWithFormat:@"%li",(long)_currentYear];
+            [_myYear setText:years];
+            
+            break;
+    }
+
+}
 @end

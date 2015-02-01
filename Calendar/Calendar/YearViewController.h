@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface YearViewController : UIViewController <UICollectionViewDelegate,UICollectionViewDataSource>
+@property  NSInteger currentYear;
+@property  NSInteger selectedMonth;
 
 
 @end

@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface MonthInYearCollectionViewCell : UICollectionViewCell
-@property (strong, nonatomic) IBOutlet UILabel *myWeekDays;
-@property (strong, nonatomic) IBOutlet UITextView *myDaysInMouth;
+@property (strong, nonatomic) IBOutlet UILabel *myMonthName;
+
+
 
 @end

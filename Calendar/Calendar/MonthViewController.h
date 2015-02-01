@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MonthViewController : UIViewController
-
+@property (nonatomic) NSInteger year;
+@property (nonatomic) NSInteger month;
 @end
