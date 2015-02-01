@@ -21,8 +21,19 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background"]];
+    
+    [tempImageView setFrame:self.tableView.frame];
+    
+    self.tableView.backgroundView = tempImageView;
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"ResultTableViewCell" bundle:nil] forCellReuseIdentifier:@"Result"];
     //_events = [Utilities getAllEvents];
+    [self.tableView reloadData];
+}
+
+-(BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 - (void)viewDidLoad {
@@ -57,8 +68,27 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Result" forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor clearColor];
     cell.eventTitle.text = ((Event *)[_events objectAtIndex:indexPath.row]).title;
     // Configure the cell...
+    NSDate *localTime = ((Event *)[_events objectAtIndex:indexPath.row]).localTime;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd-MMMM-yyyy hh:mm a"];
+    cell.eventLocalTime.text = [formatter stringFromDate:localTime];
+    
+    NSDate *otherTime = ((Event *)[_events objectAtIndex:indexPath.row]).otherTime;
+    if (otherTime) {
+        [cell.eventOtherTime setHidden:NO];
+        NSString *otherTimeString = [formatter stringFromDate:otherTime];
+        NSString *otherName = ((Event *)[_events objectAtIndex:indexPath.row]).otherName;
+        if (otherTime) {
+            otherTimeString = [otherTimeString stringByAppendingString:[NSString stringWithFormat:@"%c%@", 64, otherName]];
+            
+        }
+        cell.eventOtherTime.text = otherTimeString;
+    } else {
+        [cell.eventOtherTime setHidden:YES];
+    }
     
     return cell;
 }
@@ -84,10 +114,11 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     footerView = [[UIView alloc] init];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button setBackgroundColor:[UIColor redColor]];
+    [button setBackgroundColor:[UIColor clearColor]];
     [button setFrame:CGRectMake(5, 3, self.tableView.frame.size.width - 10,44)];
     
     [button setTitle:@"<<Back" forState:UIControlStateNormal];
+    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [button addTarget:self action:@selector(backToPrevious) forControlEvents:UIControlEventTouchUpInside];
     [footerView addSubview:button];
     return footerView;

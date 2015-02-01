@@ -71,7 +71,8 @@
     // back to year view
 }
 - (IBAction)editEvent:(UIButton *)sender {
-    EditViewController *evc = [[EditViewController alloc] init];
+    UIStoryboard *rexStoryboard = [UIStoryboard storyboardWithName:@"Rex" bundle:nil];
+    EditViewController *evc = [rexStoryboard instantiateViewControllerWithIdentifier:@"rex.storyboard"];
     evc.createOrUpdate = Update;
     evc.eventNeesToUpdate = _event;
     [self presentViewController:evc animated:YES completion:nil];
@@ -86,7 +87,10 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Yes"]) {
         [Utilities deleteEvent:_event];
-        // back to year view
+        
+        // should back to year view
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
     }
     
 }
