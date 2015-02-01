@@ -92,12 +92,13 @@
     NSArray *arr = [utl getAllDaysOfMonth:(int)_month inYear:(int)_year];
     NSInteger selected = indexPath.item - 7 - ((NSDateComponents *)[arr objectAtIndex:0]).weekday +2;
     
-    dvc.weekdaytitle = ((NSDateComponents *)[arr objectAtIndex:indexPath.item]).weekday -1;
-    dvc.datenum = selected;
     
     if(selected >0)
+    {
+        dvc.weekdaytitle = ((NSDateComponents *)[arr objectAtIndex:selected]).weekday-1;
+        dvc.datenum = selected;
         [self presentViewController:dvc animated:YES completion:nil];
-    
+    }
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *Cellidentifer = @"day";

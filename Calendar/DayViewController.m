@@ -23,13 +23,15 @@
 
 - (void)viewDidLoad {
     weekdays = [[NSMutableArray alloc]init];
+    [weekdays addObject:@"Saterday"];
+    [weekdays addObject:@"Sunday"];
     [weekdays addObject:@"Monday"];
     [weekdays addObject:@"Yuesday"];
     [weekdays addObject:@"Wendesday"];
     [weekdays addObject:@"Thursday"];
     [weekdays addObject:@"Friday"];
-    [weekdays addObject:@"Saterday"];
-    [weekdays addObject:@"Sunday"];
+    
+    
     NSLog(@"weekday: %li, date: %li", (long)_weekdaytitle, (long)_datenum);
     NSString *dates = [NSString stringWithFormat:@"%li",(long)_datenum];
     NSString *weekdayt = weekdays[_weekdaytitle];
