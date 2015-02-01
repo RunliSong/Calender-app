@@ -50,7 +50,6 @@
                                         </view>
                                         <connections>
                                             <outlet property="myWeekDays" destination="NFp-11-Hpg" id="l5i-Iv-Utm"/>
-                                            <segue destination="Bof-bE-Gy7" kind="push" id="qqb-k9-vMk"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -131,6 +130,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="yXv-Pl-anm">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7A-qT-NpX">
@@ -249,7 +249,4 @@
             <point key="canvasLocation" x="295.5" y="80.5"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="ZJY-lt-nNR"/>
-    </inferredMetricsTieBreakers>
 </document>
