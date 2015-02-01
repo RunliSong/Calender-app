@@ -31,6 +31,8 @@
 		A9C082861A71069D0079B559 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C082851A71069D0079B559 /* CoreGraphics.framework */; };
 		A9D64F881A714AB000F735D4 /* ACDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D64F871A714AB000F735D4 /* ACDViewController.m */; };
 		A9D64F8B1A714B3000F735D4 /* AutocompletionTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D64F8A1A714B3000F735D4 /* AutocompletionTableView.m */; };
+		CE00F6FB1A7DFE4B00789F53 /* MonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE00F6FA1A7DFE4B00789F53 /* MonthViewController.m */; };
+		CE00F6FE1A7DFE5D00789F53 /* DayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE00F6FD1A7DFE5D00789F53 /* DayViewController.m */; };
 		CEF1B0FF1A78D0B800D89239 /* MonthInYearCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF1B0FC1A78D0B800D89239 /* MonthInYearCollectionViewCell.m */; };
 		CEF1B1001A78D0B800D89239 /* YearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF1B0FE1A78D0B800D89239 /* YearViewController.m */; };
 		CEF1B1021A78D0D700D89239 /* James.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF1B1011A78D0D700D89239 /* James.storyboard */; };
@@ -86,6 +88,10 @@
 		A9D64F871A714AB000F735D4 /* ACDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACDViewController.m; sourceTree = "<group>"; };
 		A9D64F891A714B3000F735D4 /* AutocompletionTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompletionTableView.h; sourceTree = "<group>"; };
 		A9D64F8A1A714B3000F735D4 /* AutocompletionTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutocompletionTableView.m; sourceTree = "<group>"; };
+		CE00F6F91A7DFE4B00789F53 /* MonthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthViewController.h; sourceTree = "<group>"; };
+		CE00F6FA1A7DFE4B00789F53 /* MonthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthViewController.m; sourceTree = "<group>"; };
+		CE00F6FC1A7DFE5D00789F53 /* DayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DayViewController.h; path = ../DayViewController.h; sourceTree = "<group>"; };
+		CE00F6FD1A7DFE5D00789F53 /* DayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DayViewController.m; path = ../DayViewController.m; sourceTree = "<group>"; };
 		CEF1B0FB1A78D0B800D89239 /* MonthInYearCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthInYearCollectionViewCell.h; sourceTree = "<group>"; };
 		CEF1B0FC1A78D0B800D89239 /* MonthInYearCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthInYearCollectionViewCell.m; sourceTree = "<group>"; };
 		CEF1B0FD1A78D0B800D89239 /* YearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearViewController.h; sourceTree = "<group>"; };
@@ -197,6 +203,8 @@
 				CEF1B0FB1A78D0B800D89239 /* MonthInYearCollectionViewCell.h */,
 				CEF1B0FC1A78D0B800D89239 /* MonthInYearCollectionViewCell.m */,
 				CEF1B0FD1A78D0B800D89239 /* YearViewController.h */,
+				CE00F6FC1A7DFE5D00789F53 /* DayViewController.h */,
+				CE00F6FD1A7DFE5D00789F53 /* DayViewController.m */,
 				CEF1B0FE1A78D0B800D89239 /* YearViewController.m */,
 				A9D64F891A714B3000F735D4 /* AutocompletionTableView.h */,
 				A9D64F8A1A714B3000F735D4 /* AutocompletionTableView.m */,
@@ -206,6 +214,8 @@
 				A9D64F871A714AB000F735D4 /* ACDViewController.m */,
 				19C3D2261A7A065D00E6DD2B /* EventDetailViewController.h */,
 				19C3D2271A7A065D00E6DD2B /* EventDetailViewController.m */,
+				CE00F6F91A7DFE4B00789F53 /* MonthViewController.h */,
+				CE00F6FA1A7DFE4B00789F53 /* MonthViewController.m */,
 				19384DB51A7C87E800906E8B /* SearchResultTableViewController.h */,
 				19384DB61A7C87E800906E8B /* SearchResultTableViewController.m */,
 				19384DBB1A7C898A00906E8B /* SearchEventViewController.h */,
@@ -350,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19384DB71A7C87E800906E8B /* SearchResultTableViewController.m in Sources */,
+				CE00F6FB1A7DFE4B00789F53 /* MonthViewController.m in Sources */,
 				199F970F1A6C80F900543E69 /* AppDelegate.m in Sources */,
 				CEF1B1001A78D0B800D89239 /* YearViewController.m in Sources */,
 				19FAE50D1A7895DD00CEE55F /* Utilities.m in Sources */,
@@ -359,6 +370,7 @@
 				A96AFD951A6F9E1B00FBACA2 /* EditViewController.m in Sources */,
 				199F970C1A6C80F900543E69 /* main.m in Sources */,
 				A9D64F881A714AB000F735D4 /* ACDViewController.m in Sources */,
+				CE00F6FE1A7DFE5D00789F53 /* DayViewController.m in Sources */,
 				19C3D2281A7A065D00E6DD2B /* EventDetailViewController.m in Sources */,
 				19384DBD1A7C898A00906E8B /* SearchEventViewController.m in Sources */,
 				A9D64F8B1A714B3000F735D4 /* AutocompletionTableView.m in Sources */,
