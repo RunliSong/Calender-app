@@ -11,6 +11,7 @@
 		19384DBA1A7C882E00906E8B /* ResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19384DB91A7C882E00906E8B /* ResultTableViewCell.m */; };
 		19384DBD1A7C898A00906E8B /* SearchEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19384DBC1A7C898A00906E8B /* SearchEventViewController.m */; };
 		19384DBF1A7C8A9F00906E8B /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19384DBE1A7C8A9F00906E8B /* ResultTableViewCell.xib */; };
+		1998576C1A7DEE6400BBE464 /* Kris.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1998576B1A7DEE6400BBE464 /* Kris.storyboard */; };
 		199F970C1A6C80F900543E69 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F970B1A6C80F900543E69 /* main.m */; };
 		199F970F1A6C80F900543E69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F970E1A6C80F900543E69 /* AppDelegate.m */; };
 		199F97181A6C80F900543E69 /* Rex.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 199F97161A6C80F900543E69 /* Rex.storyboard */; };
@@ -18,7 +19,6 @@
 		199F971D1A6C80F900543E69 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 199F971B1A6C80F900543E69 /* LaunchScreen.xib */; };
 		199F97291A6C80F900543E69 /* CalendarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F97281A6C80F900543E69 /* CalendarTests.m */; };
 		199F97351A6C816400543E69 /* Tom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 199F97341A6C816400543E69 /* Tom.storyboard */; };
-		199F97371A6C816F00543E69 /* Kris.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 199F97361A6C816F00543E69 /* Kris.storyboard */; };
 		199F973D1A6C833500543E69 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F973C1A6C833500543E69 /* Event.m */; };
 		19C3D2241A78C89700E6DD2B /* Calendar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19C3D2221A78C89700E6DD2B /* Calendar.xcdatamodeld */; };
 		19C3D2281A7A065D00E6DD2B /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C3D2271A7A065D00E6DD2B /* EventDetailViewController.m */; };
@@ -54,6 +54,7 @@
 		19384DBB1A7C898A00906E8B /* SearchEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchEventViewController.h; sourceTree = "<group>"; };
 		19384DBC1A7C898A00906E8B /* SearchEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchEventViewController.m; sourceTree = "<group>"; };
 		19384DBE1A7C8A9F00906E8B /* ResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
+		1998576B1A7DEE6400BBE464 /* Kris.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Kris.storyboard; sourceTree = "<group>"; };
 		199F97061A6C80F900543E69 /* Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		199F970A1A6C80F900543E69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		199F970B1A6C80F900543E69 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -66,7 +67,6 @@
 		199F97271A6C80F900543E69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		199F97281A6C80F900543E69 /* CalendarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarTests.m; sourceTree = "<group>"; };
 		199F97341A6C816400543E69 /* Tom.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tom.storyboard; sourceTree = "<group>"; };
-		199F97361A6C816F00543E69 /* Kris.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Kris.storyboard; sourceTree = "<group>"; };
 		199F973B1A6C833500543E69 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		199F973C1A6C833500543E69 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		19C3D2231A78C89700E6DD2B /* Calendar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Calendar.xcdatamodel; sourceTree = "<group>"; };
@@ -183,10 +183,10 @@
 		199F97381A6C817600543E69 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				1998576B1A7DEE6400BBE464 /* Kris.storyboard */,
 				CEF1B1011A78D0D700D89239 /* James.storyboard */,
 				199F97161A6C80F900543E69 /* Rex.storyboard */,
 				199F97341A6C816400543E69 /* Tom.storyboard */,
-				199F97361A6C816F00543E69 /* Kris.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -329,9 +329,9 @@
 				199F971D1A6C80F900543E69 /* LaunchScreen.xib in Resources */,
 				199F971A1A6C80F900543E69 /* Images.xcassets in Resources */,
 				CEF1B1021A78D0D700D89239 /* James.storyboard in Resources */,
+				1998576C1A7DEE6400BBE464 /* Kris.storyboard in Resources */,
 				19384DBF1A7C8A9F00906E8B /* ResultTableViewCell.xib in Resources */,
 				199F97351A6C816400543E69 /* Tom.storyboard in Resources */,
-				199F97371A6C816F00543E69 /* Kris.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
