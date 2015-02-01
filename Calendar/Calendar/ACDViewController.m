@@ -23,6 +23,8 @@
 @property CLLocationManager* cllmanager;
 @property (nonatomic, strong) AutocompletionTableView *autoCompleter;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property NSDateFormatter *dateFormatters;
+@property NSDate *destinationDate;
 
 
 @end
@@ -34,6 +36,8 @@
 @synthesize textField = _textField;
 @synthesize autoCompleter = _autoCompleter;
 @synthesize annotation;
+@synthesize dateFormatters;
+@synthesize destinationDate;
 
 - (void)viewDidLoad
 {
@@ -76,8 +80,7 @@
     EditViewController* scv = [segue destinationViewController];
     scv.location = _textField.text;
     scv.startTimeText = _startTime;
-    scv.destinationTimeText = _dateStr;
-    
+    scv.destinationTime = destinationDate;
 }
 
 - (AutocompletionTableView *)autoCompleter
@@ -160,17 +163,15 @@
     NSInteger Offset = [TimeZone secondsFromGMTForDate:adate];
     NSTimeInterval Interval = currentGMTOffset - Offset;
     
-    NSDate *destinationDate = [[NSDate alloc] initWithTimeInterval:Interval sinceDate:adate];
+    destinationDate = [[NSDate alloc] initWithTimeInterval:Interval sinceDate:adate];
 
 
-    NSDateFormatter *dateFormatters = [[NSDateFormatter alloc] init];
+    dateFormatters = [[NSDateFormatter alloc] init];
     [dateFormatters setDateFormat:@"dd-MM-yyyy hh:mm a"];
     [dateFormatters setDateStyle:NSDateFormatterShortStyle];
     [dateFormatters setTimeStyle:NSDateFormatterShortStyle];
     [dateFormatters setDoesRelativeDateFormatting:YES];
     [dateFormatters setTimeZone:[NSTimeZone systemTimeZone]];
-    _dateStr = [dateFormatters stringFromDate: destinationDate];
-    NSLog(@"DateString : %@", _dateStr);
     
     //get the address searched
     NSString* address = _textField.text;

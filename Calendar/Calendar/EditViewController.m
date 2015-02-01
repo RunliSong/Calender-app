@@ -35,6 +35,7 @@
     [super viewDidLoad];
     AppDelegate *appDel = [AppDelegate new];
     NSLog(@"%@", [appDel applicationDocumentsDirectory]);
+    
     // Do any additional setup after loading the view, typically from a nib.
 
     if (_createOrUpdate == Update) {
@@ -52,8 +53,9 @@
 
         [_updateButton setTitle:@"Update" forState:UIControlStateNormal];
     }
-    else
-        [_updateButton setTitle:@"Add" forState:UIControlStateNormal];
+    else{
+        
+    [_updateButton setTitle:@"Add" forState:UIControlStateNormal];
     
     formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd-MM-yyyy hh:mm a"];
@@ -61,12 +63,16 @@
     self.textFieldEnterDate.text = _startTimeText;
     self.labelText.text = _location;
     self.timeZoneText.text = _destinationTimeText;
+    self.timeZoneText.text = [formatter stringFromDate:_destinationTime];
     self.timeZoneText.textColor = [UIColor blackColor];
     
-   
+    }
     
 
 }
+
+
+#pragma mark - function for users to add a new event item
 
 - (BOOL)createEvent {
     BOOL result = YES;
@@ -79,6 +85,8 @@
     return result;
 }
 
+#pragma mark - update event when the specific event select to modify
+
 - (BOOL)updateEvent:(NSManagedObject *)oldEvent {
     BOOL result = YES;
     NSDateFormatter *format1 = [[NSDateFormatter alloc] init];
@@ -87,6 +95,8 @@
     [Utilities updateEvent:oldEvent withNewValue:newEvent];
     return result;
 }
+
+#pragma mark - triger to tell the action
 
 - (IBAction)addOrUpdate:(UIButton *)sender {
     //Do the function of modifying the events
@@ -103,6 +113,8 @@
             break;
     }
 }
+
+#pragma mark - reture to the previous view
 
 - (IBAction)cancelAndReturn:(UIButton *)sender {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
@@ -143,10 +155,55 @@
     
     return true;
 }
+
+- (NSString *)getTheSame {
+    NSString *input, *result;
+    NSArray *all = [NSTimeZone knownTimeZoneNames];
+    input = self.labelText.text;
+    
+    
+    for (NSString *s in all) {
+        if ([s containsString:input]) {
+            result = s;
+            break;
+        }
+    }
+    
+    return result;
+}
+
 - (void) dateUpdated:(UIDatePicker *)datePicker {
     
     self.textFieldEnterDate.text = [formatter stringFromDate:self.datePicker.date];
+    
+    if(self.labelText.text != nil) {
+        
+        //recall the method getTheSame
+        NSString* timezone = [self getTheSame];
+
+        //set date format
+        _dateStart = self.textFieldEnterDate.text;
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"dd-MM-yyyy hh:mm a"];
+        NSDate *adate = [dateFormatter dateFromString:_dateStart];
+        //get time zones
+        NSTimeZone *currentTimeZone = [NSTimeZone localTimeZone];
+        NSTimeZone *TimeZone = [NSTimeZone timeZoneWithName:timezone];
+        
+        NSInteger currentGMTOffset = [currentTimeZone secondsFromGMTForDate:adate];
+        NSInteger Offset = [TimeZone secondsFromGMTForDate:adate];
+        NSTimeInterval Interval = currentGMTOffset - Offset;
+        
+        _destinationTime = [[NSDate alloc] initWithTimeInterval:Interval sinceDate:adate];
+        
+        self.timeZoneText.text = [formatter stringFromDate:_destinationTime];
+
+
+    }
+
+
 }
+
 
 - (IBAction)buttonDone:(id)sender {
     [self.view endEditing:YES];
