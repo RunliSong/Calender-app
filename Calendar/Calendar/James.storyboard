@@ -48,9 +48,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="myMonthName" destination="NFp-11-Hpg" id="MAY-fe-heG"/>
-                                            <outlet property="myWeekDays" destination="NFp-11-Hpg" id="l5i-Iv-Utm"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -65,7 +65,7 @@
                                     <action selector="changeYear:" destination="MY0-yJ-nZH" eventType="valueChanged" id="lv6-uV-y8h"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2015" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bb5-FE-mzX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bb5-FE-mzX">
                                 <rect key="frame" x="0.0" y="72" width="375" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="-578.5" y="80.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Month View Controller-->
         <scene sceneID="SW5-2v-5AZ">
             <objects>
-                <viewController id="Bof-bE-Gy7" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="monthViewController" id="Bof-bE-Gy7" customClass="MonthViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SmF-Pb-agz"/>
                         <viewControllerLayoutGuide type="bottom" id="KUJ-o4-k10"/>
@@ -113,22 +113,26 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="t19-hV-6vT">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="day" id="t19-hV-6vT" customClass="DaysInMonthCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0o4-8f-EIb">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0o4-8f-EIb">
                                                     <rect key="frame" x="-1" y="4" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dayName" destination="0o4-8f-EIb" id="Sry-QY-qXQ"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="yXv-Pl-anm">
@@ -163,7 +167,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="MY0-yJ-nZH" kind="push" id="bjz-Zq-W23"/>
+                                    <action selector="backToYear:" destination="Bof-bE-Gy7" eventType="touchUpInside" id="GW2-RJ-Uru"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -171,15 +175,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="86A-1Q-t8R"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="monthCollection" destination="YHd-00-Hb1" id="AGi-Ax-Hhj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KaB-vm-n6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-143.5" y="80.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Day View Controller-->
         <scene sceneID="Cfm-Zi-vbI">
             <objects>
-                <viewController id="QHT-qe-HAW" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="dayViewController" id="QHT-qe-HAW" customClass="DayViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q2l-1Z-hNX"/>
                         <viewControllerLayoutGuide type="bottom" id="g3k-jq-k07"/>
@@ -236,12 +243,19 @@
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="backToMonth:" destination="QHT-qe-HAW" eventType="touchUpInside" id="Raa-OT-xtu"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="wCf-fz-7W3"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="myDate" destination="a6T-Fk-1zB" id="G7N-Vq-dPv"/>
+                        <outlet property="myWeekDay" destination="MpB-eg-wDd" id="wsU-9L-gzh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xAr-Xp-vUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

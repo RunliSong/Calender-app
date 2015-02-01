@@ -42,7 +42,7 @@
     years = [dateInformation stringFromDate:sysdate];
     _currentYear = [years intValue];
     [_myYear setText:years];
-    [self getMonthsInAyear];
+   // [self getMonthsInAyear];
     [[self yearCollection]setDataSource:self];
     [[self yearCollection]setDelegate:self];
     
@@ -121,22 +121,11 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *Cellidentifer = @"Month";
     MonthInYearCollectionViewCell *cell =[collectionView dequeueReusableCellWithReuseIdentifier:Cellidentifer forIndexPath:indexPath];
-    
-    
-    //[[cell myWeekDays]setText:@"S  M  T  W  T  F  S"];
-    
     [[cell myMonthName]setText:[monthName objectAtIndex:indexPath.item]];
-    //    NSString *monthString = @"";
-    //    for (NSString *s in [arrayOfMonths objectAtIndex:indexPath.row]) {
-    //        monthString = [monthString stringByAppendingString:s];
-    //    }
-    //
-    //    [[cell mydaysInMonth]setText:monthString];
     
     if (cell.selected == true) {
         _selectedMonth = (int)indexPath;
     }
-    
     return cell;
 }
 

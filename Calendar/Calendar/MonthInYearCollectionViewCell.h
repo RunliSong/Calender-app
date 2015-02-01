@@ -10,7 +10,4 @@
 
 @interface MonthInYearCollectionViewCell : UICollectionViewCell
 @property (strong, nonatomic) IBOutlet UILabel *myMonthName;
-
-
-
 @end

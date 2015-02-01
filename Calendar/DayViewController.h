@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DayViewController : UIViewController
-
+@property (nonatomic) NSInteger weekdaytitle;
+@property (nonatomic) NSInteger datenum;
 @end

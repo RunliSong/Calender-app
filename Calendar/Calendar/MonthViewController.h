@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MonthViewController : UIViewController
+@interface MonthViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic) NSInteger year;
 @property (nonatomic) NSInteger month;
 @end
