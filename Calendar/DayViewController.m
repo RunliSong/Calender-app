@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *myDate;
 - (IBAction)backToMonth:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UIButton *backMonth;
 
 @end
 
@@ -31,7 +32,7 @@
     [weekdays addObject:@"Thursday"];
     [weekdays addObject:@"Friday"];
     
-    
+    [_backMonth setTitle:_monthTitle forState:UIControlStateNormal];
     NSLog(@"weekday: %li, date: %li", (long)_weekdaytitle, (long)_datenum);
     NSString *dates = [NSString stringWithFormat:@"%li",(long)_datenum];
     NSString *weekdayt = weekdays[_weekdaytitle];

@@ -15,13 +15,21 @@
 @interface MonthViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *monthCollection;
 - (IBAction)backToYear:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *backButton;
+- (IBAction)goToToday:(id)sender;
 
 @end
 
 @implementation MonthViewController
 {
     NSMutableArray *daysarray;
+    NSArray *monthName;
     YearViewController *datesInfor;
+    NSString *years;
+    NSString *months;
+    NSString *days;
+    NSDateFormatter *dateInformation;
+    NSLocale *location;
 
 }
 
@@ -29,6 +37,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     daysarray = [[NSMutableArray alloc] init];
+    monthName = [[NSArray alloc] initWithObjects:@"JANUARY",@"FEBRUARY",@"MARCH",@"APRIL",@"MAY",@"JUNE",@"JULY",@"AUGUST",@"SEPTEMBER",@"OCTOBER",@"NOVEMBER",@"DECEMBER", nil];
     [daysarray addObject:@"S"];
     [daysarray addObject:@"M"];
     [daysarray addObject:@"T"];
@@ -36,8 +45,12 @@
     [daysarray addObject:@"T"];
     [daysarray addObject:@"F"];
     [daysarray addObject:@"S"];
+    dateInformation = [[NSDateFormatter alloc]init];
     NSLog(@"month: %li, year: %li", (long)_month, (long)_year);
     [self getDaysInMonth];
+    NSString *yt = [NSString stringWithFormat:@"%li",(long)_year];
+    [_backButton setTitle:yt forState:UIControlStateNormal];
+    location = [NSLocale currentLocale];
     [[self monthCollection]setDataSource:self];
     [[self monthCollection]setDelegate:self];
 }
@@ -97,6 +110,7 @@
     {
         dvc.weekdaytitle = ((NSDateComponents *)[arr objectAtIndex:selected]).weekday-1;
         dvc.datenum = selected;
+        dvc.monthTitle = monthName[_month-1];
         [self presentViewController:dvc animated:YES completion:nil];
     }
 }
@@ -122,5 +136,40 @@
 
 - (IBAction)backToYear:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)goToToday:(id)sender {
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"James" bundle:nil];
+    DayViewController *dvc = [story instantiateViewControllerWithIdentifier:@"dayViewController"];
+    
+    NSDate *sysdate = [NSDate date];
+    NSLog(@"%@",sysdate);
+    [dateInformation setDateFormat:@"yyyy"];
+    years = [dateInformation stringFromDate:sysdate];
+    [dateInformation setDateFormat:@"M"];
+    months = [dateInformation stringFromDate:sysdate];
+    [dateInformation setDateFormat:@"dd"];
+    days = [dateInformation stringFromDate:sysdate];
+    
+    NSLog(@"year %@,month%@,day%@",years,months,days);
+    NSInteger nowyear = [years integerValue];
+    NSInteger nowMonth = [months integerValue];
+    NSInteger nowDay = [days integerValue];
+    
+    long week;
+    Utilities *utl = [Utilities new];
+    NSArray *arr = [utl getAllDaysOfMonth:(int)nowMonth inYear:(int)nowyear];
+    for (int g = 0; g<arr.count; g++) {
+        if(((NSDateComponents *)[arr objectAtIndex:g]).day == nowDay)
+        {
+            week = ((NSDateComponents *)[arr objectAtIndex:g]).weekday;
+        }
+        
+    }
+    dvc.weekdaytitle = week;
+    dvc.datenum = nowDay;
+    dvc.monthTitle = monthName[nowMonth -1];
+    [self presentViewController:dvc animated:YES completion:nil];
+    
+
 }
 @end

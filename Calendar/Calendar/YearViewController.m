@@ -8,6 +8,7 @@
 
 #import "YearViewController.h"
 #import "MonthInYearCollectionViewCell.h"
+#import "DayViewController.h"
 #import "Utilities.h"
 #import "MonthViewController.h"
 
@@ -15,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *myYear;
 - (IBAction)changeYear:(id)sender;
 @property (strong, nonatomic) IBOutlet UICollectionView *yearCollection;
+- (IBAction)goToday:(id)sender;
 @end
 
 @implementation YearViewController{
@@ -22,6 +24,8 @@
     NSMutableArray *arrayOfDays;
     NSArray *monthName;
     NSString *years;
+    NSString *months;
+    NSString *days;
     NSDateFormatter *dateInformation;
     NSLocale *location;
 
@@ -145,6 +149,39 @@
             
             break;
     }
+
+}
+- (IBAction)goToday:(id)sender {
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"James" bundle:nil];
+    DayViewController *dvc = [story instantiateViewControllerWithIdentifier:@"dayViewController"];
+
+    [dateInformation setDateFormat:@"yyyy"];
+    NSDate *sysdate = [NSDate date];
+    years = [dateInformation stringFromDate:sysdate];
+    [dateInformation setDateFormat:@"M"];
+    months = [dateInformation stringFromDate:sysdate];
+    [dateInformation setDateFormat:@"dd"];
+    days = [dateInformation stringFromDate:sysdate];
+
+    NSLog(@"year %@,month%@,day%@",years,months,days);
+    NSInteger nowyear = [years integerValue];
+    NSInteger nowMonth = [months integerValue];
+    NSInteger nowDay = [days integerValue];
+    
+    long week;
+    Utilities *utl = [Utilities new];
+    NSArray *arr = [utl getAllDaysOfMonth:(int)nowMonth inYear:(int)nowyear];
+    for (int g = 0; g<arr.count; g++) {
+        if(((NSDateComponents *)[arr objectAtIndex:g]).day == nowDay)
+        {
+            week = ((NSDateComponents *)[arr objectAtIndex:g]).weekday;
+        }
+            
+    }
+    dvc.weekdaytitle = week;
+    dvc.datenum = nowDay;
+    dvc.monthTitle = monthName[nowMonth -1];
+    [self presentViewController:dvc animated:YES completion:nil];
 
 }
 @end

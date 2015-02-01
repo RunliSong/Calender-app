@@ -11,4 +11,5 @@
 @interface DayViewController : UIViewController
 @property (nonatomic) NSInteger weekdaytitle;
 @property (nonatomic) NSInteger datenum;
+@property (nonatomic) NSString *monthTitle;
 @end
