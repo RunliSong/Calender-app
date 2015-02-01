@@ -20,8 +20,16 @@
 
 @implementation SearchEventViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [_fromDate setValue:[UIColor whiteColor] forKeyPath:@"textColor"];
+    [_toDate setValue:[UIColor whiteColor] forKeyPath:@"textColor"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     // Do any additional setup after loading the view.
 }
 - (IBAction)search:(id)sender {

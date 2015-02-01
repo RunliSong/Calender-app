@@ -16,8 +16,11 @@
 @property (weak, nonatomic) IBOutlet UITextView *eventDesc;
 
 @property (weak, nonatomic) IBOutlet UILabel *eventTime;
-@property (weak, nonatomic) IBOutlet UILabel *eventOtherTime;
+
+
 @property (weak, nonatomic) IBOutlet UILabel *eventOtherTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *otherZoneName;
+@property (weak, nonatomic) IBOutlet UILabel *otherZonetime;
 
 
 @end
@@ -39,16 +42,24 @@
         [alert show];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd-MMMM-yyyy hh:mm a"];
     _eventTitle.text = ((Event *)_event).title;
     _eventDesc.text = ((Event *)_event).desc;
-    _eventTime.text = [NSString stringWithFormat:@"%@", ((Event *)_event).localTime];
+    _eventTime.text = [formatter stringFromDate:((Event *)_event).localTime];
     
     if (!((Event *)_event).otherTime) {
         [_eventOtherTimeLabel setHidden:YES];
-        [_eventOtherTime setHidden:YES];
+        [_otherZoneName setHidden:YES];
+        [_otherZonetime setHidden:YES];
     }
     else {
-        _eventOtherTime.text = [NSString stringWithFormat:@"%@", ((Event *)_event).otherTime];
+        [_otherZonetime setHidden:NO];
+        [_otherZoneName setHidden:NO];
+        [_eventOtherTimeLabel setHidden:NO];
+        NSDate *otherTime = ((Event *)_event).otherTime;
+        _otherZonetime.text = [formatter stringFromDate:otherTime];
+        _otherZoneName.text = ((Event *)_event).otherName;
     }
     
 }
