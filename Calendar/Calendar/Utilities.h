@@ -18,6 +18,9 @@
 + (BOOL)updateEvent: (NSManagedObject *)event withNewValue: (Event *)newValue;
 + (BOOL)deleteEvent: (NSManagedObject *)event;
 
+// this method should be used in Month view and Day view
++ (NSArray *)getEventsBetweenDate:(NSDate *) startDate andEndDate:(NSDate *)endDate;
+
 + (NSArray *)getEventsWithTitle:(NSString *) eventTitle description:(NSString *)desc startDate:(NSDate *) startDate andEndDate:(NSDate *)endDate; // Use this method, any value can be nil
 
 @end
