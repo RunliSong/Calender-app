@@ -12,6 +12,7 @@
 #import "YearViewController.h"
 #import "Utilities.h"
 #import "ResultTableViewCell.h"
+#import "SearchEventViewController.h"
 
 @interface MonthViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *monthCollection;
@@ -20,6 +21,8 @@
 - (IBAction)goToToday:(id)sender;
 @property (strong, nonatomic) IBOutlet UITableView *eventTable;
 @property (strong, nonatomic) IBOutlet UILabel *monthTitle;
+- (IBAction)addNewEvent:(id)sender;
+- (IBAction)searchEvent:(id)sender;
 - (IBAction)toLastMonth:(id)sender;
 - (IBAction)toNextMonth:(id)sender;
 
@@ -64,7 +67,7 @@
     [[self monthTitle]setText:monthName[_month - 1]];
     [self getDaysInMonth];
     
-    NSString *yt = [NSString stringWithFormat:@"%li",(long)_year];
+    NSString *yt = [NSString stringWithFormat:@"<%li",(long)_year];
     [_backButton setTitle:yt forState:UIControlStateNormal];
     location = [NSLocale currentLocale];
     [[self monthCollection]setDataSource:self];
@@ -245,6 +248,17 @@
     
 
 }
+- (IBAction)addNewEvent:(id)sender {
+}
+
+- (IBAction)searchEvent:(id)sender {
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Kris" bundle:nil];
+    SearchEventViewController *sevc = [story instantiateViewControllerWithIdentifier:@"Search"];
+    
+    [self presentViewController:sevc animated:YES completion:nil];
+
+}
+
 - (IBAction)toLastMonth:(id)sender {
     _month = _month - 1;
     if (_month<1)

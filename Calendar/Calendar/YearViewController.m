@@ -11,11 +11,14 @@
 #import "DayViewController.h"
 #import "Utilities.h"
 #import "MonthViewController.h"
+#import "SearchEventViewController.h"
 
 @interface YearViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *myYear;
 - (IBAction)changeYear:(id)sender;
 @property (strong, nonatomic) IBOutlet UICollectionView *yearCollection;
+- (IBAction)searchEvent:(id)sender;
+- (IBAction)addNewEvent:(id)sender;
 - (IBAction)goToday:(id)sender;
 @end
 
@@ -113,6 +116,16 @@
     }
 
 }
+- (IBAction)searchEvent:(id)sender {
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Kris" bundle:nil];
+    SearchEventViewController *sevc = [story instantiateViewControllerWithIdentifier:@"Search"];
+  
+    [self presentViewController:sevc animated:YES completion:nil];
+}
+
+- (IBAction)addNewEvent:(id)sender {
+}
+
 - (IBAction)goToday:(id)sender {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"James" bundle:nil];
     DayViewController *dvc = [story instantiateViewControllerWithIdentifier:@"dayViewController"];

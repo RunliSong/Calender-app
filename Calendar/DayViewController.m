@@ -10,6 +10,7 @@
 #import "Utilities.h"
 #import "Event.h"
 #import "ResultTableViewCell.h"
+#import "SearchEventViewController.h"
 
 @interface DayViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *myWeekDay;
@@ -18,6 +19,9 @@
 - (IBAction)backToMonth:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIButton *backMonth;
+- (IBAction)searchEvent:(id)sender;
+- (IBAction)addNewEvent:(id)sender;
+
 
 @end
 
@@ -43,8 +47,8 @@
     [weekdays addObject:@"Friday"];
     monthName = [[NSArray alloc] initWithObjects:@"JANUARY",@"FEBRUARY",@"MARCH",@"APRIL",@"MAY",@"JUNE",@"JULY",@"AUGUST",@"SEPTEMBER",@"OCTOBER",@"NOVEMBER",@"DECEMBER", nil];
     _monthTitle = monthName[_monthOfTheDay-1];
-    
-    [_backMonth setTitle:_monthTitle forState:UIControlStateNormal];
+    NSString *ms = [NSString stringWithFormat:@"<%@",_monthTitle];
+    [_backMonth setTitle:ms forState:UIControlStateNormal];
     NSLog(@"weekday: %li, date: %li", (long)_weekdaytitle, (long)_datenum);
     NSString *dates = [NSString stringWithFormat:@"%li",(long)_datenum];
     NSString *weekdayt = weekdays[_weekdaytitle];
@@ -113,5 +117,15 @@
 
 - (IBAction)backToMonth:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)searchEvent:(id)sender {
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Kris" bundle:nil];
+    SearchEventViewController *sevc = [story instantiateViewControllerWithIdentifier:@"Search"];
+    
+    [self presentViewController:sevc animated:YES completion:nil];
+
+}
+
+- (IBAction)addNewEvent:(id)sender {
 }
 @end
