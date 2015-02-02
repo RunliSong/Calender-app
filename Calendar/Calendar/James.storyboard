@@ -7,7 +7,7 @@
         <!--Year View Controller-->
         <scene sceneID="bgw-EW-tIg">
             <objects>
-                <viewController id="MY0-yJ-nZH" customClass="YearViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="yearController" id="MY0-yJ-nZH" customClass="YearViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uLS-A9-mjq"/>
                         <viewControllerLayoutGuide type="bottom" id="EB4-1b-SwJ"/>
@@ -110,11 +110,11 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YHd-00-Hb1">
-                                <rect key="frame" x="16" y="56" width="343" height="326"/>
+                                <rect key="frame" x="16" y="106" width="343" height="276"/>
                                 <color key="backgroundColor" red="1" green="0.95232317580000003" blue="0.82017691680000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="6" id="516-Rg-GZO">
                                     <size key="itemSize" width="40" height="30"/>
-                                    <size key="headerReferenceSize" width="375" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
@@ -135,24 +135,12 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="1" green="0.95232317580000003" blue="0.82017691680000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="dayName" destination="0o4-8f-EIb" id="Sry-QY-qXQ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="yXv-Pl-anm">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7A-qT-NpX">
-                                            <rect key="frame" x="39" y="8" width="276" height="34"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </collectionReusableView>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="oDe-Ys-x4p">
                                 <rect key="frame" x="16" y="390" width="343" height="200"/>
@@ -176,6 +164,32 @@
                                     <action selector="backToYear:" destination="Bof-bE-Gy7" eventType="touchUpInside" id="GW2-RJ-Uru"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cz5-Ws-nwz">
+                                <rect key="frame" x="97" y="51" width="180" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yos-b0-XmC">
+                                <rect key="frame" x="16" y="71" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Last">
+                                    <color key="titleColor" red="0.14899476449999999" green="1" blue="0.92316135740000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toLastMonth:" destination="Bof-bE-Gy7" eventType="touchUpInside" id="LjM-To-dU1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXm-mk-nlP">
+                                <rect key="frame" x="319" y="71" width="40" height="22"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="toNextMonth:" destination="Bof-bE-Gy7" eventType="touchUpInside" id="Jic-6a-HJo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -185,6 +199,7 @@
                         <outlet property="backButton" destination="Ryr-OA-gJK" id="wYC-bq-aIX"/>
                         <outlet property="eventTable" destination="oDe-Ys-x4p" id="tyR-SO-X1a"/>
                         <outlet property="monthCollection" destination="YHd-00-Hb1" id="AGi-Ax-Hhj"/>
+                        <outlet property="monthTitle" destination="cz5-Ws-nwz" id="nno-H8-Ydm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KaB-vm-n6c" userLabel="First Responder" sceneMemberID="firstResponder"/>

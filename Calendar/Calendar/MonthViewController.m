@@ -19,6 +19,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
 - (IBAction)goToToday:(id)sender;
 @property (strong, nonatomic) IBOutlet UITableView *eventTable;
+@property (strong, nonatomic) IBOutlet UILabel *monthTitle;
+- (IBAction)toLastMonth:(id)sender;
+- (IBAction)toNextMonth:(id)sender;
 
 @end
 
@@ -34,6 +37,11 @@
     NSLocale *location;
     NSArray *events;
 
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.monthCollection reloadData];
 }
 
 - (void)viewDidLoad {
@@ -53,7 +61,9 @@
     [daysarray addObject:@"S"];
     dateInformation = [[NSDateFormatter alloc]init];
     NSLog(@"month: %li, year: %li", (long)_month, (long)_year);
+    [[self monthTitle]setText:monthName[_month - 1]];
     [self getDaysInMonth];
+    
     NSString *yt = [NSString stringWithFormat:@"%li",(long)_year];
     [_backButton setTitle:yt forState:UIControlStateNormal];
     location = [NSLocale currentLocale];
@@ -117,7 +127,6 @@
     totalDays += [arr count];
     totalDays += ((NSDateComponents *)[arr objectAtIndex:0]).weekday - 1;
     return totalDays;
-    
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -192,7 +201,11 @@
 */
 
 - (IBAction)backToYear:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"James" bundle:nil];
+    YearViewController *yvc = [story instantiateViewControllerWithIdentifier:@"yearController"];
+    yvc.currentYear = _year;
+    [self presentViewController:yvc animated:YES completion:nil];
+
 }
 - (IBAction)goToToday:(id)sender {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"James" bundle:nil];
@@ -229,6 +242,46 @@
     dvc.yearOfTheDay = nowyear;
     [self presentViewController:dvc animated:YES completion:nil];
     
+
+}
+- (IBAction)toLastMonth:(id)sender {
+    _month = _month - 1;
+    if (_month<1)
+    {
+        _month = 12;
+        _year = _year -1;
+        NSString *ys = [NSString stringWithFormat:@"%i",(int)_year];
+         [_backButton setTitle:ys forState:UIControlStateNormal];
+    
+    }
+    [[self monthTitle]setText:monthName[_month - 1]];
+    
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"James" bundle:nil];
+    MonthViewController *mvc = [story instantiateViewControllerWithIdentifier:@"monthViewController"];
+    mvc.year = _year;
+    mvc.month = _month;
+    [self presentViewController:mvc animated:NO completion:nil];
+
+    
+    
+}
+
+- (IBAction)toNextMonth:(id)sender {
+    _month = _month + 1;
+    if (_month>12)
+    {
+        _month = 1;
+        _year = _year + 1;
+        NSString *ys = [NSString stringWithFormat:@"%i",(int)_year];
+        [_backButton setTitle:ys forState:UIControlStateNormal];
+
+    }
+    [[self monthTitle]setText:monthName[_month - 1]];
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"James" bundle:nil];
+    MonthViewController *mvc = [story instantiateViewControllerWithIdentifier:@"monthViewController"];
+    mvc.year = _year;
+    mvc.month = _month;
+    [self presentViewController:mvc animated:NO completion:nil];
 
 }
 @end

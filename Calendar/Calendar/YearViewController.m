@@ -43,9 +43,11 @@
     dateInformation = [[NSDateFormatter alloc]init];
     [dateInformation setDateFormat:@"yyyy"];
     NSDate *sysdate = [NSDate date];
-    years = [dateInformation stringFromDate:sysdate];
-    _currentYear = [years intValue];
-    [_myYear setText:years];
+    if (!_currentYear) {
+        years = [dateInformation stringFromDate:sysdate];
+        _currentYear = [years intValue];
+    }
+    [_myYear setText:[NSString stringWithFormat:@"%i", (int)_currentYear]];
    // [self getMonthsInAyear];
     [[self yearCollection]setDataSource:self];
     [[self yearCollection]setDelegate:self];
