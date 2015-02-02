@@ -9,6 +9,7 @@
 #import "DayViewController.h"
 #import "Utilities.h"
 #import "Event.h"
+#import "ResultTableViewCell.h"
 
 @interface DayViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *myWeekDay;
@@ -50,13 +51,54 @@
     [self.myWeekDay setText:weekdayt];
     // Do any additional setup after loading the view.
     
-    NSString *todayString = [NSString stringWithFormat:@"%i-%i-%i", (int)_yearOfTheDay, (int)_monthOfTheDay, 1];
+    NSString *todayString = [NSString stringWithFormat:@"%i-%i-%i", (int)_yearOfTheDay, (int)_monthOfTheDay, (int)_datenum];
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *todayDate = [formatter dateFromString:todayString];
+    events = [Utilities getEventsBetweenDate:todayDate andEndDate:todayDate];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma make table view methods
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    //should be number of events;
+    
+    return [events count];
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Result" forIndexPath:indexPath];
+    if (events) {
+        cell.eventTitle.text = ((Event *)[events objectAtIndex:indexPath.row]).title;
+        NSDate *localTime = ((Event *)[events objectAtIndex:indexPath.row]).localTime;
+        NSDate *otherTime = ((Event *)[events objectAtIndex:indexPath.row]).otherTime;
+        
+        NSDateFormatter *formatter = [NSDateFormatter new];
+        [formatter setDateFormat:@"yyyy-MMMM-dd hh:mm a"];
+        cell.eventLocalTime.text = [formatter stringFromDate:localTime];
+        
+        if (otherTime) {
+            [cell.eventOtherTime setHidden:NO];
+            cell.eventOtherTime.text = [formatter stringFromDate:otherTime];
+        }
+        else {
+            [cell.eventOtherTime setHidden:YES];
+        }
+        
+        
+    }
+    return cell;
+}
+
 
 /*
 #pragma mark - Navigation

@@ -226,6 +226,7 @@
     dvc.datenum = nowDay;
     dvc.monthTitle = monthName[nowMonth -1];
     dvc.monthOfTheDay = nowMonth;
+    dvc.yearOfTheDay = nowyear;
     [self presentViewController:dvc animated:YES completion:nil];
     
 
