@@ -132,7 +132,8 @@
     {
         dvc.weekdaytitle = ((NSDateComponents *)[arr objectAtIndex:selected]).weekday-1;
         dvc.datenum = selected;
-        dvc.monthTitle = monthName[_month-1];
+        dvc.monthOfTheDay = _month;
+        dvc.yearOfTheDay = _year;
         [self presentViewController:dvc animated:YES completion:nil];
     }
 }
@@ -224,6 +225,7 @@
     dvc.weekdaytitle = week;
     dvc.datenum = nowDay;
     dvc.monthTitle = monthName[nowMonth -1];
+    dvc.monthOfTheDay = nowMonth;
     [self presentViewController:dvc animated:YES completion:nil];
     
 

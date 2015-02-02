@@ -7,10 +7,13 @@
 //
 
 #import "DayViewController.h"
+#import "Utilities.h"
+#import "Event.h"
 
 @interface DayViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *myWeekDay;
 @property (strong, nonatomic) IBOutlet UILabel *myDate;
+@property (strong, nonatomic) IBOutlet UITableView *dayEventsTableView;
 - (IBAction)backToMonth:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIButton *backMonth;
@@ -20,9 +23,14 @@
 @implementation DayViewController
 {
     NSMutableArray *weekdays;
+    NSArray *monthName;
+    NSArray *events;
 }
 
 - (void)viewDidLoad {
+    //register nib
+    [_dayEventsTableView registerNib:[UINib nibWithNibName:@"ResultTableViewCell" bundle:nil] forCellReuseIdentifier:@"Result"];
+    
     weekdays = [[NSMutableArray alloc]init];
     [weekdays addObject:@"Saterday"];
     [weekdays addObject:@"Sunday"];
@@ -31,6 +39,8 @@
     [weekdays addObject:@"Wendesday"];
     [weekdays addObject:@"Thursday"];
     [weekdays addObject:@"Friday"];
+    monthName = [[NSArray alloc] initWithObjects:@"JANUARY",@"FEBRUARY",@"MARCH",@"APRIL",@"MAY",@"JUNE",@"JULY",@"AUGUST",@"SEPTEMBER",@"OCTOBER",@"NOVEMBER",@"DECEMBER", nil];
+    _monthTitle = monthName[_monthOfTheDay-1];
     
     [_backMonth setTitle:_monthTitle forState:UIControlStateNormal];
     NSLog(@"weekday: %li, date: %li", (long)_weekdaytitle, (long)_datenum);
@@ -39,6 +49,8 @@
     [self.myDate setText:dates];
     [self.myWeekDay setText:weekdayt];
     // Do any additional setup after loading the view.
+    
+    NSString *todayString = [NSString stringWithFormat:@"%i-%i-%i", (int)_yearOfTheDay, (int)_monthOfTheDay, 1];
 }
 
 - (void)didReceiveMemoryWarning {

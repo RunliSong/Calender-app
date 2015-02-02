@@ -262,6 +262,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="backMonth" destination="Qaa-hO-1ve" id="x72-6h-Msw"/>
+                        <outlet property="dayEventsTableView" destination="2mG-AM-zdl" id="2M2-MC-TyD"/>
                         <outlet property="myDate" destination="a6T-Fk-1zB" id="G7N-Vq-dPv"/>
                         <outlet property="myWeekDay" destination="MpB-eg-wDd" id="wsU-9L-gzh"/>
                     </connections>

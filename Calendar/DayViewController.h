@@ -12,4 +12,6 @@
 @property (nonatomic) NSInteger weekdaytitle;
 @property (nonatomic) NSInteger datenum;
 @property (nonatomic) NSString *monthTitle;
+@property (nonatomic) NSInteger monthOfTheDay;
+@property (nonatomic) NSInteger yearOfTheDay;
 @end
