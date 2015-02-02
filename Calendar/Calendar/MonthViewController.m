@@ -169,6 +169,7 @@
 {
     ResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Result" forIndexPath:indexPath];
     if (events) {
+        cell.backgroundColor = [UIColor clearColor];
         cell.eventTitle.text = ((Event *)[events objectAtIndex:indexPath.row]).title;
         NSDate *localTime = ((Event *)[events objectAtIndex:indexPath.row]).localTime;
         NSDate *otherTime = ((Event *)[events objectAtIndex:indexPath.row]).otherTime;

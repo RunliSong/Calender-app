@@ -31,7 +31,8 @@
 - (void)viewDidLoad {
     //register nib
     [_dayEventsTableView registerNib:[UINib nibWithNibName:@"ResultTableViewCell" bundle:nil] forCellReuseIdentifier:@"Result"];
-    
+    _dayEventsTableView.delegate = self;
+    _dayEventsTableView.dataSource = self;
     weekdays = [[NSMutableArray alloc]init];
     [weekdays addObject:@"Saterday"];
     [weekdays addObject:@"Sunday"];
