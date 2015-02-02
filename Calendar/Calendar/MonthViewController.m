@@ -11,12 +11,14 @@
 #import "DaysInMonthCollectionViewCell.h"
 #import "YearViewController.h"
 #import "Utilities.h"
+#import "ResultTableViewCell.h"
 
 @interface MonthViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *monthCollection;
 - (IBAction)backToYear:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
 - (IBAction)goToToday:(id)sender;
+@property (strong, nonatomic) IBOutlet UITableView *eventTable;
 
 @end
 
@@ -30,11 +32,15 @@
     NSString *days;
     NSDateFormatter *dateInformation;
     NSLocale *location;
+    NSArray *events;
 
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // register nib
+    [_eventTable registerNib:[UINib nibWithNibName:@"ResultTableViewCell" bundle:nil] forCellReuseIdentifier:@"Result"];
+    
     // Do any additional setup after loading the view.
     daysarray = [[NSMutableArray alloc] init];
     monthName = [[NSArray alloc] initWithObjects:@"JANUARY",@"FEBRUARY",@"MARCH",@"APRIL",@"MAY",@"JUNE",@"JULY",@"AUGUST",@"SEPTEMBER",@"OCTOBER",@"NOVEMBER",@"DECEMBER", nil];
@@ -53,6 +59,22 @@
     location = [NSLocale currentLocale];
     [[self monthCollection]setDataSource:self];
     [[self monthCollection]setDelegate:self];
+    [[self eventTable]setDataSource:self];
+    [[self eventTable]setDelegate:self];
+    
+    // first date of the month
+    NSString *startDateString = [NSString stringWithFormat:@"%i-%i-%i", (int)_year, (int)_month, 1];
+    Utilities *ult = [Utilities new];
+    
+    // last date of the month
+    NSString *endDateString = [NSString stringWithFormat:@"%i-%i-%i", (int)_year, (int)_month, (int)[ult getAllDaysOfMonth:(int)_month inYear:(int)_year].count];
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *startDate = [formatter dateFromString:startDateString];
+    NSDate *endDate = [formatter dateFromString:endDateString];
+    
+    // get all events in this month
+    events = [Utilities getEventsBetweenDate:startDate andEndDate:endDate];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -122,7 +144,41 @@
     
     return cell;
 }
+#pragma mark table view methods
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    //should be number of events;
+    
+    return [events count];
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Result" forIndexPath:indexPath];
+    if (events) {
+        cell.eventTitle.text = ((Event *)[events objectAtIndex:indexPath.row]).title;
+        NSDate *localTime = ((Event *)[events objectAtIndex:indexPath.row]).localTime;
+        NSDate *otherTime = ((Event *)[events objectAtIndex:indexPath.row]).otherTime;
+        
+        NSDateFormatter *formatter = [NSDateFormatter new];
+        [formatter setDateFormat:@"yyyy-MMMM-dd hh:mm a"];
+        cell.eventLocalTime.text = [formatter stringFromDate:localTime];
+        
+        if (otherTime) {
+            [cell.eventOtherTime setHidden:NO];
+            cell.eventOtherTime.text = [formatter stringFromDate:otherTime];
+        }
+        else {
+            [cell.eventOtherTime setHidden:YES];
+        }
+        
 
+    }
+    return cell;
+}
 
 /*
 #pragma mark - Navigation
