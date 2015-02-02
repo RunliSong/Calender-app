@@ -53,6 +53,31 @@
     NSEntityDescription *eventEntity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:eventEntity];
+    
+    // Use the user's current calendar and time zone
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSTimeZone *timeZone = [NSTimeZone systemTimeZone];
+    NSLog(@"%@", [NSTimeZone systemTimeZone]);
+    [calendar setTimeZone:timeZone];
+    
+    // Selectively convert the date components (year, month, day) of the input date
+    NSDateComponents *dateComps = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:startDate];
+    // Set the time components manually
+    
+    [dateComps setHour:0];
+    [dateComps setMinute:0];
+    [dateComps setSecond:0];
+    
+    // Convert back
+    startDate = [calendar dateFromComponents:dateComps];
+    
+    dateComps = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:endDate];
+    [dateComps setHour:23];
+    [dateComps setMinute:59];
+    [dateComps setSecond:59];
+    
+    endDate = [calendar dateFromComponents:dateComps];
+    
     NSString *predicateString = @"(localTime >= %@ AND localTime <= %@)";
     NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString , startDate, endDate];
     //NSLog(@"Predicate: %@", predicate);
@@ -83,6 +108,34 @@
     NSEntityDescription *eventEntity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:eventEntity];
+    
+    
+    // Use the user's current calendar and time zone
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSTimeZone *timeZone = [NSTimeZone systemTimeZone];
+    NSLog(@"%@", [NSTimeZone systemTimeZone]);
+    [calendar setTimeZone:timeZone];
+    
+    // Selectively convert the date components (year, month, day) of the input date
+    NSDateComponents *dateComps = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:startDate];
+    // Set the time components manually
+        
+    [dateComps setHour:0];
+    [dateComps setMinute:0];
+    [dateComps setSecond:0];
+    
+    // Convert back
+    startDate = [calendar dateFromComponents:dateComps];
+    
+    dateComps = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:endDate];
+    [dateComps setHour:23];
+    [dateComps setMinute:59];
+    [dateComps setSecond:59];
+    
+    endDate = [calendar dateFromComponents:dateComps];
+    
+    
+    NSLog(@"Start Date: %@, \n End Date: %@", startDate, endDate);
     NSString *predicateString = @"(title contains[cd] %@) OR (desc CONTAINS[cd] %@) OR (localTime >= %@ AND localTime <= %@)";
     NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateString, eventTitle, desc, startDate, endDate];
     //NSLog(@"Predicate: %@", predicate);
@@ -104,6 +157,37 @@
     }
     return results;
 
+}
+
+/*
+    will convert the input date to the beginning (or end) of the date depends on isEnd parameter
+    if isEnd = YES, then will return the end of the date (23:59:59)
+    else will return 00:00:00
+ */
+- (NSDate *)dateAtBeginningOfDayForDate:(NSDate *)inputDate orEnd:(BOOL) isEnd
+{
+    // Use the user's current calendar and time zone
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSTimeZone *timeZone = [NSTimeZone systemTimeZone];
+    [calendar setTimeZone:timeZone];
+    
+    // Selectively convert the date components (year, month, day) of the input date
+    NSDateComponents *dateComps = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:inputDate];
+    
+    // Set the time components manually
+    if (isEnd) {
+        [dateComps setHour:23];
+        [dateComps setMinute:59];
+        [dateComps setSecond:59];
+    } else {
+    
+        [dateComps setHour:0];
+        [dateComps setMinute:0];
+        [dateComps setSecond:0];
+    }
+    // Convert back
+    NSDate *timeOfTheDate = [calendar dateFromComponents:dateComps];
+    return timeOfTheDate;
 }
 
 + (BOOL)updateEvent:(NSManagedObject *)event withNewValue:(Event *)newValue {
