@@ -11,11 +11,14 @@
 #import "DayViewController.h"
 #import "Utilities.h"
 #import "MonthViewController.h"
+#import "SearchEventViewController.h"
 
 @interface YearViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *myYear;
 - (IBAction)changeYear:(id)sender;
 @property (strong, nonatomic) IBOutlet UICollectionView *yearCollection;
+- (IBAction)searchEvent:(id)sender;
+- (IBAction)addNewEvent:(id)sender;
 - (IBAction)goToday:(id)sender;
 @end
 
@@ -48,7 +51,6 @@
         _currentYear = [years intValue];
     }
     [_myYear setText:[NSString stringWithFormat:@"%i", (int)_currentYear]];
-   // [self getMonthsInAyear];
     [[self yearCollection]setDataSource:self];
     [[self yearCollection]setDelegate:self];
     
@@ -58,45 +60,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
--(NSArray *)getMonthsInAyear {
-    
-    int year = 2015;
-    for (int month = 1; month<13; month++) {
-        Utilities *utl = [Utilities new];
-        NSArray *arr = [utl getAllDaysOfMonth:month inYear:year];
-        arrayOfDays = [[NSMutableArray alloc] init];
-        NSString *stringToDisplay;
-        NSString *placeHolder = @" ";
-        for (int i = 0; i < arr.count; i++) {
-            
-            NSDateComponents *component = [arr objectAtIndex:i];
-            if ((int)component.day == 1) {
-                int day = (int)component.weekday;
-                
-                for (int j = 1; j < day; j++) {
-                    placeHolder = [placeHolder stringByAppendingString:placeHolder];
-                }
-                
-                stringToDisplay =[NSString stringWithFormat:@"%@%i", placeHolder,(int)component.day];
-            }
-            
-            else if (component.weekday != 6) {
-                stringToDisplay = [NSString stringWithFormat:@" %i", (int)component.day];
-            }
-            else {
-                stringToDisplay = [NSString stringWithFormat:@" %i\n", (int)component.day];
-            }
-            
-            [arrayOfDays addObject:stringToDisplay];
-            
-        }
-        [arrayOfMonths addObject:arrayOfDays];
-    }
-    
-    return arrayOfMonths;
-}
-
 /*
 #pragma mark - Navigation
 
@@ -153,6 +116,16 @@
     }
 
 }
+- (IBAction)searchEvent:(id)sender {
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Kris" bundle:nil];
+    SearchEventViewController *sevc = [story instantiateViewControllerWithIdentifier:@"Search"];
+  
+    [self presentViewController:sevc animated:YES completion:nil];
+}
+
+- (IBAction)addNewEvent:(id)sender {
+}
+
 - (IBAction)goToday:(id)sender {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"James" bundle:nil];
     DayViewController *dvc = [story instantiateViewControllerWithIdentifier:@"dayViewController"];

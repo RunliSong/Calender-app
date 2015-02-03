@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MY0-yJ-nZH">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Year View Controller-->
@@ -16,9 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="NfO-gi-o3a">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8B-3F-jtU">
                                 <rect key="frame" x="16" y="629" width="46" height="30"/>
                                 <state key="normal" title="Today">
+                                    <color key="titleColor" red="1" green="0.95232317580000003" blue="0.82017691680000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -27,7 +32,7 @@
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="A0d-59-XYG">
                                 <rect key="frame" x="0.0" y="131" width="375" height="443"/>
-                                <color key="backgroundColor" red="0.60186897145808105" green="0.59209203689773837" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="1" id="ASv-4n-Jne">
                                     <size key="itemSize" width="124" height="110"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -51,7 +56,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="1" green="0.95232317580000003" blue="0.82017691680000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="myMonthName" destination="NFp-11-Hpg" id="MAY-fe-heG"/>
                                         </connections>
@@ -60,10 +65,12 @@
                             </collectionView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fYu-PM-L5F">
                                 <rect key="frame" x="112" y="582" width="150" height="29"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <segments>
                                     <segment title="Last Year"/>
                                     <segment title="Next Year"/>
                                 </segments>
+                                <color key="tintColor" red="1" green="0.95232317580000003" blue="0.82017691680000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="changeYear:" destination="MY0-yJ-nZH" eventType="valueChanged" id="lv6-uV-y8h"/>
                                 </connections>
@@ -71,11 +78,36 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bb5-FE-mzX">
                                 <rect key="frame" x="0.0" y="72" width="375" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="1" green="0.95232317580000003" blue="0.82017691680000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGx-rk-YIi">
+                                <rect key="frame" x="313" y="20" width="46" height="30"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addNewEvent:" destination="MY0-yJ-nZH" eventType="touchUpInside" id="e12-5I-MFW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Es-rk-LP2">
+                                <rect key="frame" x="236" y="20" width="50" height="30"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchEvent:" destination="MY0-yJ-nZH" eventType="touchUpInside" id="RaV-RQ-Wdp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="NfO-gi-o3a" secondAttribute="trailing" constant="-16" id="NuW-xc-Fev"/>
+                            <constraint firstItem="NfO-gi-o3a" firstAttribute="top" secondItem="uLS-A9-mjq" secondAttribute="bottom" constant="-20" id="VDR-AT-OkP"/>
+                            <constraint firstItem="NfO-gi-o3a" firstAttribute="leading" secondItem="Cnk-Th-MHL" secondAttribute="leadingMargin" constant="-16" id="lik-Hc-h7R"/>
+                            <constraint firstItem="EB4-1b-SwJ" firstAttribute="top" secondItem="NfO-gi-o3a" secondAttribute="bottom" id="t22-gf-npb"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dmV-hY-o4R"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -100,9 +132,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="MgW-P2-ace">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofj-iu-94i">
                                 <rect key="frame" x="16" y="617" width="46" height="30"/>
                                 <state key="normal" title="Today">
+                                    <color key="titleColor" red="1" green="0.95232317580000003" blue="0.82017691680000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -145,6 +181,8 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="oDe-Ys-x4p">
                                 <rect key="frame" x="16" y="390" width="343" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCellMonth" id="O58-rj-7vT">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
@@ -152,12 +190,14 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O58-rj-7vT" id="mX5-bY-9CU">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ryr-OA-gJK">
-                                <rect key="frame" x="16" y="18" width="46" height="30"/>
+                                <rect key="frame" x="16" y="20" width="46" height="30"/>
                                 <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -167,7 +207,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cz5-Ws-nwz">
                                 <rect key="frame" x="97" y="51" width="180" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yos-b0-XmC">
@@ -184,14 +224,39 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXm-mk-nlP">
                                 <rect key="frame" x="319" y="71" width="40" height="22"/>
                                 <state key="normal" title="Next">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.14899476449999999" green="1" blue="0.92316135740000005" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="toNextMonth:" destination="Bof-bE-Gy7" eventType="touchUpInside" id="Jic-6a-HJo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jf-7a-g4q">
+                                <rect key="frame" x="241" y="20" width="50" height="30"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchEvent:" destination="Bof-bE-Gy7" eventType="touchUpInside" id="VU8-7j-0rA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rG3-qa-sTz">
+                                <rect key="frame" x="313" y="20" width="46" height="30"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addNewEvent:" destination="Bof-bE-Gy7" eventType="touchUpInside" id="GtA-x3-dhg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MgW-P2-ace" firstAttribute="leading" secondItem="I9X-DM-z5I" secondAttribute="leadingMargin" constant="-16" id="Jvb-mB-M42"/>
+                            <constraint firstItem="MgW-P2-ace" firstAttribute="top" secondItem="SmF-Pb-agz" secondAttribute="bottom" constant="-20" id="RcP-Km-cdS"/>
+                            <constraint firstItem="KUJ-o4-k10" firstAttribute="top" secondItem="MgW-P2-ace" secondAttribute="bottom" id="bqR-fB-81w"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MgW-P2-ace" secondAttribute="trailing" constant="-16" id="cwM-Xk-mgm"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="86A-1Q-t8R"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -218,6 +283,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="fNt-HC-ViD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wKW-bQ-VOr">
                                 <rect key="frame" x="74" y="110" width="227" height="249"/>
                                 <subviews>
@@ -245,6 +313,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2mG-AM-zdl">
                                 <rect key="frame" x="15" y="383" width="343" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Acq-S9-ic2">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
@@ -252,26 +321,47 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Acq-S9-ic2" id="7Qr-aS-txX">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5S-At-HfY">
-                                <rect key="frame" x="30" y="623" width="46" height="30"/>
-                                <state key="normal" title="Today">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qaa-hO-1ve">
                                 <rect key="frame" x="16" y="20" width="100" height="30"/>
                                 <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="backToMonth:" destination="QHT-qe-HAW" eventType="touchUpInside" id="Raa-OT-xtu"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3h-wb-JP6">
+                                <rect key="frame" x="251" y="20" width="50" height="30"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchEvent:" destination="QHT-qe-HAW" eventType="touchUpInside" id="Jpb-tv-5D0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FvG-rv-f2s">
+                                <rect key="frame" x="312" y="20" width="46" height="30"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addNewEvent:" destination="QHT-qe-HAW" eventType="touchUpInside" id="eQv-Du-LsA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fNt-HC-ViD" firstAttribute="top" secondItem="Q2l-1Z-hNX" secondAttribute="bottom" constant="-20" id="5Ph-ER-rOr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fNt-HC-ViD" secondAttribute="trailing" constant="-16" id="jjm-UY-0z9"/>
+                            <constraint firstItem="g3k-jq-k07" firstAttribute="top" secondItem="fNt-HC-ViD" secondAttribute="bottom" id="lji-IY-stG"/>
+                            <constraint firstItem="fNt-HC-ViD" firstAttribute="leading" secondItem="ejQ-JG-ruV" secondAttribute="leadingMargin" constant="-16" id="xse-MS-YEG"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wCf-fz-7W3"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -287,4 +377,7 @@
             <point key="canvasLocation" x="295.5" y="80.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background" width="640" height="1096"/>
+    </resources>
 </document>

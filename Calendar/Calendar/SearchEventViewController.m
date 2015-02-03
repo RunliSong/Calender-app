@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *eventKeyword;
 @property (weak, nonatomic) IBOutlet UIDatePicker *fromDate;
 @property (weak, nonatomic) IBOutlet UIDatePicker *toDate;
+- (IBAction)backToPrevious:(id)sender;
 
 @end
 
@@ -60,4 +61,7 @@
 }
 */
 
+- (IBAction)backToPrevious:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

@@ -178,7 +178,7 @@
         <!--Search Event View Controller-->
         <scene sceneID="cpz-7J-iWM">
             <objects>
-                <viewController id="w1q-4k-TKr" customClass="SearchEventViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Search" id="w1q-4k-TKr" customClass="SearchEventViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zFU-wA-kCM"/>
                         <viewControllerLayoutGuide type="bottom" id="Nnn-nb-aJa"/>
@@ -210,6 +210,9 @@
                                 <state key="normal" title="&lt;&lt;Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="backToPrevious:" destination="w1q-4k-TKr" eventType="touchUpInside" id="DQx-Qc-YcK"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keyword:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pY6-td-G3L">
                                 <rect key="frame" x="16" y="58" width="86" height="21"/>
