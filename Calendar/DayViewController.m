@@ -10,6 +10,7 @@
 #import "Utilities.h"
 #import "Event.h"
 #import "ResultTableViewCell.h"
+#import "EditViewController.h"
 #import "SearchEventViewController.h"
 
 @interface DayViewController ()
@@ -127,5 +128,9 @@
 }
 
 - (IBAction)addNewEvent:(id)sender {
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Kris" bundle:nil];
+    EditViewController *sevc = [story instantiateViewControllerWithIdentifier:@"EventDetail"];
+    
+    [self presentViewController:sevc animated:YES completion:nil];
 }
 @end

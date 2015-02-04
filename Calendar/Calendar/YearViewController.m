@@ -11,6 +11,7 @@
 #import "DayViewController.h"
 #import "Utilities.h"
 #import "MonthViewController.h"
+#import "EditViewController.h"
 #import "SearchEventViewController.h"
 
 @interface YearViewController ()
@@ -91,6 +92,7 @@
     
     NSLog(@"%f", _yearCollection.frame.size.width);
     [[cell myMonthName]setText:[monthName objectAtIndex:indexPath.item]];
+
     [cell setBackgroundColor: [Utilities randomColor]];
     
     if (cell.selected == true) {
@@ -139,6 +141,11 @@
 }
 
 - (IBAction)addNewEvent:(id)sender {
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Kris" bundle:nil];
+    EditViewController *sevc = [story instantiateViewControllerWithIdentifier:@"EventDetail"];
+    
+    [self presentViewController:sevc animated:YES completion:nil];
+
 }
 // go to day view with system date.
 - (IBAction)goToday:(id)sender {
