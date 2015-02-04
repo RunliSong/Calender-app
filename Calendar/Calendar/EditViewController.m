@@ -122,7 +122,7 @@
     BOOL result = YES;
     NSDateFormatter *format1 = [[NSDateFormatter alloc] init];
     [format1 setDateFormat:@"dd-MM-yyyy hh:mm a"];
-        Event *newEvent = [[Event alloc] initWithTitle:_titleText.text description:_eventText.text localZoneName:nil localZoneID:nil localZoneUTC:nil localTime:[format1 dateFromString:_textFieldEnterDate.text] otherZoneName:nil otherZoneID:nil otherZoneUTC:nil otherZoneTime:[format1 dateFromString:_timeZoneText.text]];
+    Event *newEvent = [[Event alloc] initWithTitle:_titleText.text description:_eventText.text localZoneName:nil localZoneID:nil localZoneUTC:nil localTime:[format1 dateFromString:_textFieldEnterDate.text] otherZoneName:_labelText.text otherZoneID:nil otherZoneUTC:nil otherZoneTime: _destinationTime];
     [Utilities updateEvent:oldEvent withNewValue:newEvent];
     return result;
 }
