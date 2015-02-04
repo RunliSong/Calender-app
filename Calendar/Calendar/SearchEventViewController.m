@@ -9,6 +9,7 @@
 #import "SearchEventViewController.h"
 #import "SearchResultViewController.h"
 #import "Utilities.h"
+#import "EditViewController.h"
 
 @interface SearchEventViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *eventTitle;
@@ -63,6 +64,22 @@
         [alert show];
     }
 }
+
+- (IBAction)searchEvent:(UIButton *)sender {
+    UIStoryboard *krisStory = [UIStoryboard storyboardWithName:@"Kris" bundle:nil];
+    SearchEventViewController *sevc = [krisStory instantiateViewControllerWithIdentifier:@"Search"];
+    
+    [self presentViewController:sevc animated:YES completion:nil];
+}
+
+- (IBAction)addEvent:(UIButton *)sender {
+    UIStoryboard *rexStory = [UIStoryboard storyboardWithName:@"Rex" bundle:nil];
+    EditViewController *evc = [rexStory instantiateViewControllerWithIdentifier:@"rex.storyboard"];
+    evc.createOrUpdate = Create;
+    [self presentViewController:evc animated:YES completion:nil];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
