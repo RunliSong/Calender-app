@@ -13,6 +13,7 @@
 #import "Utilities.h"
 #import "EditViewController.h"
 #import "ResultTableViewCell.h"
+#import "EventDetailViewController.h"
 #import "SearchEventViewController.h"
 
 @interface MonthViewController ()
@@ -89,6 +90,7 @@
     
     // get all events in this month
     events = [Utilities getEventsBetweenDate:startDate andEndDate:endDate];
+    _eventTable.backgroundColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -194,16 +196,16 @@
     }
     return cell;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UIStoryboard *krisStoryboard = [UIStoryboard storyboardWithName:@"Kris" bundle:nil];
+    EventDetailViewController *edvc = (EventDetailViewController *)[krisStoryboard instantiateViewControllerWithIdentifier:@"EventDetail"];
+    edvc.event = [events objectAtIndex:indexPath.row];
+    [self presentViewController:edvc animated:YES completion:nil];
 }
-*/
+
+
+
 
 - (IBAction)backToYear:(id)sender {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"James" bundle:nil];
@@ -304,4 +306,13 @@
     [self presentViewController:mvc animated:NO completion:nil];
 
 }
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 @end

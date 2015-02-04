@@ -12,6 +12,7 @@
 #import "ResultTableViewCell.h"
 #import "EditViewController.h"
 #import "SearchEventViewController.h"
+#import "EventDetailViewController.h"
 
 @interface DayViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *myWeekDay;
@@ -62,6 +63,7 @@
     [formatter setDateFormat:@"yyyy-MM-dd"];
     NSDate *todayDate = [formatter dateFromString:todayString];
     events = [Utilities getEventsBetweenDate:todayDate andEndDate:todayDate];
+    _dayEventsTableView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,7 +89,7 @@
         cell.eventTitle.text = ((Event *)[events objectAtIndex:indexPath.row]).title;
         NSDate *localTime = ((Event *)[events objectAtIndex:indexPath.row]).localTime;
         NSDate *otherTime = ((Event *)[events objectAtIndex:indexPath.row]).otherTime;
-        
+        cell.backgroundColor = [UIColor clearColor];
         NSDateFormatter *formatter = [NSDateFormatter new];
         [formatter setDateFormat:@"yyyy-MMMM-dd hh:mm a"];
         cell.eventLocalTime.text = [formatter stringFromDate:localTime];
@@ -103,6 +105,13 @@
         
     }
     return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UIStoryboard *krisStoryboard = [UIStoryboard storyboardWithName:@"Kris" bundle:nil];
+    EventDetailViewController *edvc = (EventDetailViewController *)[krisStoryboard instantiateViewControllerWithIdentifier:@"EventDetail"];
+    edvc.event = [events objectAtIndex:indexPath.row];
+    [self presentViewController:edvc animated:YES completion:nil];
 }
 
 
