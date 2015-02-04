@@ -10,6 +10,7 @@
 #import "ACDViewController.h"
 #import "Utilities.h"
 #import "AppDelegate.h"
+#import "DayViewController.h"
 
 #define currentMonth [currentMonthString integerValue]
 
@@ -132,8 +133,11 @@
 - (IBAction)addOrUpdate:(UIButton *)sender {
     //Do the function of modifying the events
     switch (_createOrUpdate) {
-        case Create:
+        case Create: {
             [self createEvent];
+            UIStoryboard *story = [UIStoryboard storyboardWithName:@"James" bundle:nil];
+            DayViewController *dvc = [story instantiateViewControllerWithIdentifier:@"dayViewController"];
+        }
             break;
             
         case Update:
