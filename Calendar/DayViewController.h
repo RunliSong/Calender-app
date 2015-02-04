@@ -14,4 +14,5 @@
 @property (nonatomic) NSString *monthTitle;
 @property (nonatomic) NSInteger monthOfTheDay;
 @property (nonatomic) NSInteger yearOfTheDay;
+@property (nonatomic) NSDate *pickedDate;
 @end

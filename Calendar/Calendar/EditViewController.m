@@ -16,16 +16,16 @@
 
 
 @interface EditViewController ()
+
+
+@end
+
+@implementation EditViewController
 {
     NSDateFormatter *formatter;
     NSArray *arrayData;
     NSDateFormatter *dateFormatters;
 }
-
-@end
-
-@implementation EditViewController
-
 
 
 - (void)viewDidLoad {
@@ -53,10 +53,17 @@
     if (_createOrUpdate == Update) {
         
         //add previous elements
+        formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"dd-MM-yyyy hh:mm a"];
         Event *tempEvent = (Event *)_eventNeesToUpdate;
         _titleText.text = tempEvent.title;
         _eventText.text = tempEvent.desc;
-        _textFieldEnterDate.text =  [NSString stringWithFormat:@"%@",tempEvent.localTime];
+
+        _textFieldEnterDate.text =  [formatter stringFromDate:tempEvent.localTime];
+
+        NSLog(@"event date%@",[formatter stringFromDate:tempEvent.localTime]);
+        
+       
         if (tempEvent.otherName) {
             _labelText.text = tempEvent.otherName;
         }
@@ -137,11 +144,17 @@
             [self createEvent];
             UIStoryboard *story = [UIStoryboard storyboardWithName:@"James" bundle:nil];
             DayViewController *dvc = [story instantiateViewControllerWithIdentifier:@"dayViewController"];
+            NSDateFormatter *format = [[NSDateFormatter alloc] init];
+            [format setDateFormat:@"dd-MM-yyyy hh:mm a"];
+            dvc.pickedDate = [format dateFromString:_textFieldEnterDate.text] ;
+            NSLog(@"sadadasd %@", [format dateFromString:_textFieldEnterDate.text]);
+            [self presentViewController:dvc animated: YES completion:nil];
         }
             break;
             
         case Update:
             [self updateEvent:_eventNeesToUpdate];
+            [self dismissViewControllerAnimated:YES completion:Nil];
             break;
             
         default:
