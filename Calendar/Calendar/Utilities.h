@@ -9,10 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "Event.h"
 #import <CoreData/CoreData.h>
+#import <UIKit/UIKit.h>
 
 @interface Utilities : NSObject
 
++ (UIColor *)randomColor;
+
 - (NSArray *)getAllDaysOfMonth:(int) month inYear:(int)year;
+
 + (BOOL)addEvent: (Event *)event;
 + (NSArray *)getAllEvents; // will return an array of NSManagedObject, each item can be cast as Event
 + (BOOL)updateEvent: (NSManagedObject *)event withNewValue: (Event *)newValue;
