@@ -60,14 +60,11 @@
         _eventText.text = tempEvent.desc;
 
         _textFieldEnterDate.text =  [formatter stringFromDate:tempEvent.localTime];
-
-        NSLog(@"event date%@",[formatter stringFromDate:tempEvent.localTime]);
-        
        
         if (tempEvent.otherName) {
             _labelText.text = tempEvent.otherName;
         }
-        _timeZoneText.text =  [NSString stringWithFormat:@"%@",tempEvent.otherTime];
+        _timeZoneText.text =  [formatter stringFromDate:tempEvent.otherTime];
         
 
         [_updateButton setTitle:@"Update" forState:UIControlStateNormal];
@@ -130,7 +127,7 @@
     BOOL result = YES;
     NSDateFormatter *format1 = [[NSDateFormatter alloc] init];
     [format1 setDateFormat:@"dd-MM-yyyy hh:mm a"];
-    Event *newEvent = [[Event alloc] initWithTitle:_titleText.text description:_eventText.text localZoneName:nil localZoneID:nil localZoneUTC:nil localTime:[format1 dateFromString:_textFieldEnterDate.text] otherZoneName:_labelText.text otherZoneID:nil otherZoneUTC:nil otherZoneTime: _destinationTime];
+    Event *newEvent = [[Event alloc] initWithTitle:_titleText.text description:_eventText.text localZoneName:nil localZoneID:nil localZoneUTC:nil localTime:[format1 dateFromString:_textFieldEnterDate.text] otherZoneName:_labelText.text otherZoneID:nil otherZoneUTC:nil otherZoneTime: [format1 dateFromString:_timeZoneText.text]];
     [Utilities updateEvent:oldEvent withNewValue:newEvent];
     return result;
 }
