@@ -11,6 +11,7 @@
 #import "DaysInMonthCollectionViewCell.h"
 #import "YearViewController.h"
 #import "Utilities.h"
+#import "EditViewController.h"
 #import "ResultTableViewCell.h"
 #import "SearchEventViewController.h"
 
@@ -249,6 +250,10 @@
 
 }
 - (IBAction)addNewEvent:(id)sender {
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Rex" bundle:nil];
+    EditViewController *sevc = [story instantiateViewControllerWithIdentifier:@"rex.storyboard"];
+    
+    [self presentViewController:sevc animated:YES completion:nil];
 }
 
 - (IBAction)searchEvent:(id)sender {
