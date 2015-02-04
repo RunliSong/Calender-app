@@ -15,6 +15,7 @@
 #import "ResultTableViewCell.h"
 #import "EventDetailViewController.h"
 #import "SearchEventViewController.h"
+#import "EventTableInMonrhAndDayCell.h"
 
 @interface MonthViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *monthCollection;
@@ -53,6 +54,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // register nib
+    
     [_eventTable registerNib:[UINib nibWithNibName:@"ResultTableViewCell" bundle:nil] forCellReuseIdentifier:@"Result"];
     
     // Do any additional setup after loading the view.
@@ -73,10 +75,7 @@
     NSString *yt = [NSString stringWithFormat:@"<%li",(long)_year];
     [_backButton setTitle:yt forState:UIControlStateNormal];
     location = [NSLocale currentLocale];
-    [[self monthCollection]setDataSource:self];
-    [[self monthCollection]setDelegate:self];
-    [[self eventTable]setDataSource:self];
-    [[self eventTable]setDelegate:self];
+  
     
     // first date of the month
     NSString *startDateString = [NSString stringWithFormat:@"%i-%i-%i", (int)_year, (int)_month, 1];
@@ -91,7 +90,12 @@
     
     // get all events in this month
     events = [Utilities getEventsBetweenDate:startDate andEndDate:endDate];
+    
     _eventTable.backgroundColor = [UIColor clearColor];
+    [[self monthCollection]setDataSource:self];
+    [[self monthCollection]setDelegate:self];
+    [[self eventTable]setDataSource:self];
+    [[self eventTable]setDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -169,14 +173,17 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     //should be number of events;
-    
-    return [events count];
+    if(events.count != 0)
+        return [events count];
+    else
+        return 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    ResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Result" forIndexPath:indexPath];
-    NSLog(@"number of event in month%lu",(unsigned long)events.count);
-    if (events) {
+{    NSLog(@"number of event in month%lu",(unsigned long)events.count);
+    if (events.count != 0) {
+        
+        ResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Result" forIndexPath:indexPath];
+
         cell.backgroundColor = [UIColor clearColor];
         cell.eventTitle.text = ((Event *)[events objectAtIndex:indexPath.row]).title;
         NSDate *localTime = ((Event *)[events objectAtIndex:indexPath.row]).localTime;
@@ -195,16 +202,28 @@
             [cell.eventOtherTime setHidden:YES];
         }
         
-
+        return cell;
+  
     }
-    return cell;
+    else {
+        EventTableInMonrhAndDayCell *cell = [tableView dequeueReusableCellWithIdentifier:@"eventCellMonth" forIndexPath:indexPath];
+        
+        [[cell myMonthEvent]setText:[NSString stringWithFormat:@"No event has been store yet..." ]];
+        
+        return cell;
+    }
+    
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UIStoryboard *krisStoryboard = [UIStoryboard storyboardWithName:@"Kris" bundle:nil];
-    EventDetailViewController *edvc = (EventDetailViewController *)[krisStoryboard instantiateViewControllerWithIdentifier:@"EventDetail"];
-    edvc.event = [events objectAtIndex:indexPath.row];
-    [self presentViewController:edvc animated:YES completion:nil];
+    if (events.count != 0) {
+        UIStoryboard *krisStoryboard = [UIStoryboard storyboardWithName:@"Kris" bundle:nil];
+        EventDetailViewController *edvc = (EventDetailViewController *)[krisStoryboard instantiateViewControllerWithIdentifier:@"EventDetail"];
+        edvc.event = [events objectAtIndex:indexPath.row];
+        [self presentViewController:edvc animated:YES completion:nil];
+    }
+    
+    
 }
 
 

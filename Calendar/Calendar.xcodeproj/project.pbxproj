@@ -34,6 +34,7 @@
 		CE00F6FB1A7DFE4B00789F53 /* MonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE00F6FA1A7DFE4B00789F53 /* MonthViewController.m */; };
 		CE00F6FE1A7DFE5D00789F53 /* DayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE00F6FD1A7DFE5D00789F53 /* DayViewController.m */; };
 		CE00F7011A7E0C5600789F53 /* DaysInMonthCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE00F7001A7E0C5600789F53 /* DaysInMonthCollectionViewCell.m */; };
+		CE22F4DB1A824F9F0075CAEF /* EventTableInMonrhAndDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE22F4DA1A824F9F0075CAEF /* EventTableInMonrhAndDayCell.m */; };
 		CEF1B0FF1A78D0B800D89239 /* MonthInYearCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF1B0FC1A78D0B800D89239 /* MonthInYearCollectionViewCell.m */; };
 		CEF1B1001A78D0B800D89239 /* YearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF1B0FE1A78D0B800D89239 /* YearViewController.m */; };
 		CEF1B1021A78D0D700D89239 /* James.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF1B1011A78D0D700D89239 /* James.storyboard */; };
@@ -95,6 +96,8 @@
 		CE00F6FD1A7DFE5D00789F53 /* DayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DayViewController.m; path = ../DayViewController.m; sourceTree = "<group>"; };
 		CE00F6FF1A7E0C5600789F53 /* DaysInMonthCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DaysInMonthCollectionViewCell.h; sourceTree = "<group>"; };
 		CE00F7001A7E0C5600789F53 /* DaysInMonthCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DaysInMonthCollectionViewCell.m; sourceTree = "<group>"; };
+		CE22F4D91A824F9F0075CAEF /* EventTableInMonrhAndDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableInMonrhAndDayCell.h; sourceTree = "<group>"; };
+		CE22F4DA1A824F9F0075CAEF /* EventTableInMonrhAndDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableInMonrhAndDayCell.m; sourceTree = "<group>"; };
 		CEF1B0FB1A78D0B800D89239 /* MonthInYearCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthInYearCollectionViewCell.h; sourceTree = "<group>"; };
 		CEF1B0FC1A78D0B800D89239 /* MonthInYearCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthInYearCollectionViewCell.m; sourceTree = "<group>"; };
 		CEF1B0FD1A78D0B800D89239 /* YearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearViewController.h; sourceTree = "<group>"; };
@@ -207,6 +210,8 @@
 				CEF1B0FC1A78D0B800D89239 /* MonthInYearCollectionViewCell.m */,
 				CE00F6FF1A7E0C5600789F53 /* DaysInMonthCollectionViewCell.h */,
 				CE00F7001A7E0C5600789F53 /* DaysInMonthCollectionViewCell.m */,
+				CE22F4D91A824F9F0075CAEF /* EventTableInMonrhAndDayCell.h */,
+				CE22F4DA1A824F9F0075CAEF /* EventTableInMonrhAndDayCell.m */,
 				CEF1B0FD1A78D0B800D89239 /* YearViewController.h */,
 				CEF1B0FE1A78D0B800D89239 /* YearViewController.m */,
 				CE00F6F91A7DFE4B00789F53 /* MonthViewController.h */,
@@ -374,6 +379,7 @@
 				A96AFD951A6F9E1B00FBACA2 /* EditViewController.m in Sources */,
 				199F970C1A6C80F900543E69 /* main.m in Sources */,
 				CE00F7011A7E0C5600789F53 /* DaysInMonthCollectionViewCell.m in Sources */,
+				CE22F4DB1A824F9F0075CAEF /* EventTableInMonrhAndDayCell.m in Sources */,
 				19882E9C1A81C91C0031DC5B /* SearchResultViewController.m in Sources */,
 				A9D64F881A714AB000F735D4 /* ACDViewController.m in Sources */,
 				CE00F6FE1A7DFE5D00789F53 /* DayViewController.m in Sources */,

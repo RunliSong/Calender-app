@@ -13,6 +13,7 @@
 #import "EditViewController.h"
 #import "SearchEventViewController.h"
 #import "MonthViewController.h"
+#import "EventTableInMonrhAndDayCell.h"
 #import "EventDetailViewController.h"
 
 @interface DayViewController ()
@@ -43,8 +44,6 @@
 - (void)viewDidLoad {
     //register nib
     [_dayEventsTableView registerNib:[UINib nibWithNibName:@"ResultTableViewCell" bundle:nil] forCellReuseIdentifier:@"Result"];
-    _dayEventsTableView.delegate = self;
-    _dayEventsTableView.dataSource = self;
     weekdays = [[NSMutableArray alloc]init];
     
     [weekdays addObject:@"Sunday"];
@@ -98,6 +97,9 @@
     NSDate *todayDate = [formatter dateFromString:todayString];
     events = [Utilities getEventsBetweenDate:todayDate andEndDate:todayDate];
     _dayEventsTableView.backgroundColor = [UIColor clearColor];
+    _dayEventsTableView.delegate = self;
+    _dayEventsTableView.dataSource = self;
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -112,13 +114,18 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     //should be number of events;
+    if (events.count != 0) {
+        return [events count];
+    }
+    else
+        return 1;
     
-    return [events count];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Result" forIndexPath:indexPath];
-    if (events) {
+    
+    if (events.count != 0) {
+        ResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Result" forIndexPath:indexPath];
         cell.eventTitle.text = ((Event *)[events objectAtIndex:indexPath.row]).title;
         NSDate *localTime = ((Event *)[events objectAtIndex:indexPath.row]).localTime;
         NSDate *otherTime = ((Event *)[events objectAtIndex:indexPath.row]).otherTime;
@@ -134,10 +141,19 @@
         else {
             [cell.eventOtherTime setHidden:YES];
         }
-        
+        return cell;
+
         
     }
-    return cell;
+    else
+    {
+        EventTableInMonrhAndDayCell *cell = [tableView dequeueReusableCellWithIdentifier:@"eventCellDay" forIndexPath:indexPath];
+        
+        [[cell myDayEvent]setText:[NSString stringWithFormat:@"No event has been store yet..." ]];
+        
+        return cell;
+
+    }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
