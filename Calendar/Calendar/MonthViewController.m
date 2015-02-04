@@ -250,8 +250,8 @@
 
 }
 - (IBAction)addNewEvent:(id)sender {
-    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Kris" bundle:nil];
-    EditViewController *sevc = [story instantiateViewControllerWithIdentifier:@"EventDetail"];
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Rex" bundle:nil];
+    EditViewController *sevc = [story instantiateViewControllerWithIdentifier:@"rex.storyboard"];
     
     [self presentViewController:sevc animated:YES completion:nil];
 }
