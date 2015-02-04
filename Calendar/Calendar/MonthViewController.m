@@ -47,6 +47,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.monthCollection reloadData];
+    [self.eventTable reloadData];
 }
 
 - (void)viewDidLoad {
@@ -174,6 +175,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Result" forIndexPath:indexPath];
+    NSLog(@"number of event in month%lu",(unsigned long)events.count);
     if (events) {
         cell.backgroundColor = [UIColor clearColor];
         cell.eventTitle.text = ((Event *)[events objectAtIndex:indexPath.row]).title;
@@ -181,6 +183,7 @@
         NSDate *otherTime = ((Event *)[events objectAtIndex:indexPath.row]).otherTime;
         
         NSDateFormatter *formatter = [NSDateFormatter new];
+        formatter = [[NSDateFormatter alloc]init];
         [formatter setDateFormat:@"yyyy-MMMM-dd hh:mm a"];
         cell.eventLocalTime.text = [formatter stringFromDate:localTime];
         
