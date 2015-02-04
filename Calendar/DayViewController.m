@@ -32,6 +32,7 @@
     NSMutableArray *weekdays;
     NSArray *monthName;
     NSArray *events;
+    NSDateFormatter *datefor;
 }
 
 - (void)viewDidLoad {
@@ -48,6 +49,27 @@
     [weekdays addObject:@"Thursday"];
     [weekdays addObject:@"Friday"];
     monthName = [[NSArray alloc] initWithObjects:@"JANUARY",@"FEBRUARY",@"MARCH",@"APRIL",@"MAY",@"JUNE",@"JULY",@"AUGUST",@"SEPTEMBER",@"OCTOBER",@"NOVEMBER",@"DECEMBER", nil];
+    if (_pickedDate) {
+        [datefor setDateFormat:@"yyyy"];
+        NSString* years = [datefor stringFromDate:_pickedDate];
+        [datefor setDateFormat:@"M"];
+        NSString* months = [datefor stringFromDate:_pickedDate];
+        [datefor setDateFormat:@"dd"];
+        NSString* days = [datefor stringFromDate:_pickedDate];
+        
+        NSInteger nowyear = [years integerValue];
+        NSInteger nowMonth = [months integerValue];
+        NSInteger nowDay = [days integerValue];
+        
+        _monthTitle = monthName[nowMonth-1];
+        NSString *ms = [NSString stringWithFormat:@"<%li %@",(long)nowyear,_monthTitle];
+        [_backMonth setTitle:ms forState:UIControlStateNormal];
+        NSString *dates = [NSString stringWithFormat:@"%li",(long)nowDay];
+        NSString *weekdayt = weekdays[_weekdaytitle];
+        [self.myDate setText:dates];
+        [self.myWeekDay setText:weekdayt];
+    }
+    
     _monthTitle = monthName[_monthOfTheDay-1];
     NSString *ms = [NSString stringWithFormat:@"<%li %@",(long)_yearOfTheDay,_monthTitle];
     [_backMonth setTitle:ms forState:UIControlStateNormal];
