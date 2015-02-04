@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19384DB71A7C87E800906E8B /* SearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19384DB61A7C87E800906E8B /* SearchResultTableViewController.m */; };
 		19384DBA1A7C882E00906E8B /* ResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19384DB91A7C882E00906E8B /* ResultTableViewCell.m */; };
 		19384DBD1A7C898A00906E8B /* SearchEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19384DBC1A7C898A00906E8B /* SearchEventViewController.m */; };
 		19384DBF1A7C8A9F00906E8B /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19384DBE1A7C8A9F00906E8B /* ResultTableViewCell.xib */; };
+		19882E9C1A81C91C0031DC5B /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19882E9B1A81C91C0031DC5B /* SearchResultViewController.m */; };
 		1998576C1A7DEE6400BBE464 /* Kris.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1998576B1A7DEE6400BBE464 /* Kris.storyboard */; };
 		199F970C1A6C80F900543E69 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F970B1A6C80F900543E69 /* main.m */; };
 		199F970F1A6C80F900543E69 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 199F970E1A6C80F900543E69 /* AppDelegate.m */; };
@@ -50,13 +50,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		19384DB51A7C87E800906E8B /* SearchResultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultTableViewController.h; sourceTree = "<group>"; };
-		19384DB61A7C87E800906E8B /* SearchResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultTableViewController.m; sourceTree = "<group>"; };
 		19384DB81A7C882E00906E8B /* ResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultTableViewCell.h; sourceTree = "<group>"; };
 		19384DB91A7C882E00906E8B /* ResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultTableViewCell.m; sourceTree = "<group>"; };
 		19384DBB1A7C898A00906E8B /* SearchEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchEventViewController.h; sourceTree = "<group>"; };
 		19384DBC1A7C898A00906E8B /* SearchEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchEventViewController.m; sourceTree = "<group>"; };
 		19384DBE1A7C8A9F00906E8B /* ResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
+		19882E9A1A81C91C0031DC5B /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
+		19882E9B1A81C91C0031DC5B /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
 		1998576B1A7DEE6400BBE464 /* Kris.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Kris.storyboard; sourceTree = "<group>"; };
 		199F97061A6C80F900543E69 /* Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		199F970A1A6C80F900543E69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -221,10 +221,10 @@
 				A9D64F871A714AB000F735D4 /* ACDViewController.m */,
 				19C3D2261A7A065D00E6DD2B /* EventDetailViewController.h */,
 				19C3D2271A7A065D00E6DD2B /* EventDetailViewController.m */,
-				19384DB51A7C87E800906E8B /* SearchResultTableViewController.h */,
-				19384DB61A7C87E800906E8B /* SearchResultTableViewController.m */,
 				19384DBB1A7C898A00906E8B /* SearchEventViewController.h */,
 				19384DBC1A7C898A00906E8B /* SearchEventViewController.m */,
+				19882E9A1A81C91C0031DC5B /* SearchResultViewController.h */,
+				19882E9B1A81C91C0031DC5B /* SearchResultViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -364,7 +364,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19384DB71A7C87E800906E8B /* SearchResultTableViewController.m in Sources */,
 				CE00F6FB1A7DFE4B00789F53 /* MonthViewController.m in Sources */,
 				199F970F1A6C80F900543E69 /* AppDelegate.m in Sources */,
 				CEF1B1001A78D0B800D89239 /* YearViewController.m in Sources */,
@@ -375,6 +374,7 @@
 				A96AFD951A6F9E1B00FBACA2 /* EditViewController.m in Sources */,
 				199F970C1A6C80F900543E69 /* main.m in Sources */,
 				CE00F7011A7E0C5600789F53 /* DaysInMonthCollectionViewCell.m in Sources */,
+				19882E9C1A81C91C0031DC5B /* SearchResultViewController.m in Sources */,
 				A9D64F881A714AB000F735D4 /* ACDViewController.m in Sources */,
 				CE00F6FE1A7DFE5D00789F53 /* DayViewController.m in Sources */,
 				19C3D2281A7A065D00E6DD2B /* EventDetailViewController.m in Sources */,

@@ -1,51 +1,38 @@
 //
-//  SearchResultTableViewController.m
+//  SearchResultViewController.m
 //  Calendar
 //
-//  Created by Peng Gao on 31/01/2015.
+//  Created by Peng Gao on 4/02/2015.
 //  Copyright (c) 2015 Deakin University. All rights reserved.
 //
 
-#import "SearchResultTableViewController.h"
+#import "SearchResultViewController.h"
 #import "ResultTableViewCell.h"
 #import "Utilities.h"
 #import "EventDetailViewController.h"
 
-@interface SearchResultTableViewController ()
-{
-    UIView *footerView;
-}
+@interface SearchResultViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @end
 
-@implementation SearchResultTableViewController
+@implementation SearchResultViewController
 
-
--(BOOL)prefersStatusBarHidden {
-    return YES;
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    _tableView.backgroundColor = [UIColor clearColor];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background"]];
-    
-    [tempImageView setFrame:self.tableView.frame];
-    
-    self.tableView.backgroundView = tempImageView;
+    [self.tableView setDelegate: self];
+    [self.tableView setDataSource: self];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ResultTableViewCell" bundle:nil] forCellReuseIdentifier:@"Result"];
+    
     //_events = [Utilities getAllEvents];
     [self.tableView reloadData];
-}
-
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,20 +40,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+    
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    // Return the number of rows in the section.
     return [_events count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Result" forIndexPath:indexPath];
@@ -109,60 +91,10 @@
     [self presentViewController:edvc animated:YES completion:nil];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 50;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    footerView = [[UIView alloc] init];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button setBackgroundColor:[UIColor clearColor]];
-    [button setFrame:CGRectMake(5, 3, self.tableView.frame.size.width - 10,44)];
-    
-    [button setTitle:@"<<Back" forState:UIControlStateNormal];
-    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    [button addTarget:self action:@selector(backToPrevious) forControlEvents:UIControlEventTouchUpInside];
-    [footerView addSubview:button];
-    return footerView;
-}
-
 - (void) backToPrevious {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation

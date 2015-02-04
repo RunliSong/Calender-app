@@ -7,7 +7,7 @@
 //
 
 #import "SearchEventViewController.h"
-#import "SearchResultTableViewController.h"
+#import "SearchResultViewController.h"
 #import "Utilities.h"
 
 @interface SearchEventViewController ()
@@ -53,7 +53,8 @@
 - (IBAction)search:(id)sender {
     NSArray *result = [Utilities getEventsWithTitle:_eventTitle.text description:_eventKeyword.text startDate:_fromDate.date andEndDate:_toDate.date];
     if ([result count]) {
-        SearchResultTableViewController *svc = [[SearchResultTableViewController alloc] init];
+        UIStoryboard *krisStory = [UIStoryboard storyboardWithName:@"Kris" bundle:nil];
+        SearchResultViewController *svc = [krisStory instantiateViewControllerWithIdentifier:@"searchR"];
         svc.events = result;
         [self presentViewController:svc animated:YES completion:nil];
 

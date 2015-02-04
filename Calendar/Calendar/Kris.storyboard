@@ -102,15 +102,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GjK-2X-Iuf">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GjK-2X-Iuf">
                                 <rect key="frame" x="327" y="11" width="32" height="32"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" image="plus">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZlM-jz-dxh">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZlM-jz-dxh">
                                 <rect key="frame" x="287" y="11" width="32" height="32"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" image="search">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -140,48 +140,47 @@
             </objects>
             <point key="canvasLocation" x="65.5" y="294.5"/>
         </scene>
-        <!--Result-->
-        <scene sceneID="qrV-04-ezT">
+        <!--Search Result View Controller-->
+        <scene sceneID="zuw-tz-ZIz">
             <objects>
-                <viewController title="Result" id="FpQ-6A-P74" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="searchR" id="JQ6-8S-RLh" customClass="SearchResultViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="T8r-nn-5LD"/>
-                        <viewControllerLayoutGuide type="bottom" id="iAe-Z7-gdS"/>
+                        <viewControllerLayoutGuide type="top" id="6GK-sa-Uux"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bhg-y1-5GQ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="SiK-TC-4Zy">
+                    <view key="view" contentMode="scaleToFill" id="yN8-LP-mLR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="l21-Tz-MOB">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="zgH-Pz-i1w">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ll-0O-lm9">
-                                <rect key="frame" x="327" y="8" width="32" height="32"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRh-ku-MJP">
-                                <rect key="frame" x="287" y="8" width="32" height="32"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="e29-jP-iO4">
+                                <rect key="frame" x="0.0" y="54" width="375" height="567"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="JQ6-8S-RLh" id="lw5-Sl-Dc3"/>
+                                    <outlet property="delegate" destination="JQ6-8S-RLh" id="CMk-fG-mpE"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZW-ki-dyv">
+                                <rect key="frame" x="16" y="629" width="46" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="l21-Tz-MOB" firstAttribute="top" secondItem="T8r-nn-5LD" secondAttribute="bottom" constant="-20" id="OHS-wb-tkA"/>
-                            <constraint firstItem="l21-Tz-MOB" firstAttribute="leading" secondItem="SiK-TC-4Zy" secondAttribute="leadingMargin" constant="-16" id="fJ9-Ef-v4w"/>
-                            <constraint firstItem="iAe-Z7-gdS" firstAttribute="top" secondItem="l21-Tz-MOB" secondAttribute="bottom" id="qoA-MV-zD7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="l21-Tz-MOB" secondAttribute="trailing" constant="-16" id="uWR-dA-HvK"/>
-                        </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="e29-jP-iO4" id="ErU-tv-ths"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YEx-hw-7d0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="phd-TV-yfx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="595.5" y="-451.5"/>
+            <point key="canvasLocation" x="470.5" y="-433.5"/>
         </scene>
         <!--Search Event View Controller-->
         <scene sceneID="cpz-7J-iWM">
@@ -198,14 +197,55 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="vnL-I0-mLp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWr-Ju-Ufj">
-                                <rect key="frame" x="0.0" y="50" width="375" height="571"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cY2-VY-W0y">
+                                <rect key="frame" x="302" y="629" width="57" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57" id="frf-vI-igY"/>
+                                </constraints>
+                                <state key="normal" title="Search">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="search:" destination="w1q-4k-TKr" eventType="touchUpInside" id="BzW-XO-ART"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0s-Lz-J4R">
+                                <rect key="frame" x="16" y="629" width="65" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="AcB-74-wbG"/>
+                                </constraints>
+                                <state key="normal" title="&lt;&lt;Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToPrevious:" destination="w1q-4k-TKr" eventType="touchUpInside" id="DQx-Qc-YcK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5e-cP-QG7">
+                                <rect key="frame" x="327" y="20" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="Fav-aV-IXj"/>
+                                    <constraint firstAttribute="height" constant="32" id="egB-QW-4yP"/>
+                                </constraints>
+                                <state key="normal" image="plus">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2G-Oc-baF">
+                                <rect key="frame" x="287" y="20" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="UN5-Qu-oKo"/>
+                                    <constraint firstAttribute="height" constant="32" id="v4r-24-Prq"/>
+                                </constraints>
+                                <state key="normal" image="search">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWr-Ju-Ufj">
+                                <rect key="frame" x="0.0" y="60" width="375" height="571"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hr7-nO-SBe">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hr7-nO-SBe">
                                         <rect key="frame" x="8" y="8" width="86" height="20.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="86" id="dTG-Fa-N9C"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -245,66 +285,27 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Yf-iA-DK3">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Yf-iA-DK3">
                                         <rect key="frame" x="95" y="4" width="272" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="hr7-nO-SBe" firstAttribute="leading" secondItem="iWr-Ju-Ufj" secondAttribute="leading" constant="8" id="91e-IM-QnL"/>
-                                    <constraint firstItem="0Yf-iA-DK3" firstAttribute="leading" secondItem="hr7-nO-SBe" secondAttribute="trailing" constant="1" id="9yf-O4-w1X"/>
-                                    <constraint firstAttribute="trailing" secondItem="0Yf-iA-DK3" secondAttribute="trailing" constant="8" id="A8K-XF-GqD"/>
-                                    <constraint firstItem="hr7-nO-SBe" firstAttribute="top" secondItem="iWr-Ju-Ufj" secondAttribute="top" constant="8" id="enM-mM-qPu"/>
-                                    <constraint firstItem="0Yf-iA-DK3" firstAttribute="top" secondItem="iWr-Ju-Ufj" secondAttribute="top" constant="4" id="zdH-z7-zLg"/>
-                                </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cY2-VY-W0y">
-                                <rect key="frame" x="302" y="629" width="57" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="57" id="frf-vI-igY"/>
-                                </constraints>
-                                <state key="normal" title="Search">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="search:" destination="w1q-4k-TKr" eventType="touchUpInside" id="BzW-XO-ART"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0s-Lz-J4R">
-                                <rect key="frame" x="16" y="629" width="65" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="65" id="AcB-74-wbG"/>
-                                </constraints>
-                                <state key="normal" title="&lt;&lt;Back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="backToPrevious:" destination="w1q-4k-TKr" eventType="touchUpInside" id="DQx-Qc-YcK"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5e-cP-QG7">
-                                <rect key="frame" x="327" y="8" width="32" height="32"/>
-                                <state key="normal" image="plus">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2G-Oc-baF">
-                                <rect key="frame" x="287" y="8" width="32" height="32"/>
-                                <state key="normal" image="search">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="t0s-Lz-J4R" firstAttribute="leading" secondItem="VZm-yn-poc" secondAttribute="leadingMargin" id="0SO-cb-X9m"/>
-                            <constraint firstItem="iWr-Ju-Ufj" firstAttribute="leading" secondItem="VZm-yn-poc" secondAttribute="leadingMargin" constant="-16" id="FOk-eu-ems"/>
-                            <constraint firstItem="Nnn-nb-aJa" firstAttribute="top" secondItem="iWr-Ju-Ufj" secondAttribute="bottom" constant="46" id="PC6-lF-RC5"/>
+                            <constraint firstItem="iWr-Ju-Ufj" firstAttribute="leading" secondItem="VZm-yn-poc" secondAttribute="leadingMargin" constant="-16" id="EO6-43-XSo"/>
+                            <constraint firstItem="iWr-Ju-Ufj" firstAttribute="top" secondItem="L2G-Oc-baF" secondAttribute="bottom" constant="8" id="IHe-w5-b0o"/>
+                            <constraint firstItem="L2G-Oc-baF" firstAttribute="top" secondItem="zFU-wA-kCM" secondAttribute="bottom" constant="20" id="ITe-1Z-8zo"/>
+                            <constraint firstItem="N5e-cP-QG7" firstAttribute="leading" secondItem="L2G-Oc-baF" secondAttribute="trailing" constant="8" id="SEe-aH-7Hl"/>
                             <constraint firstItem="Nnn-nb-aJa" firstAttribute="top" secondItem="t0s-Lz-J4R" secondAttribute="bottom" constant="8" id="UMe-ud-5M0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="iWr-Ju-Ufj" secondAttribute="trailing" constant="-16" id="gTg-ba-Yn6"/>
-                            <constraint firstItem="iWr-Ju-Ufj" firstAttribute="top" secondItem="zFU-wA-kCM" secondAttribute="bottom" constant="50" id="hP4-R6-l7t"/>
+                            <constraint firstItem="N5e-cP-QG7" firstAttribute="trailing" secondItem="VZm-yn-poc" secondAttribute="trailingMargin" id="WlC-3X-4dB"/>
+                            <constraint firstItem="Nnn-nb-aJa" firstAttribute="top" secondItem="iWr-Ju-Ufj" secondAttribute="bottom" constant="36" id="lho-F4-XnR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iWr-Ju-Ufj" secondAttribute="trailing" constant="-16" id="loY-zk-WGI"/>
                             <constraint firstItem="cY2-VY-W0y" firstAttribute="trailing" secondItem="VZm-yn-poc" secondAttribute="trailingMargin" id="old-qc-u2l"/>
+                            <constraint firstItem="N5e-cP-QG7" firstAttribute="top" secondItem="zFU-wA-kCM" secondAttribute="bottom" constant="20" id="v0h-bn-XBT"/>
                             <constraint firstItem="Nnn-nb-aJa" firstAttribute="top" secondItem="cY2-VY-W0y" secondAttribute="bottom" constant="8" id="vzZ-Uk-S3Q"/>
                         </constraints>
                     </view>
@@ -321,38 +322,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UqX-pO-awL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="595.5" y="294.5"/>
-        </scene>
-        <!--Search Result Table View Controller-->
-        <scene sceneID="Ox1-Da-cm2">
-            <objects>
-                <tableViewController id="veh-C5-paW" customClass="SearchResultTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="C2r-Nk-p9q">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Result" rowHeight="150" id="30Y-z9-2P0" customClass="ResultTableViewCell">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="30Y-z9-2P0" id="zvw-MY-3ad">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="veh-C5-paW" id="zES-Ch-gYZ"/>
-                            <outlet property="delegate" destination="veh-C5-paW" id="20O-Rt-rfq"/>
-                        </connections>
-                    </tableView>
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nMM-IC-Sk6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1034.5" y="294.5"/>
         </scene>
     </scenes>
     <resources>
