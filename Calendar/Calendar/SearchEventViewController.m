@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *eventKeyword;
 @property (weak, nonatomic) IBOutlet UIDatePicker *fromDate;
 @property (weak, nonatomic) IBOutlet UIDatePicker *toDate;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 - (IBAction)backToPrevious:(id)sender;
 
 @end
@@ -30,9 +31,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // add gesture for recognizer for the text field
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
     
+    [self.view addGestureRecognizer:tap];
     // Do any additional setup after loading the view.
 }
+
+// dismiss keyboard when touches outside
+//-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+//    [self.view endEditing:YES];
+//}
+
+-(void)dismissKeyboard {
+    [_eventTitle resignFirstResponder];
+    [_eventKeyword resignFirstResponder];
+}
+
 - (IBAction)search:(id)sender {
     NSArray *result = [Utilities getEventsWithTitle:_eventTitle.text description:_eventKeyword.text startDate:_fromDate.date andEndDate:_toDate.date];
     if ([result count]) {
