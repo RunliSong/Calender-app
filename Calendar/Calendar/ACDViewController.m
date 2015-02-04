@@ -248,4 +248,27 @@
     NSLog(@"%@ - Suggestion chosen: %ld", completer, (long)index);
 }
 
+- (IBAction)goBack:(id)sender {
+    
+    EditViewController *scv = [[EditViewController alloc]init];
+    if([self getTheSame] != nil) {
+    scv.location = _textField.text;
+    scv.startTimeText = _startTime;
+    scv.destinationTime = destinationDate;
+    scv.titleStr = _titleText;
+    scv.eventStr = _detailText;
+    }
+    else {
+        scv.location = nil;
+        
+        scv.startTimeText = _startTime;
+        scv.destinationTime = destinationDate;
+        scv.titleStr = _titleText;
+        scv.eventStr = _detailText;
+
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+ 
+}
 @end

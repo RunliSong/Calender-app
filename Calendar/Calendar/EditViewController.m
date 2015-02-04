@@ -63,8 +63,13 @@
        
         if (tempEvent.otherName) {
             _labelText.text = tempEvent.otherName;
+            _timeZoneText.text =  [formatter stringFromDate:tempEvent.otherTime];
         }
-        _timeZoneText.text =  [formatter stringFromDate:tempEvent.otherTime];
+        else
+        {
+            _labelText.text = nil;
+        }
+       
         
 
         [_updateButton setTitle:@"Update" forState:UIControlStateNormal];
@@ -132,13 +137,32 @@
     return result;
 }
 
+- (BOOL)validateForEidting:(NSString *)titleString withDateFormat:(NSString *)locateDate {
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy hh:mm a"];
+    NSDate *dateFromString = [[NSDate alloc] init];
+    
+    dateFromString = [dateFormatter dateFromString:locateDate];
+    
+    if (titleString != nil && dateFromString != nil) {
+        return TRUE;
+    }
+    
+    return FALSE;
+    
+}
+
 #pragma mark - triger to tell the action
 
 - (IBAction)addOrUpdate:(UIButton *)sender {
     //Do the function of modifying the events
     switch (_createOrUpdate) {
         case Create: {
-            [self createEvent];
+            if ([self validateForEidting: _titleText.text withDateFormat: _textFieldEnterDate.text])
+            {
+                [self createEvent];
+            
             UIStoryboard *story = [UIStoryboard storyboardWithName:@"James" bundle:nil];
             DayViewController *dvc = [story instantiateViewControllerWithIdentifier:@"dayViewController"];
             NSDateFormatter *format = [[NSDateFormatter alloc] init];
@@ -146,12 +170,25 @@
             dvc.pickedDate = [format dateFromString:_textFieldEnterDate.text] ;
             NSLog(@"sadadasd %@", [format dateFromString:_textFieldEnterDate.text]);
             [self presentViewController:dvc animated: YES completion:nil];
+            }
+            else {
+                UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:@"Please add an event title and keep the date format correct." message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: @"Cancel", nil];
+                [alertView show];
+            }
+            
         }
             break;
             
         case Update:
+            if ([self validateForEidting: _titleText.text withDateFormat: _textFieldEnterDate.text])
+            {
             [self updateEvent:_eventNeesToUpdate];
             [self dismissViewControllerAnimated:YES completion:Nil];
+            }
+            else {
+                UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:@"Please add an event title and keep the date format correct." message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: @"Cancel", nil];
+                [alertView show];
+            }
             break;
             
         default:
@@ -222,8 +259,10 @@
 - (void) dateUpdated:(UIDatePicker *)datePicker {
     
     self.textFieldEnterDate.text = [formatter stringFromDate:self.datePicker.date];
+    NSLog(@"location: %@",self.labelText.text);
     
-    if(self.labelText.text != nil) {
+    if(self.labelText.text != nil )
+    {
         
         //recall the method getTheSame
         NSString* timezone = [self getTheSame];

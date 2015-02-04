@@ -10,6 +10,7 @@
 #import "Event.h"
 #import "EditViewController.h"
 #import "Utilities.h"
+#import "DayViewController.h"
 
 @interface EventDetailViewController ()<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *eventTitle;
@@ -66,7 +67,12 @@
 
 
 - (IBAction)backToPrevious:(UIButton *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"James" bundle:nil];
+    DayViewController *dvc = [story instantiateViewControllerWithIdentifier:@"dayViewController"];
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"dd-MM-yyyy hh:mm a"];
+    dvc.pickedDate = ((Event *)_event).localTime;
+    [self presentViewController:dvc animated: YES completion:nil];
     
     // back to year view
 }

@@ -16,5 +16,6 @@
 @property (strong, nonatomic) NSString* dateStr;
 @property (strong, nonatomic) NSString* titleText;
 @property (strong, nonatomic) NSString* detailText;
+- (IBAction)goBack:(id)sender;
 
 @end
