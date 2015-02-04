@@ -86,7 +86,8 @@
     self.timeZoneText.text = _destinationTimeText;
     self.timeZoneText.text = [formatter stringFromDate:_destinationTime];
     self.timeZoneText.textColor = [UIColor blackColor];
-    
+        
+        
     }
     
 
@@ -314,4 +315,15 @@
 
 
 
+- (IBAction)goSearch:(id)sender {
+    self.timeZoneText.text = [formatter stringFromDate:_destinationTime];
+    self.labelText.text = _location;
+    [self.titleText reloadInputViews];
+    [self.eventText reloadInputViews];
+    [self.textFieldEnterDate reloadInputViews];
+    [self.labelText reloadInputViews];
+    
+    
+    
+}
 @end

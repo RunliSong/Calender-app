@@ -133,6 +133,9 @@
                                 <state key="normal" image="search">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="goSearch:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="CE6-eT-L0t"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIE-r2-0aK">
                                 <rect key="frame" x="16" y="111" width="44" height="21"/>
@@ -255,9 +258,9 @@
                                     <action selector="goSearched:" destination="Qha-pp-sdZ" eventType="touchUpInside" id="v0a-XJ-EIS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25g-HA-bHU">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25g-HA-bHU">
                                 <rect key="frame" x="16" y="629" width="35" height="30"/>
-                                <state key="normal" title="Back">
+                                <state key="normal" title="OK">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -265,12 +268,21 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pi-eM-xpD">
-                                <rect key="frame" x="244" y="629" width="115" height="30"/>
+                                <rect key="frame" x="130" y="629" width="115" height="30"/>
                                 <state key="normal" title="Current Location">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="oomToCurrentLocation:" destination="Qha-pp-sdZ" eventType="touchUpInside" id="sNb-5d-rU1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eav-i3-l5X">
+                                <rect key="frame" x="310" y="629" width="49" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="Qha-pp-sdZ" eventType="touchUpInside" id="ixl-k8-5No"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -280,13 +292,16 @@
                             <constraint firstItem="E5U-UW-3cq" firstAttribute="top" secondItem="vZT-h1-fJt" secondAttribute="bottom" id="2Il-co-ycI"/>
                             <constraint firstItem="vZT-h1-fJt" firstAttribute="top" secondItem="3ss-PD-fVv" secondAttribute="bottom" constant="-20" id="KNj-F8-NxK"/>
                             <constraint firstItem="tqK-vm-j6G" firstAttribute="top" secondItem="3ss-PD-fVv" secondAttribute="bottom" constant="8" id="MYL-Gq-Xwi"/>
+                            <constraint firstItem="E5U-UW-3cq" firstAttribute="top" secondItem="eav-i3-l5X" secondAttribute="bottom" constant="8" id="PmN-zJ-oTs"/>
                             <constraint firstItem="25g-HA-bHU" firstAttribute="leading" secondItem="CAI-l4-O2A" secondAttribute="leadingMargin" id="TKf-7G-n9i"/>
+                            <constraint firstAttribute="centerX" secondItem="2pi-eM-xpD" secondAttribute="centerX" id="U1x-SI-YoQ"/>
                             <constraint firstItem="E5U-UW-3cq" firstAttribute="top" secondItem="25g-HA-bHU" secondAttribute="bottom" constant="8" id="WAn-g0-tGR"/>
+                            <constraint firstItem="eav-i3-l5X" firstAttribute="trailing" secondItem="CAI-l4-O2A" secondAttribute="trailingMargin" id="aG6-7i-jww"/>
                             <constraint firstItem="tqK-vm-j6G" firstAttribute="leading" secondItem="tJt-0K-ezo" secondAttribute="trailing" constant="8" id="act-IG-J8V"/>
                             <constraint firstItem="tJt-0K-ezo" firstAttribute="top" secondItem="3ss-PD-fVv" secondAttribute="bottom" constant="8" id="ajp-qG-gtU"/>
+                            <constraint firstItem="E5U-UW-3cq" firstAttribute="top" secondItem="2pi-eM-xpD" secondAttribute="bottom" constant="8" id="eMA-rp-2EL"/>
                             <constraint firstItem="tJt-0K-ezo" firstAttribute="leading" secondItem="CAI-l4-O2A" secondAttribute="leadingMargin" id="jHF-yq-dBQ"/>
                             <constraint firstItem="E5U-UW-3cq" firstAttribute="top" secondItem="2pi-eM-xpD" secondAttribute="bottom" constant="8" id="lSr-pU-xZr"/>
-                            <constraint firstItem="2pi-eM-xpD" firstAttribute="trailing" secondItem="CAI-l4-O2A" secondAttribute="trailingMargin" id="vVb-PW-oio"/>
                             <constraint firstItem="vZT-h1-fJt" firstAttribute="leading" secondItem="CAI-l4-O2A" secondAttribute="leadingMargin" constant="-16" id="weX-Ll-XHx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tqK-vm-j6G" secondAttribute="trailing" constant="17" id="xLQ-mn-c9z"/>
                         </constraints>
@@ -300,7 +315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vN-hh-aKH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-201.5" y="127.5"/>
+            <point key="canvasLocation" x="-266.5" y="249.5"/>
         </scene>
     </scenes>
     <resources>

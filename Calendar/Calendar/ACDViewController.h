@@ -17,5 +17,6 @@
 @property (strong, nonatomic) NSString* titleText;
 @property (strong, nonatomic) NSString* detailText;
 - (IBAction)goBack:(id)sender;
+- (IBAction)cancelButton:(id)sender;
 
 @end

@@ -42,6 +42,7 @@ typedef NS_ENUM(NSInteger, CreateOrUpdate) {
 
 @property (strong, nonatomic) IBOutlet UIButton *updateButton;
 @property (strong, nonatomic) IBOutlet UIButton *cancelButton;
+- (IBAction)goSearch:(id)sender;
 
 
 @end

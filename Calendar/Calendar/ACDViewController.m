@@ -249,26 +249,31 @@
 }
 
 - (IBAction)goBack:(id)sender {
-    
-    EditViewController *scv = [[EditViewController alloc]init];
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Rex" bundle:nil];
+    EditViewController *scv = [story instantiateViewControllerWithIdentifier:@"rex.storyboard"];
     if([self getTheSame] != nil) {
     scv.location = _textField.text;
     scv.startTimeText = _startTime;
     scv.destinationTime = destinationDate;
     scv.titleStr = _titleText;
     scv.eventStr = _detailText;
+        
+        [self presentViewController:scv animated:YES completion:nil];
     }
     else {
         scv.location = nil;
-        
         scv.startTimeText = _startTime;
-        scv.destinationTime = destinationDate;
+        scv.destinationTime = nil;
         scv.titleStr = _titleText;
         scv.eventStr = _detailText;
-
+        
+        [self presentViewController:scv animated:YES completion:nil];
     }
-    [self dismissViewControllerAnimated:YES completion:nil];
 
  
+}
+
+- (IBAction)cancelButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end
