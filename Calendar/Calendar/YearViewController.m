@@ -2,8 +2,8 @@
 //  YearViewController.m
 //  Calendar
 //
-//  Created by RunliSong on 15/1/28.
-//  Copyright (c) 2015年 Deakin University. All rights reserved.
+//  Created by RunliSong on 01/02/2015.
+//  Copyright (c) 2015 Deakin University. All rights reserved.
 //
 
 #import "YearViewController.h"
@@ -41,8 +41,8 @@
     
     arrayOfMonths = [[NSMutableArray alloc] init];
     monthName = [[NSArray alloc] initWithObjects:@"JANUARY",@"FEBRUARY",@"MARCH",@"APRIL",@"MAY",@"JUNE",@"JULY",@"AUGUST",@"SEPTEMBER",@"OCTOBER",@"NOVEMBER",@"DECEMBER", nil];
+    //get system date for today
     location = [NSLocale currentLocale];
-    
     dateInformation = [[NSDateFormatter alloc]init];
     [dateInformation setDateFormat:@"yyyy"];
     NSDate *sysdate = [NSDate date];
@@ -77,7 +77,6 @@
     return 12;
     
 }
-
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     // NSLog(@"%i", indexPath.item);
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"James" bundle:nil];
@@ -86,7 +85,6 @@
     mvc.month = indexPath.item + 1;
     [self presentViewController:mvc animated:YES completion:nil];
 }
-
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *Cellidentifer = @"Month";
     MonthInYearCollectionViewCell *cell =[collectionView dequeueReusableCellWithReuseIdentifier:Cellidentifer forIndexPath:indexPath];
@@ -97,7 +95,8 @@
     }
     return cell;
 }
-
+//end of collection methods
+//segmented control to change years
 - (IBAction)changeYear:(id)sender {
     ((UISegmentedControl *)sender).momentary = YES;
     switch (((UISegmentedControl *)sender).selectedSegmentIndex) {
@@ -116,6 +115,7 @@
     }
 
 }
+//connect search event view contorller
 - (IBAction)searchEvent:(id)sender {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Kris" bundle:nil];
     SearchEventViewController *sevc = [story instantiateViewControllerWithIdentifier:@"Search"];
@@ -125,25 +125,29 @@
 
 - (IBAction)addNewEvent:(id)sender {
 }
-
+// go to day view with system date.
 - (IBAction)goToday:(id)sender {
+    
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"James" bundle:nil];
     DayViewController *dvc = [story instantiateViewControllerWithIdentifier:@"dayViewController"];
-
+    //get year from system date and store in an avariable
     [dateInformation setDateFormat:@"yyyy"];
     NSDate *sysdate = [NSDate date];
     years = [dateInformation stringFromDate:sysdate];
+    //get month from system date and store in an avariable
     [dateInformation setDateFormat:@"M"];
     months = [dateInformation stringFromDate:sysdate];
+    //get date from system date and store in an avariable
     [dateInformation setDateFormat:@"dd"];
     days = [dateInformation stringFromDate:sysdate];
 
     NSLog(@"year %@,month%@,day%@",years,months,days);
+    
     NSInteger nowyear = [years integerValue];
     NSInteger nowMonth = [months integerValue];
     NSInteger nowDay = [days integerValue];
-    
     long week;
+    
     Utilities *utl = [Utilities new];
     NSArray *arr = [utl getAllDaysOfMonth:(int)nowMonth inYear:(int)nowyear];
     for (int g = 0; g<arr.count; g++) {

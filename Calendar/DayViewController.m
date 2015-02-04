@@ -2,8 +2,8 @@
 //  DayViewController.m
 //  Calendar
 //
-//  Created by RunliSong on 15/2/1.
-//  Copyright (c) 2015年 Deakin University. All rights reserved.
+//  Created by RunliSong on 01/02/2015
+//  Copyright (c) 2015 Deakin University. All rights reserved.
 //
 
 #import "DayViewController.h"
@@ -47,7 +47,7 @@
     [weekdays addObject:@"Friday"];
     monthName = [[NSArray alloc] initWithObjects:@"JANUARY",@"FEBRUARY",@"MARCH",@"APRIL",@"MAY",@"JUNE",@"JULY",@"AUGUST",@"SEPTEMBER",@"OCTOBER",@"NOVEMBER",@"DECEMBER", nil];
     _monthTitle = monthName[_monthOfTheDay-1];
-    NSString *ms = [NSString stringWithFormat:@"<%@",_monthTitle];
+    NSString *ms = [NSString stringWithFormat:@"<%li %@",(long)_yearOfTheDay,_monthTitle];
     [_backMonth setTitle:ms forState:UIControlStateNormal];
     NSLog(@"weekday: %li, date: %li", (long)_weekdaytitle, (long)_datenum);
     NSString *dates = [NSString stringWithFormat:@"%li",(long)_datenum];
