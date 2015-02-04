@@ -19,6 +19,11 @@
 
 @implementation SearchResultTableViewController
 
+
+-(BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background"]];
@@ -32,9 +37,6 @@
     [self.tableView reloadData];
 }
 
--(BOOL)prefersStatusBarHidden {
-    return YES;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
