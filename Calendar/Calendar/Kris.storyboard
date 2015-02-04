@@ -155,22 +155,73 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="zgH-Pz-i1w">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="e29-jP-iO4">
-                                <rect key="frame" x="0.0" y="54" width="375" height="567"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="e29-jP-iO4">
+                                <rect key="frame" x="0.0" y="60" width="375" height="561"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="JQ6-8S-RLh" id="lw5-Sl-Dc3"/>
                                     <outlet property="delegate" destination="JQ6-8S-RLh" id="CMk-fG-mpE"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZW-ki-dyv">
-                                <rect key="frame" x="16" y="629" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZW-ki-dyv">
+                                <rect key="frame" x="16" y="629" width="61" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="61" id="JlL-8Z-y3j"/>
+                                </constraints>
+                                <state key="normal" title="&lt;&lt;Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="backToPrevious:" destination="JQ6-8S-RLh" eventType="touchUpInside" id="1cz-4T-yh7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQx-hG-9Zg">
+                                <rect key="frame" x="287" y="20" width="32" height="32"/>
+                                <state key="normal" image="search">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchEvent:" destination="JQ6-8S-RLh" eventType="touchUpInside" id="pfo-gu-q5M"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9h-jE-Pea">
+                                <rect key="frame" x="327" y="20" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="5yK-au-cOh"/>
+                                    <constraint firstAttribute="width" constant="32" id="Un9-cK-alg"/>
+                                </constraints>
+                                <state key="normal" image="plus">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addEvent:" destination="JQ6-8S-RLh" eventType="touchUpInside" id="aD7-5C-L59"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHi-tZ-q5w">
+                                <rect key="frame" x="313" y="629" width="46" height="30"/>
+                                <state key="normal" title="Today">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToday:" destination="JQ6-8S-RLh" eventType="touchUpInside" id="MIR-Mp-qg3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="U9h-jE-Pea" firstAttribute="leading" secondItem="YQx-hG-9Zg" secondAttribute="trailing" constant="8" id="85h-Zs-m5A"/>
+                            <constraint firstItem="YQx-hG-9Zg" firstAttribute="height" secondItem="U9h-jE-Pea" secondAttribute="height" id="Fyj-lI-4aI"/>
+                            <constraint firstItem="U9h-jE-Pea" firstAttribute="top" secondItem="6GK-sa-Uux" secondAttribute="bottom" constant="20" id="GaB-l6-5t8"/>
+                            <constraint firstItem="U9h-jE-Pea" firstAttribute="trailing" secondItem="yN8-LP-mLR" secondAttribute="trailingMargin" id="GbQ-TH-vHN"/>
+                            <constraint firstItem="YQx-hG-9Zg" firstAttribute="centerY" secondItem="U9h-jE-Pea" secondAttribute="centerY" id="INq-b3-yZl"/>
+                            <constraint firstItem="Bhg-y1-5GQ" firstAttribute="top" secondItem="e29-jP-iO4" secondAttribute="bottom" constant="46" id="JFS-q7-7Oo"/>
+                            <constraint firstItem="Bhg-y1-5GQ" firstAttribute="top" secondItem="bZW-ki-dyv" secondAttribute="bottom" constant="8" id="JXS-bC-bkZ"/>
+                            <constraint firstItem="e29-jP-iO4" firstAttribute="top" secondItem="U9h-jE-Pea" secondAttribute="bottom" constant="8" id="NTC-th-TPx"/>
+                            <constraint firstItem="e29-jP-iO4" firstAttribute="leading" secondItem="yN8-LP-mLR" secondAttribute="leadingMargin" constant="-16" id="O0W-Gi-ILM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="e29-jP-iO4" secondAttribute="trailing" constant="-16" id="fwC-hf-87c"/>
+                            <constraint firstItem="YQx-hG-9Zg" firstAttribute="width" secondItem="U9h-jE-Pea" secondAttribute="width" id="iet-Ul-kpw"/>
+                            <constraint firstItem="bZW-ki-dyv" firstAttribute="leading" secondItem="yN8-LP-mLR" secondAttribute="leadingMargin" id="iu5-XU-Si6"/>
+                        </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -218,7 +269,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="backToPrevious:" destination="w1q-4k-TKr" eventType="touchUpInside" id="DQx-Qc-YcK"/>
+                                    <action selector="backToPrevious:" destination="w1q-4k-TKr" eventType="touchUpInside" id="wIH-2c-RTE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5e-cP-QG7">
@@ -230,6 +281,9 @@
                                 <state key="normal" image="plus">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addEvent:" destination="w1q-4k-TKr" eventType="touchUpInside" id="pF1-9H-s67"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2G-Oc-baF">
                                 <rect key="frame" x="287" y="20" width="32" height="32"/>
@@ -240,6 +294,9 @@
                                 <state key="normal" image="search">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="searchEvent:" destination="w1q-4k-TKr" eventType="touchUpInside" id="0py-eG-u5g"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWr-Ju-Ufj">
                                 <rect key="frame" x="0.0" y="60" width="375" height="571"/>

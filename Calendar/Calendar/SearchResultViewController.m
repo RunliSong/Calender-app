@@ -10,6 +10,9 @@
 #import "ResultTableViewCell.h"
 #import "Utilities.h"
 #import "EventDetailViewController.h"
+#import "EditViewController.h"
+#import "SearchEventViewController.h"
+#import "DayViewController.h"
 
 @interface SearchResultViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -49,6 +52,61 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_events count];
 }
+- (IBAction)searchEvent:(UIButton *)sender {
+    UIStoryboard *krisStory = [UIStoryboard storyboardWithName:@"Kris" bundle:nil];
+    SearchEventViewController *sevc = [krisStory instantiateViewControllerWithIdentifier:@"Search"];
+    
+    [self presentViewController:sevc animated:YES completion:nil];
+}
+
+- (IBAction)addEvent:(UIButton *)sender {
+    UIStoryboard *rexStory = [UIStoryboard storyboardWithName:@"Rex" bundle:nil];
+    EditViewController *evc = [rexStory instantiateViewControllerWithIdentifier:@"rex.storyboard"];
+    evc.createOrUpdate = Create;
+    [self presentViewController:evc animated:YES completion:nil];
+}
+
+- (IBAction)backToPrevious:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)goToday:(UIButton *)sender {
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"James" bundle:nil];
+    DayViewController *dvc = [story instantiateViewControllerWithIdentifier:@"dayViewController"];
+    
+    NSDate *sysdate = [NSDate date];
+    NSLog(@"%@",sysdate);
+    NSDateFormatter *dateInformation = [[NSDateFormatter alloc]init];
+    [dateInformation setDateFormat:@"yyyy"];
+    NSString* years = [dateInformation stringFromDate:sysdate];
+    [dateInformation setDateFormat:@"M"];
+    NSString* months = [dateInformation stringFromDate:sysdate];
+    [dateInformation setDateFormat:@"dd"];
+    NSString* days = [dateInformation stringFromDate:sysdate];
+    
+    NSLog(@"year %@,month%@,day%@",years,months,days);
+    NSInteger nowyear = [years integerValue];
+    NSInteger nowMonth = [months integerValue];
+    NSInteger nowDay = [days integerValue];
+    
+    long week;
+    Utilities *utl = [Utilities new];
+    NSArray *arr = [utl getAllDaysOfMonth:(int)nowMonth inYear:(int)nowyear];
+    for (int g = 0; g<arr.count; g++) {
+        if(((NSDateComponents *)[arr objectAtIndex:g]).day == nowDay)
+        {
+            week = ((NSDateComponents *)[arr objectAtIndex:g]).weekday;
+        }
+        
+    }
+    dvc.weekdaytitle = week;
+    dvc.datenum = nowDay;
+    dvc.monthOfTheDay = nowMonth;
+    dvc.yearOfTheDay = nowyear;
+    [self presentViewController:dvc animated:YES completion:nil];
+
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Result" forIndexPath:indexPath];
@@ -89,10 +147,6 @@
     EventDetailViewController *edvc = (EventDetailViewController *)[krisStoryboard instantiateViewControllerWithIdentifier:@"EventDetail"];
     edvc.event = [_events objectAtIndex:indexPath.row];
     [self presentViewController:edvc animated:YES completion:nil];
-}
-
-- (void) backToPrevious {
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
