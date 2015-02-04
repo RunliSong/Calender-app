@@ -60,6 +60,22 @@
     
 }
 
+- (NSString *)checkName {
+    NSString *input, *result;
+    NSArray *all = _autoCompleter.suggestionsDictionary;
+    input = self.textField.text;
+    
+    
+    for (NSString *s in all) {
+        if ([s isEqualToString:input]) {
+            result = s;
+            break;
+        }
+    }
+    
+    return result;
+}
+
 - (NSString *)getTheSame {
     NSString *input, *result;
     NSArray *all = [NSTimeZone knownTimeZoneNames];
@@ -149,6 +165,7 @@
 
 -(IBAction)goSearched: (UIButton *)sender
 {
+    if ([self checkName] != nil) {
     //recall the method getTheSame
     NSString* timezone = [self getTheSame];
 
@@ -174,6 +191,12 @@
     //get the address searched
     NSString* address = _textField.text;
     [self getLocation:address];
+    }
+    else {
+        [self popAlert:@"Enter a valid location."];
+
+    }
+    
 }
 
 - (void) popAlert:(NSString*)message
@@ -251,7 +274,7 @@
 - (IBAction)goBack:(id)sender {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Rex" bundle:nil];
     EditViewController *scv = [story instantiateViewControllerWithIdentifier:@"rex.storyboard"];
-    if([self getTheSame] != nil) {
+    if([self checkName] != nil) {
     scv.location = _textField.text;
     scv.startTimeText = _startTime;
     scv.destinationTime = destinationDate;
