@@ -21,21 +21,32 @@
     NSDateFormatter *dateFormatters;
 }
 
-
-#pragma mark - IBActions
-
-
-
 @end
 
 @implementation EditViewController
 
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _timeZoneText.userInteractionEnabled = NO;
+    
+
+
     AppDelegate *appDel = [AppDelegate new];
     NSLog(@"%@", [appDel applicationDocumentsDirectory]);
+    if (_titleStr) {
+        self.titleText.text = _titleStr;
+    }
+    else {
+        self.titleText.placeholder = @"Title";
+    }
+    self.eventText.text = _eventStr;
     
+
+    if (self.eventText.text == Nil) {
+        self.eventText.text = @"dfdssd";
+    }
     // Do any additional setup after loading the view, typically from a nib.
 
     if (_createOrUpdate == Update) {
@@ -72,6 +83,7 @@
 }
 
 
+
 #pragma mark - function for users to add a new event item
 
 - (BOOL)createEvent {
@@ -81,8 +93,27 @@
     //add elements
     Event *newEvent = [[Event alloc] initWithTitle:_titleText.text description:_eventText.text localZoneName:nil localZoneID:nil localZoneUTC:nil localTime:[format dateFromString:_textFieldEnterDate.text] otherZoneName:_labelText.text otherZoneID:nil otherZoneUTC:nil otherZoneTime:[format dateFromString:_timeZoneText.text]];
     
-    [Utilities addEvent:newEvent];
+    
+    // validate date
+    if ([self validateDateValue:_textFieldEnterDate.text]) {
+        [Utilities addEvent:newEvent];
+    }
+    else {
+        UIAlertView* alertView = [[UIAlertView alloc]initWithTitle:@"Date format error!" message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: @"Cancel", nil];
+        [alertView show];
+    }
     return result;
+}
+
+- (BOOL)validateDateValue: (NSString *)dateString {
+    NSDateFormatter *aformatter = [NSDateFormatter new];
+    [aformatter setDateFormat:@"dd-MM-yyyy hh:mm a"];
+    NSDate *date = [aformatter dateFromString:dateString];
+    if (date == nil) {
+        return FALSE;
+    }
+    
+    return TRUE;
 }
 
 #pragma mark - update event when the specific event select to modify
@@ -90,7 +121,7 @@
 - (BOOL)updateEvent:(NSManagedObject *)oldEvent {
     BOOL result = YES;
     NSDateFormatter *format1 = [[NSDateFormatter alloc] init];
-    [format1 setDateFormat:@"yyyy-MM-dd hh:mm a"];
+    [format1 setDateFormat:@"dd-MM-yyyy hh:mm a"];
         Event *newEvent = [[Event alloc] initWithTitle:_titleText.text description:_eventText.text localZoneName:nil localZoneID:nil localZoneUTC:nil localTime:[format1 dateFromString:_textFieldEnterDate.text] otherZoneName:nil otherZoneID:nil otherZoneUTC:nil otherZoneTime:[format1 dateFromString:_timeZoneText.text]];
     [Utilities updateEvent:oldEvent withNewValue:newEvent];
     return result;
@@ -125,6 +156,8 @@
 { 
     ACDViewController* scv = [segue destinationViewController];
     scv.startTime = self.textFieldEnterDate.text;
+    scv.titleText = self.titleText.text;
+    scv.detailText = self.eventText.text;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -153,7 +186,7 @@
         self.datePicker.hidden = false;
     }
     
-    return true;
+    return TRUE;
 }
 
 - (NSString *)getTheSame {
@@ -192,7 +225,7 @@
         
         NSInteger currentGMTOffset = [currentTimeZone secondsFromGMTForDate:adate];
         NSInteger Offset = [TimeZone secondsFromGMTForDate:adate];
-        NSTimeInterval Interval = currentGMTOffset - Offset;
+        NSTimeInterval Interval = Offset - currentGMTOffset;
         
         _destinationTime = [[NSDate alloc] initWithTimeInterval:Interval sinceDate:adate];
         

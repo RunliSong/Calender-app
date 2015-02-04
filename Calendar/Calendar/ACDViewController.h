@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import "AutocompletionTableView.h"
 
 @protocol AutocompletionTableViewDelegate;
 
 @interface ACDViewController : UIViewController <AutocompletionTableViewDelegate, CLLocationManagerDelegate>
 @property (strong, nonatomic) NSString* startTime;
 @property (strong, nonatomic) NSString* dateStr;
+@property (strong, nonatomic) NSString* titleText;
+@property (strong, nonatomic) NSString* detailText;
+
 @end

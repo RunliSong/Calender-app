@@ -37,6 +37,8 @@ typedef NS_ENUM(NSInteger, CreateOrUpdate) {
 @property (strong, nonatomic) NSString *location;
 @property (strong, nonatomic) NSDate *destinationTime;
 @property (strong, nonatomic) NSString* dateStart;
+@property (strong, nonatomic) NSString* titleStr;
+@property (strong, nonatomic) NSString* eventStr;
 
 @property (strong, nonatomic) IBOutlet UIButton *updateButton;
 @property (strong, nonatomic) IBOutlet UIButton *cancelButton;

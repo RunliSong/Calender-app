@@ -11,6 +11,7 @@
 #import "EditViewController.h"
 
 #import <MapKit/MapKit.h>
+#define currentMonth [currentMonthString integerValue]
 
 @interface ACDViewController ()<MKMapViewDelegate>
 {
@@ -81,6 +82,8 @@
     scv.location = _textField.text;
     scv.startTimeText = _startTime;
     scv.destinationTime = destinationDate;
+    scv.titleStr = _titleText;
+    scv.eventStr = _detailText;
 }
 
 - (AutocompletionTableView *)autoCompleter
@@ -148,12 +151,15 @@
 {
     //recall the method getTheSame
     NSString* timezone = [self getTheSame];
-    
+
     //set date format
-    _dateStr = _startTime;
+    //_dateStr = _startTime;
+    NSLog(@"sdssddddddddddddddddddd %@", _startTime);
+
     NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc] init];
     [dateFormatter1 setDateFormat:@"dd-MM-yyyy hh:mm a"];
-    NSDate *adate = [dateFormatter1 dateFromString:_dateStr];
+    NSDate *adate = [dateFormatter1 dateFromString:_startTime];
+
     NSLog(@"date : %@",adate);
     //get time zones
     NSTimeZone *currentTimeZone = [NSTimeZone localTimeZone];
@@ -161,17 +167,9 @@
     
     NSInteger currentGMTOffset = [currentTimeZone secondsFromGMTForDate:adate];
     NSInteger Offset = [TimeZone secondsFromGMTForDate:adate];
-    NSTimeInterval Interval = currentGMTOffset - Offset;
+    NSTimeInterval Interval = Offset - currentGMTOffset;
     
     destinationDate = [[NSDate alloc] initWithTimeInterval:Interval sinceDate:adate];
-
-
-    dateFormatters = [[NSDateFormatter alloc] init];
-    [dateFormatters setDateFormat:@"dd-MM-yyyy hh:mm a"];
-    [dateFormatters setDateStyle:NSDateFormatterShortStyle];
-    [dateFormatters setTimeStyle:NSDateFormatterShortStyle];
-    [dateFormatters setDoesRelativeDateFormatting:YES];
-    [dateFormatters setTimeZone:[NSTimeZone systemTimeZone]];
     
     //get the address searched
     NSString* address = _textField.text;
