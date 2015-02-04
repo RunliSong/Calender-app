@@ -297,7 +297,7 @@
     float red = arc4random() % 255;
     float green = arc4random() % 255;
     float blue = arc4random() % 255;
-    return [UIColor colorWithRed:red green:green blue:blue alpha:1];
+    return [UIColor colorWithRed:red / 255 green:green / 255 blue:blue / 255 alpha:1];
 }
 
 

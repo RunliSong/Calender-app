@@ -31,7 +31,7 @@
     NSString *days;
     NSDateFormatter *dateInformation;
     NSLocale *location;
-
+    
     
 }
 
@@ -61,14 +61,14 @@
     // Dispose of any resources that can be recreated.
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 #pragma mark collection view methods
 -(NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
@@ -88,13 +88,28 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *Cellidentifer = @"Month";
     MonthInYearCollectionViewCell *cell =[collectionView dequeueReusableCellWithReuseIdentifier:Cellidentifer forIndexPath:indexPath];
+    
+    NSLog(@"%f", _yearCollection.frame.size.width);
     [[cell myMonthName]setText:[monthName objectAtIndex:indexPath.item]];
+    [cell setBackgroundColor: [Utilities randomColor]];
     
     if (cell.selected == true) {
         _selectedMonth = (int)indexPath;
     }
+    
     return cell;
 }
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(0, 0, 0, 0);
+}
+
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return CGSizeMake((_yearCollection.frame.size.width / 3 - 1), (_yearCollection.frame.size.width / 3));
+}
+
 //end of collection methods
 //segmented control to change years
 - (IBAction)changeYear:(id)sender {
@@ -113,13 +128,13 @@
             
             break;
     }
-
+    
 }
 //connect search event view contorller
 - (IBAction)searchEvent:(id)sender {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Kris" bundle:nil];
     SearchEventViewController *sevc = [story instantiateViewControllerWithIdentifier:@"Search"];
-  
+    
     [self presentViewController:sevc animated:YES completion:nil];
 }
 
@@ -140,7 +155,7 @@
     //get date from system date and store in an avariable
     [dateInformation setDateFormat:@"dd"];
     days = [dateInformation stringFromDate:sysdate];
-
+    
     NSLog(@"year %@,month%@,day%@",years,months,days);
     
     NSInteger nowyear = [years integerValue];
@@ -155,7 +170,7 @@
         {
             week = ((NSDateComponents *)[arr objectAtIndex:g]).weekday;
         }
-            
+        
     }
     dvc.weekdaytitle = week;
     dvc.datenum = nowDay;
@@ -163,6 +178,6 @@
     dvc.monthOfTheDay = nowMonth;
     dvc.yearOfTheDay = nowyear;
     [self presentViewController:dvc animated:YES completion:nil];
-
+    
 }
 @end
