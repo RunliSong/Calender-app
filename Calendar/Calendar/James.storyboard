@@ -20,8 +20,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="NfO-gi-o3a">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8B-3F-jtU">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8B-3F-jtU">
                                 <rect key="frame" x="16" y="629" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="OO0-6E-KxM"/>
+                                </constraints>
                                 <state key="normal" title="Today">
                                     <color key="titleColor" red="1" green="0.95232317580000003" blue="0.82017691680000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -30,7 +33,7 @@
                                     <action selector="goToday:" destination="MY0-yJ-nZH" eventType="touchUpInside" id="1pJ-8z-jNx"/>
                                 </connections>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="A0d-59-XYG">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="A0d-59-XYG">
                                 <rect key="frame" x="16" y="131" width="343" height="443"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="1" id="ASv-4n-Jne">
@@ -47,7 +50,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFp-11-Hpg">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFp-11-Hpg">
                                                     <rect key="frame" x="0.0" y="33" width="110" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -57,14 +60,20 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" red="1" green="0.95232317580000003" blue="0.82017691680000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="NFp-11-Hpg" firstAttribute="leading" secondItem="1CK-DA-xc6" secondAttribute="leading" id="Kys-Ie-pUd"/>
+                                            <constraint firstItem="NFp-11-Hpg" firstAttribute="centerY" secondItem="1CK-DA-xc6" secondAttribute="centerY" id="RD5-Un-M20"/>
+                                            <constraint firstAttribute="trailing" secondItem="NFp-11-Hpg" secondAttribute="trailing" id="iej-RE-Eno"/>
+                                            <constraint firstItem="NFp-11-Hpg" firstAttribute="top" secondItem="1CK-DA-xc6" secondAttribute="topMargin" constant="25" id="sOI-m5-okS"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="myMonthName" destination="NFp-11-Hpg" id="MAY-fe-heG"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="fYu-PM-L5F">
-                                <rect key="frame" x="112" y="582" width="150" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="fYu-PM-L5F">
+                                <rect key="frame" x="115" y="582" width="145" height="29"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <segments>
                                     <segment title="Last Year"/>
@@ -75,24 +84,27 @@
                                     <action selector="changeYear:" destination="MY0-yJ-nZH" eventType="valueChanged" id="lv6-uV-y8h"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bb5-FE-mzX">
-                                <rect key="frame" x="0.0" y="72" width="375" height="60"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bb5-FE-mzX">
+                                <rect key="frame" x="162" y="72" width="52" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="1" green="0.95232317580000003" blue="0.82017691680000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGx-rk-YIi">
-                                <rect key="frame" x="313" y="20" width="46" height="30"/>
-                                <state key="normal" title="Add">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGx-rk-YIi">
+                                <rect key="frame" x="327" y="20" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="wTR-vJ-IPR"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="plus">
                                     <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="addNewEvent:" destination="MY0-yJ-nZH" eventType="touchUpInside" id="e12-5I-MFW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Es-rk-LP2">
-                                <rect key="frame" x="236" y="20" width="50" height="30"/>
-                                <state key="normal" title="Search">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Es-rk-LP2">
+                                <rect key="frame" x="282" y="20" width="23" height="32"/>
+                                <state key="normal" backgroundImage="search">
                                     <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -103,11 +115,37 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="bb5-FE-mzX" firstAttribute="top" secondItem="oGx-rk-YIi" secondAttribute="bottom" constant="20" id="8mz-Ks-fUs"/>
+                            <constraint firstItem="A0d-59-XYG" firstAttribute="trailing" secondItem="Cnk-Th-MHL" secondAttribute="trailingMargin" id="9VK-87-idZ"/>
+                            <constraint firstItem="A0d-59-XYG" firstAttribute="centerX" secondItem="fYu-PM-L5F" secondAttribute="centerX" id="AjN-EU-wqR"/>
+                            <constraint firstItem="A0d-59-XYG" firstAttribute="leading" secondItem="B8B-3F-jtU" secondAttribute="leading" id="BkZ-Sb-Iof"/>
+                            <constraint firstItem="A0d-59-XYG" firstAttribute="top" secondItem="0Es-rk-LP2" secondAttribute="bottom" constant="79" id="ELC-Bq-oJp"/>
+                            <constraint firstItem="EB4-1b-SwJ" firstAttribute="top" secondItem="A0d-59-XYG" secondAttribute="bottom" constant="93" id="H2N-mj-nGQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NfO-gi-o3a" secondAttribute="trailing" constant="-16" id="NuW-xc-Fev"/>
+                            <constraint firstItem="A0d-59-XYG" firstAttribute="centerX" secondItem="bb5-FE-mzX" secondAttribute="centerX" id="OPc-fd-VKn"/>
+                            <constraint firstItem="A0d-59-XYG" firstAttribute="leading" secondItem="Cnk-Th-MHL" secondAttribute="leadingMargin" id="Pfy-Ma-4Mh"/>
                             <constraint firstItem="NfO-gi-o3a" firstAttribute="top" secondItem="uLS-A9-mjq" secondAttribute="bottom" constant="-20" id="VDR-AT-OkP"/>
+                            <constraint firstItem="A0d-59-XYG" firstAttribute="trailing" secondItem="oGx-rk-YIi" secondAttribute="trailing" id="XAd-yd-iIA"/>
+                            <constraint firstItem="A0d-59-XYG" firstAttribute="centerX" secondItem="NfO-gi-o3a" secondAttribute="centerX" id="XhZ-75-6GC"/>
+                            <constraint firstAttribute="width" secondItem="A0d-59-XYG" secondAttribute="width" id="YRi-Ez-p0Y"/>
+                            <constraint firstItem="oGx-rk-YIi" firstAttribute="top" secondItem="uLS-A9-mjq" secondAttribute="bottom" id="Z32-tY-5nf"/>
+                            <constraint firstItem="oGx-rk-YIi" firstAttribute="top" secondItem="0Es-rk-LP2" secondAttribute="top" id="aHd-QZ-0YZ"/>
+                            <constraint firstItem="oGx-rk-YIi" firstAttribute="leading" secondItem="0Es-rk-LP2" secondAttribute="trailing" constant="22" id="brf-hL-K0a"/>
+                            <constraint firstItem="fYu-PM-L5F" firstAttribute="top" secondItem="A0d-59-XYG" secondAttribute="bottom" constant="8" symbolic="YES" id="fiK-JK-1p4"/>
+                            <constraint firstItem="A0d-59-XYG" firstAttribute="leading" secondItem="Cnk-Th-MHL" secondAttribute="leadingMargin" id="jiN-uw-In6"/>
+                            <constraint firstItem="EB4-1b-SwJ" firstAttribute="top" secondItem="B8B-3F-jtU" secondAttribute="bottom" constant="8" symbolic="YES" id="jrC-dB-yER"/>
                             <constraint firstItem="NfO-gi-o3a" firstAttribute="leading" secondItem="Cnk-Th-MHL" secondAttribute="leadingMargin" constant="-16" id="lik-Hc-h7R"/>
+                            <constraint firstItem="oGx-rk-YIi" firstAttribute="bottom" secondItem="0Es-rk-LP2" secondAttribute="bottom" id="qH5-2t-Nok"/>
                             <constraint firstItem="EB4-1b-SwJ" firstAttribute="top" secondItem="NfO-gi-o3a" secondAttribute="bottom" id="t22-gf-npb"/>
+                            <constraint firstItem="A0d-59-XYG" firstAttribute="top" secondItem="uLS-A9-mjq" secondAttribute="bottom" constant="111" id="wcO-Cu-iPo"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9VK-87-idZ"/>
+                                <exclude reference="Pfy-Ma-4Mh"/>
+                                <exclude reference="YRi-Ez-p0Y"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="dmV-hY-o4R"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -230,23 +268,23 @@
                                     <action selector="toNextMonth:" destination="Bof-bE-Gy7" eventType="touchUpInside" id="Jic-6a-HJo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rG3-qa-sTz">
+                                <rect key="frame" x="327" y="20" width="32" height="32"/>
+                                <state key="normal" backgroundImage="plus">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addNewEvent:" destination="Bof-bE-Gy7" eventType="touchUpInside" id="GtA-x3-dhg"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jf-7a-g4q">
-                                <rect key="frame" x="241" y="20" width="50" height="30"/>
-                                <state key="normal" title="Search">
+                                <rect key="frame" x="276" y="20" width="32" height="32"/>
+                                <state key="normal" backgroundImage="search">
                                     <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="searchEvent:" destination="Bof-bE-Gy7" eventType="touchUpInside" id="VU8-7j-0rA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rG3-qa-sTz">
-                                <rect key="frame" x="313" y="20" width="46" height="30"/>
-                                <state key="normal" title="Add">
-                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="addNewEvent:" destination="Bof-bE-Gy7" eventType="touchUpInside" id="GtA-x3-dhg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -335,23 +373,23 @@
                                     <action selector="backToMonth:" destination="QHT-qe-HAW" eventType="touchUpInside" id="Raa-OT-xtu"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FvG-rv-f2s">
+                                <rect key="frame" x="327" y="20" width="32" height="32"/>
+                                <state key="normal" backgroundImage="plus">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addNewEvent:" destination="QHT-qe-HAW" eventType="touchUpInside" id="eQv-Du-LsA"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3h-wb-JP6">
-                                <rect key="frame" x="251" y="20" width="50" height="30"/>
-                                <state key="normal" title="Search">
+                                <rect key="frame" x="269" y="18" width="32" height="32"/>
+                                <state key="normal" backgroundImage="search">
                                     <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="searchEvent:" destination="QHT-qe-HAW" eventType="touchUpInside" id="Jpb-tv-5D0"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FvG-rv-f2s">
-                                <rect key="frame" x="312" y="20" width="46" height="30"/>
-                                <state key="normal" title="Add">
-                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="addNewEvent:" destination="QHT-qe-HAW" eventType="touchUpInside" id="eQv-Du-LsA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -379,5 +417,7 @@
     </scenes>
     <resources>
         <image name="Background" width="640" height="1096"/>
+        <image name="plus" width="40" height="45"/>
+        <image name="search" width="23" height="33"/>
     </resources>
 </document>
