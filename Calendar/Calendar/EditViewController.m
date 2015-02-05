@@ -11,6 +11,7 @@
 #import "Utilities.h"
 #import "AppDelegate.h"
 #import "DayViewController.h"
+#import "SearchEventViewController.h"
 
 #define currentMonth [currentMonthString integerValue]
 
@@ -313,17 +314,11 @@
 }
 
 
-
-
-- (IBAction)goSearch:(id)sender {
-    self.timeZoneText.text = [formatter stringFromDate:_destinationTime];
-    self.labelText.text = _location;
-    [self.titleText reloadInputViews];
-    [self.eventText reloadInputViews];
-    [self.textFieldEnterDate reloadInputViews];
-    [self.labelText reloadInputViews];
+- (IBAction)searchEvent:(id)sender {
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Kris" bundle:nil];
+    SearchEventViewController *sevc = [story instantiateViewControllerWithIdentifier:@"Search"];
     
-    
+    [self presentViewController:sevc animated:YES completion:nil];
     
 }
 @end
