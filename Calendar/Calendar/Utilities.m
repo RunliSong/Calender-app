@@ -234,6 +234,8 @@
     return YES;
 }
 
+
+// Test method
 + (NSArray *)getAllEvents {
     id appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
@@ -292,7 +294,6 @@
 }
 
 - (NSArray *)getAllDaysOfMonth:(int) month inYear:(int)year {
-    //NSString *firstDateString = [NSString stringWithFormat:@"%i-%i-01", year, month];
     NSMutableArray *results = [NSMutableArray new];
     int days = [self daysOfMonth:month inYear:year];
     NSCalendar *calendar = [NSCalendar currentCalendar];
@@ -304,6 +305,7 @@
 }
 
 + (UIColor *)randomColor{
+    // get a number from 0-255
     float red = arc4random() % 255;
     float green = arc4random() % 255;
     float blue = arc4random() % 255;
