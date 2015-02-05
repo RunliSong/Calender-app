@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -128,8 +128,12 @@
                                     <constraint firstItem="bCI-su-rqQ" firstAttribute="top" secondItem="qV7-Zg-1eQ" secondAttribute="top" constant="40" id="nY3-9r-bmw"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXQ-Zu-6h0">
-                                <rect key="frame" x="256" y="28" width="48" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXQ-Zu-6h0">
+                                <rect key="frame" x="256" y="28" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="8nI-V5-pjs"/>
+                                    <constraint firstAttribute="width" constant="32" id="mGv-Wa-FUj"/>
+                                </constraints>
                                 <state key="normal" image="search">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -160,7 +164,7 @@
                         <constraints>
                             <constraint firstItem="tUx-p2-hcq" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="05k-bF-Vxd"/>
                             <constraint firstItem="Ka7-Vh-dyw" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="2ic-AJ-XbY"/>
-                            <constraint firstItem="Odj-4S-PsB" firstAttribute="top" secondItem="rXQ-Zu-6h0" secondAttribute="bottom" constant="12" id="58W-ln-CWD"/>
+                            <constraint firstItem="Odj-4S-PsB" firstAttribute="top" secondItem="rXQ-Zu-6h0" secondAttribute="bottom" constant="13" id="58W-ln-CWD"/>
                             <constraint firstItem="Ka7-Vh-dyw" firstAttribute="leading" secondItem="9vN-4f-IN8" secondAttribute="trailing" constant="8" id="7RI-K3-wcu"/>
                             <constraint firstItem="qV7-Zg-1eQ" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="7fD-za-BRL"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="8vL-jS-goP" secondAttribute="bottom" constant="8" id="8QM-Eb-DcB"/>
@@ -176,7 +180,7 @@
                             <constraint firstItem="tUx-p2-hcq" firstAttribute="top" secondItem="jIE-r2-0aK" secondAttribute="bottom" constant="8" id="Ldx-gp-mm8"/>
                             <constraint firstItem="t85-jM-012" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-20" id="MH8-aT-Ufb"/>
                             <constraint firstItem="Ka7-Vh-dyw" firstAttribute="top" secondItem="2vx-r1-uMC" secondAttribute="bottom" constant="21" id="QC4-GB-5wu"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="rXQ-Zu-6h0" secondAttribute="trailing" constant="13" id="S1e-5G-7G0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rXQ-Zu-6h0" secondAttribute="trailing" constant="16" id="S1e-5G-7G0"/>
                             <constraint firstItem="2vx-r1-uMC" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="SsI-ec-LBA"/>
                             <constraint firstItem="2vx-r1-uMC" firstAttribute="top" secondItem="tzu-Pa-vHq" secondAttribute="bottom" constant="8" id="VPI-dl-Hzi"/>
                             <constraint firstItem="jIE-r2-0aK" firstAttribute="top" secondItem="Odj-4S-PsB" secondAttribute="bottom" constant="8" id="XkC-rb-goc"/>
@@ -190,7 +194,7 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="MQG-K4-J0i" secondAttribute="bottom" constant="8" id="oEQ-Vh-M9y"/>
                             <constraint firstItem="9vN-4f-IN8" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="orQ-Ga-nPa"/>
                             <constraint firstItem="MQG-K4-J0i" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="p6g-ki-Yrz"/>
-                            <constraint firstItem="t85-jM-012" firstAttribute="top" secondItem="rXQ-Zu-6h0" secondAttribute="bottom" constant="-61" id="qgd-Uz-Yuy"/>
+                            <constraint firstItem="t85-jM-012" firstAttribute="top" secondItem="rXQ-Zu-6h0" secondAttribute="bottom" constant="-60" id="qgd-Uz-Yuy"/>
                             <constraint firstItem="qV7-Zg-1eQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="qiZ-rV-fD8"/>
                             <constraint firstItem="NlW-zo-hbV" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="t2F-uL-chV"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="qV7-Zg-1eQ" secondAttribute="bottom" id="tRY-qo-qnf"/>
@@ -258,8 +262,8 @@
                                     <action selector="goSearched:" destination="Qha-pp-sdZ" eventType="touchUpInside" id="v0a-XJ-EIS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25g-HA-bHU">
-                                <rect key="frame" x="16" y="629" width="35" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25g-HA-bHU">
+                                <rect key="frame" x="16" y="629" width="30" height="30"/>
                                 <state key="normal" title="OK">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -276,8 +280,8 @@
                                     <action selector="oomToCurrentLocation:" destination="Qha-pp-sdZ" eventType="touchUpInside" id="sNb-5d-rU1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eav-i3-l5X">
-                                <rect key="frame" x="310" y="629" width="49" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eav-i3-l5X">
+                                <rect key="frame" x="311" y="629" width="48" height="30"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
