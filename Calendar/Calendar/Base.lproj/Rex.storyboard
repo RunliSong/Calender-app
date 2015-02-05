@@ -134,6 +134,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="goSearch:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="VYr-qY-GTU"/>
                                     <action selector="searchEvent:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eNx-PE-Tvl"/>
                                 </connections>
                             </button>
