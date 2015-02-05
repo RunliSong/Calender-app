@@ -142,10 +142,11 @@
     NSInteger selected = indexPath.item - 7 - ((NSDateComponents *)[arr objectAtIndex:0]).weekday +2;
     if(selected >0)
     {
-        dvc.weekdaytitle = ((NSDateComponents *)[arr objectAtIndex:selected]).weekday;
-        dvc.datenum = selected;
-        dvc.monthOfTheDay = _month;
-        dvc.yearOfTheDay = _year;
+        NSString *selectDateString = [NSString stringWithFormat:@"%i-%i-%i", (int)_year, (int)_month, (int)selected];
+        NSDateFormatter *formatter = [NSDateFormatter new];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+        NSDate *selectDate = [formatter dateFromString:selectDateString];
+        dvc.pickedDate = selectDate;
         [self presentViewController:dvc animated:YES completion:nil];
     }
 }
