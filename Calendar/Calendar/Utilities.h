@@ -13,8 +13,10 @@
 
 @interface Utilities : NSObject
 
+// will return a random color (RGB)
 + (UIColor *)randomColor;
 
+// days' detail for all days in a specific month
 - (NSArray *)getAllDaysOfMonth:(int) month inYear:(int)year;
 
 + (BOOL)addEvent: (Event *)event;
