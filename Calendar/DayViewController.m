@@ -45,14 +45,13 @@
     //register nib
     [_dayEventsTableView registerNib:[UINib nibWithNibName:@"ResultTableViewCell" bundle:nil] forCellReuseIdentifier:@"Result"];
     weekdays = [[NSMutableArray alloc]init];
-    
+    [weekdays addObject:@"Saterday"];
     [weekdays addObject:@"Sunday"];
     [weekdays addObject:@"Monday"];
     [weekdays addObject:@"Yuesday"];
     [weekdays addObject:@"Wendesday"];
     [weekdays addObject:@"Thursday"];
     [weekdays addObject:@"Friday"];
-    [weekdays addObject:@"Saterday"];
     monthName = [[NSArray alloc] initWithObjects:@"JANUARY",@"FEBRUARY",@"MARCH",@"APRIL",@"MAY",@"JUNE",@"JULY",@"AUGUST",@"SEPTEMBER",@"OCTOBER",@"NOVEMBER",@"DECEMBER", nil];
     if (_pickedDate) {
         datefor = [[NSDateFormatter alloc] init];
@@ -71,20 +70,16 @@
         Utilities *utl = [Utilities new];
         NSArray *arr = [utl getAllDaysOfMonth:(int)_monthOfTheDay inYear:(int)_yearOfTheDay];
         for (int g = 0; g<arr.count; g++) {
-            if(((NSDateComponents *)[arr objectAtIndex:g]).day == _datenum)
+            if(((NSDateComponents *)[arr objectAtIndex:g]).day-1 == _datenum)
             {
                 week = ((NSDateComponents *)[arr objectAtIndex:g]).weekday;
             }
-            
         }
         _weekdaytitle = week;
-        
     }
-    
     _monthTitle = monthName[_monthOfTheDay-1];
     NSString *ms = [NSString stringWithFormat:@"<%li %@",(long)_yearOfTheDay,_monthTitle];
     [_backMonth setTitle:ms forState:UIControlStateNormal];
-    NSLog(@"weekday: %li, date: %li", (long)_weekdaytitle, (long)_datenum);
     NSString *dates = [NSString stringWithFormat:@"%li",(long)_datenum];
     NSString *weekdayt = weekdays[_weekdaytitle-1];
     [self.myDate setText:dates];

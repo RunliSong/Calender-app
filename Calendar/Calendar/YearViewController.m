@@ -78,8 +78,8 @@
     return 12;
     
 }
+//
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    // NSLog(@"%i", indexPath.item);
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"James" bundle:nil];
     MonthViewController *mvc = [story instantiateViewControllerWithIdentifier:@"monthViewController"];
     mvc.year = _currentYear;
@@ -89,12 +89,8 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *Cellidentifer = @"Month";
     MonthInYearCollectionViewCell *cell =[collectionView dequeueReusableCellWithReuseIdentifier:Cellidentifer forIndexPath:indexPath];
-    
-    NSLog(@"%f", _yearCollection.frame.size.width);
     [[cell myMonthName]setText:[monthName objectAtIndex:indexPath.item]];
-
     [cell setBackgroundColor: [Utilities randomColor]];
-    
     if (cell.selected == true) {
         _selectedMonth = (int)indexPath;
     }
@@ -108,7 +104,6 @@
 
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     return CGSizeMake((_yearCollection.frame.size.width / 3 - 1), (_yearCollection.frame.size.width / 3));
 }
 
@@ -136,14 +131,12 @@
 - (IBAction)searchEvent:(id)sender {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Kris" bundle:nil];
     SearchEventViewController *sevc = [story instantiateViewControllerWithIdentifier:@"Search"];
-    
     [self presentViewController:sevc animated:YES completion:nil];
 }
 
 - (IBAction)addNewEvent:(id)sender {
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Rex" bundle:nil];
     EditViewController *sevc = [story instantiateViewControllerWithIdentifier:@"rex.storyboard"];
-    
     [self presentViewController:sevc animated:YES completion:nil];
 
 }
@@ -162,14 +155,12 @@
     //get date from system date and store in an avariable
     [dateInformation setDateFormat:@"dd"];
     days = [dateInformation stringFromDate:sysdate];
-    
-    NSLog(@"year %@,month%@,day%@",years,months,days);
-    
+    //trainsfer them from string to integer
     NSInteger nowyear = [years integerValue];
     NSInteger nowMonth = [months integerValue];
     NSInteger nowDay = [days integerValue];
+    //get weekday of today
     long week;
-    
     Utilities *utl = [Utilities new];
     NSArray *arr = [utl getAllDaysOfMonth:(int)nowMonth inYear:(int)nowyear];
     for (int g = 0; g<arr.count; g++) {
@@ -179,12 +170,12 @@
         }
         
     }
+    //pass all data into DayViewController
     dvc.weekdaytitle = week;
     dvc.datenum = nowDay;
     dvc.monthTitle = monthName[nowMonth -1];
     dvc.monthOfTheDay = nowMonth;
     dvc.yearOfTheDay = nowyear;
     [self presentViewController:dvc animated:YES completion:nil];
-    
 }
 @end
