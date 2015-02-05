@@ -135,7 +135,6 @@
                                 </state>
                                 <connections>
                                     <action selector="goSearch:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="VYr-qY-GTU"/>
-                                    <action selector="searchEvent:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eNx-PE-Tvl"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIE-r2-0aK">
