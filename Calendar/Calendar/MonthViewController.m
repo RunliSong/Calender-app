@@ -156,6 +156,14 @@
     [[cell dayName]setText:[daysarray objectAtIndex:indexPath.item]];
     return cell;
 }
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(0, 0, 0, 0);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake((_monthCollection.frame.size.width / 7 - 5), (_monthCollection.frame.size.height / 6));
+}
+
 #pragma mark table view methods
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
