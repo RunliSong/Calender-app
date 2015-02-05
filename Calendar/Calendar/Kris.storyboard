@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="w1q-4k-TKr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="w1q-4k-TKr">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -298,81 +298,123 @@
                                     <action selector="searchEvent:" destination="w1q-4k-TKr" eventType="touchUpInside" id="0py-eG-u5g"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWr-Ju-Ufj">
-                                <rect key="frame" x="0.0" y="60" width="375" height="571"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hr7-nO-SBe">
-                                        <rect key="frame" x="8" y="8" width="86" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Keyword:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pY6-td-G3L">
-                                        <rect key="frame" x="8" y="45" width="86" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="From:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LrE-9H-v5y">
-                                        <rect key="frame" x="8" y="73" width="86" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Z12-LR-H7C">
-                                        <rect key="frame" x="19" y="104" width="336" height="162"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="444370661.49184102">
-                                            <!--2015-01-31 04:17:41 +0000-->
-                                        </date>
-                                    </datePicker>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y77-zG-fpY">
-                                        <rect key="frame" x="24" y="273" width="86" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="F07-Di-QUq">
-                                        <rect key="frame" x="16" y="301" width="343" height="162"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="444370685.15250301">
-                                            <!--2015-01-31 04:18:05 +0000-->
-                                        </date>
-                                    </datePicker>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f2J-cF-aeO">
-                                        <rect key="frame" x="95" y="41" width="272" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Yf-iA-DK3">
-                                        <rect key="frame" x="95" y="4" width="272" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hr7-nO-SBe">
+                                <rect key="frame" x="16" y="64" width="86" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="86" id="ef8-05-06w"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Yf-iA-DK3">
+                                <rect key="frame" x="110" y="60" width="249" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f2J-cF-aeO">
+                                <rect key="frame" x="110" y="98" width="249" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keyword:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pY6-td-G3L">
+                                <rect key="frame" x="16" y="102" width="86" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LrE-9H-v5y">
+                                <rect key="frame" x="16" y="142" width="86" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Z12-LR-H7C">
+                                <rect key="frame" x="16" y="214" width="343" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="444370661.49184102">
+                                    <!--2015-01-31 04:17:41 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="fromDateValueChanged:" destination="w1q-4k-TKr" eventType="valueChanged" id="Vlt-nv-Chg"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y77-zG-fpY">
+                                <rect key="frame" x="16" y="179" width="86" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="moU-OC-i3d">
+                                <rect key="frame" x="110" y="138" width="249" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IOh-9n-dNL">
+                                <rect key="frame" x="110" y="176" width="249" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="F07-Di-QUq">
+                                <rect key="frame" x="16" y="214" width="343" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="444370685.15250301">
+                                    <!--2015-01-31 04:18:05 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="endDateValueChanged:" destination="w1q-4k-TKr" eventType="valueChanged" id="fsm-bB-WGe"/>
+                                </connections>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="t0s-Lz-J4R" firstAttribute="leading" secondItem="VZm-yn-poc" secondAttribute="leadingMargin" id="0SO-cb-X9m"/>
-                            <constraint firstItem="iWr-Ju-Ufj" firstAttribute="leading" secondItem="VZm-yn-poc" secondAttribute="leadingMargin" constant="-16" id="EO6-43-XSo"/>
-                            <constraint firstItem="iWr-Ju-Ufj" firstAttribute="top" secondItem="L2G-Oc-baF" secondAttribute="bottom" constant="8" id="IHe-w5-b0o"/>
+                            <constraint firstItem="0Yf-iA-DK3" firstAttribute="trailing" secondItem="VZm-yn-poc" secondAttribute="trailingMargin" id="2dz-6P-eT6"/>
+                            <constraint firstItem="F07-Di-QUq" firstAttribute="height" secondItem="Z12-LR-H7C" secondAttribute="height" id="2xO-0R-AV4"/>
+                            <constraint firstItem="Nnn-nb-aJa" firstAttribute="top" secondItem="t0s-Lz-J4R" secondAttribute="bottom" constant="8" id="3C2-8n-8le"/>
+                            <constraint firstItem="moU-OC-i3d" firstAttribute="top" secondItem="f2J-cF-aeO" secondAttribute="bottom" constant="10" id="3JB-LL-Pcb"/>
+                            <constraint firstItem="0Yf-iA-DK3" firstAttribute="width" secondItem="f2J-cF-aeO" secondAttribute="width" id="63N-tc-xug"/>
+                            <constraint firstItem="Z12-LR-H7C" firstAttribute="top" secondItem="IOh-9n-dNL" secondAttribute="bottom" constant="8" id="6NJ-79-36Z"/>
+                            <constraint firstItem="IOh-9n-dNL" firstAttribute="top" secondItem="moU-OC-i3d" secondAttribute="bottom" constant="8" id="6en-od-gq6"/>
+                            <constraint firstItem="hr7-nO-SBe" firstAttribute="top" secondItem="0Yf-iA-DK3" secondAttribute="top" constant="4" id="7nw-Lb-1cc"/>
+                            <constraint firstItem="IOh-9n-dNL" firstAttribute="centerX" secondItem="moU-OC-i3d" secondAttribute="centerX" id="ALu-S2-g3E"/>
+                            <constraint firstItem="IOh-9n-dNL" firstAttribute="width" secondItem="moU-OC-i3d" secondAttribute="width" id="C6B-sw-dlm"/>
+                            <constraint firstItem="f2J-cF-aeO" firstAttribute="top" secondItem="0Yf-iA-DK3" secondAttribute="bottom" constant="8" id="Dph-Ba-ITv"/>
+                            <constraint firstItem="LrE-9H-v5y" firstAttribute="centerX" secondItem="Y77-zG-fpY" secondAttribute="centerX" id="GIw-rs-h4X"/>
+                            <constraint firstItem="LrE-9H-v5y" firstAttribute="top" secondItem="pY6-td-G3L" secondAttribute="bottom" constant="19.5" id="GVq-sS-67K"/>
+                            <constraint firstItem="Z12-LR-H7C" firstAttribute="trailing" secondItem="VZm-yn-poc" secondAttribute="trailingMargin" id="HAP-Me-1BI"/>
+                            <constraint firstItem="LrE-9H-v5y" firstAttribute="width" secondItem="Y77-zG-fpY" secondAttribute="width" id="HgY-Ul-TOq"/>
+                            <constraint firstItem="F07-Di-QUq" firstAttribute="centerX" secondItem="Z12-LR-H7C" secondAttribute="centerX" id="I5g-5t-Vha"/>
                             <constraint firstItem="L2G-Oc-baF" firstAttribute="top" secondItem="zFU-wA-kCM" secondAttribute="bottom" constant="20" id="ITe-1Z-8zo"/>
+                            <constraint firstItem="moU-OC-i3d" firstAttribute="width" secondItem="f2J-cF-aeO" secondAttribute="width" id="NQX-8o-baU"/>
+                            <constraint firstItem="hr7-nO-SBe" firstAttribute="width" secondItem="pY6-td-G3L" secondAttribute="width" id="OSM-Te-9tD"/>
                             <constraint firstItem="N5e-cP-QG7" firstAttribute="leading" secondItem="L2G-Oc-baF" secondAttribute="trailing" constant="8" id="SEe-aH-7Hl"/>
                             <constraint firstItem="Nnn-nb-aJa" firstAttribute="top" secondItem="t0s-Lz-J4R" secondAttribute="bottom" constant="8" id="UMe-ud-5M0"/>
+                            <constraint firstItem="LrE-9H-v5y" firstAttribute="width" secondItem="pY6-td-G3L" secondAttribute="width" id="Vtp-Ug-xS4"/>
                             <constraint firstItem="N5e-cP-QG7" firstAttribute="trailing" secondItem="VZm-yn-poc" secondAttribute="trailingMargin" id="WlC-3X-4dB"/>
-                            <constraint firstItem="Nnn-nb-aJa" firstAttribute="top" secondItem="iWr-Ju-Ufj" secondAttribute="bottom" constant="36" id="lho-F4-XnR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="iWr-Ju-Ufj" secondAttribute="trailing" constant="-16" id="loY-zk-WGI"/>
+                            <constraint firstItem="0Yf-iA-DK3" firstAttribute="leading" secondItem="hr7-nO-SBe" secondAttribute="trailing" constant="8" id="aXa-28-03I"/>
+                            <constraint firstItem="hr7-nO-SBe" firstAttribute="top" secondItem="zFU-wA-kCM" secondAttribute="bottom" constant="64" id="fhL-qc-QEC"/>
+                            <constraint firstItem="pY6-td-G3L" firstAttribute="top" secondItem="hr7-nO-SBe" secondAttribute="bottom" constant="17.5" id="hGx-ge-F77"/>
+                            <constraint firstItem="moU-OC-i3d" firstAttribute="centerX" secondItem="f2J-cF-aeO" secondAttribute="centerX" id="iXK-W4-9Rn"/>
+                            <constraint firstItem="0Yf-iA-DK3" firstAttribute="centerX" secondItem="f2J-cF-aeO" secondAttribute="centerX" id="jD0-oq-cVe"/>
+                            <constraint firstItem="F07-Di-QUq" firstAttribute="centerY" secondItem="Z12-LR-H7C" secondAttribute="centerY" id="jGq-CY-lS9"/>
+                            <constraint firstItem="LrE-9H-v5y" firstAttribute="centerX" secondItem="pY6-td-G3L" secondAttribute="centerX" id="jzW-s7-BYh"/>
+                            <constraint firstItem="F07-Di-QUq" firstAttribute="width" secondItem="Z12-LR-H7C" secondAttribute="width" id="ltT-ai-UPo"/>
                             <constraint firstItem="cY2-VY-W0y" firstAttribute="trailing" secondItem="VZm-yn-poc" secondAttribute="trailingMargin" id="old-qc-u2l"/>
+                            <constraint firstItem="hr7-nO-SBe" firstAttribute="centerX" secondItem="pY6-td-G3L" secondAttribute="centerX" id="pwm-2y-aCb"/>
+                            <constraint firstItem="Y77-zG-fpY" firstAttribute="top" secondItem="LrE-9H-v5y" secondAttribute="bottom" constant="16.5" id="qiM-Co-p9b"/>
+                            <constraint firstItem="hr7-nO-SBe" firstAttribute="leading" secondItem="VZm-yn-poc" secondAttribute="leadingMargin" id="sKI-Yz-IUC"/>
                             <constraint firstItem="N5e-cP-QG7" firstAttribute="top" secondItem="zFU-wA-kCM" secondAttribute="bottom" constant="20" id="v0h-bn-XBT"/>
+                            <constraint firstItem="Z12-LR-H7C" firstAttribute="leading" secondItem="VZm-yn-poc" secondAttribute="leadingMargin" id="vOx-eq-2Ne"/>
                             <constraint firstItem="Nnn-nb-aJa" firstAttribute="top" secondItem="cY2-VY-W0y" secondAttribute="bottom" constant="8" id="vzZ-Uk-S3Q"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="endDateText" destination="IOh-9n-dNL" id="oyC-oy-opx"/>
                         <outlet property="eventKeyword" destination="f2J-cF-aeO" id="Nbz-3b-5YV"/>
                         <outlet property="eventTitle" destination="0Yf-iA-DK3" id="6M5-8c-bXW"/>
                         <outlet property="fromDate" destination="Z12-LR-H7C" id="8cA-DH-Wzp"/>
-                        <outlet property="scrollView" destination="iWr-Ju-Ufj" id="Aa4-o5-4Sl"/>
+                        <outlet property="fromDateText" destination="moU-OC-i3d" id="LHL-15-zma"/>
                         <outlet property="toDate" destination="F07-Di-QUq" id="8J3-HF-wqS"/>
                     </connections>
                 </viewController>
